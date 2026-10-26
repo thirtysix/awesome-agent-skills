@@ -872,7 +872,12 @@ TABLES.literature = makeTable({
   const PS = SK.plugin_stats || {tools: {}};
   const TEL = {tel_undisclosed: "Telemetry not in its docs", hooked_sender: "Hook runs a silent sender",
     silent_sender: "Silent background sender", tel_hosts: "Telemetry host in code"};
-  const INV = {...TEL, unpinned: "Unpinned dependencies", lifecycle: "npm install hook", fetch_run: "Fetches and runs", n_code_hosts: "Hosts named in code",
+  // decoded content run as code, outside minified bundles (collect_scans.compact_obfuscation)
+  const OBF = {obf_hidden: "Decoded call name", obf_flow: "Decodes then runs"};
+  const SINKL = {exec: "exec", eval: "eval", compile: "compile", import: "an import", shell: "a shell", pipe_shell: "a shell pipe",
+    pipe_interp: "an interpreter pipe", subshell: "a subshell", source: "source", process: "a child process", function: "new Function",
+    vm: "a JS vm", deserialise: "a deserialiser", code_object: "a code object", timer_string: "a timer string"};
+  const INV = {...TEL, ...OBF, unpinned: "Unpinned dependencies", lifecycle: "npm install hook", fetch_run: "Fetches and runs", n_code_hosts: "Hosts named in code",
     links_out: "Symlink out of folder", active_docs: "Script in SVG/HTML", html_comments: "HTML comments in markdown", b64: "Long encoded blob",
     docker_loose: "Unpinned Docker image", pep723: "Inline Python dependencies", "sens:ssh": "Names SSH keys", "sens:cloud_creds": "Names cloud credentials",
     "sens:dotenv": "Names .env files", "sens:agent_config": "Names agent config files", "sens:shell_rc": "Names shell rc files",
@@ -884,8 +889,8 @@ TABLES.literature = makeTable({
     const pl = r.plug;
     r.plug_n = pl ? Object.values(pl[1]).filter(v => HI.has(v[0])).length : -1;
     r.plug_bin = !pl ? "none" : r.plug_n ? "high" : "clean";
-    // a plugin root's telemetry installs with every skill inside it
-    r.tel_plug = pl ? Object.keys(TEL).filter(k => (pl[2] || {})[k]) : [];
+    // a plugin root's telemetry and decoded code install with every skill inside it
+    r.tel_plug = pl ? [...Object.keys(TEL), ...Object.keys(OBF)].filter(k => (pl[2] || {})[k]) : [];
     r.inv_tags = [...new Set([...invTags(r.inv), ...r.tel_plug])].sort((a, b) => Object.keys(INV).indexOf(a) - Object.keys(INV).indexOf(b));
   });
   // LLM triage of the HIGH+ scanner hits: each (tool, rule) group read at its lines with the description
@@ -909,6 +914,11 @@ TABLES.literature = makeTable({
     v.hooked_sender ? "a hook runs one, so it fires on agent events without being asked" : "",
     v.tel_undisclosed ? "its markdown and manifest never mention telemetry or usage data" : "mentioned in its docs",
     v.tel_opt_out ? "opt-out variable: " + v.tel_opt_out.join(", ") : ""].filter(Boolean).join("; ");
+  const obfTip = (v, where) => !v || !(v.obf_flow || v.obf_hidden) ? "" : `Decoding (${where}): ` + [
+    v.obf_flow ? `${v.obf_flow} place(s) where decoded content goes straight into code that runs it (` + (v.obf_ops || []).map(o => { const [d, k] = o.split(">");
+      return `${d.split("+").join(", ")} into ${SINKL[k] || k}`; }).join("; ") + `), at ${(v.obf_lines || []).join(", ")}` : "",
+    v.obf_hidden ? `${v.obf_hidden} call(s) that run code whose own name is decoded first` : "",
+    "minified bundles left out; often documentation of the pattern or a script encoding its own command, so read the line"].filter(Boolean).join("; ");
   const codeCell = r => { if (!r.scan) return '<span class="sm">not yet</span>';
     const hits = Object.entries(CODE).filter(([t]) => r.scan[t] && HI.has(r.scan[t][0]));
     const t = Object.entries(CODE).map(([k, [name, id]]) => { const v = r.scan[k];
@@ -928,6 +938,7 @@ TABLES.literature = makeTable({
       v.hosts ? "Hosts named in code: " + v.hosts.join(", ") : "", v.lifecycle ? "npm scripts that run on install: " + v.lifecycle.join(", ") : "",
       v.fetch_run ? `${v.fetch_run} lines that fetch and run something (curl | sh, npx, pip install, git clone)` : "",
       telTip(v, "this folder"), r.tel_plug.length ? telTip(r.plug[2], "its plugin root") : "",
+      obfTip(v, "this folder"), r.tel_plug.length ? obfTip(r.plug[2], "its plugin root") : "",
       "Read by code from every file in the folder, offline in the VM; facts, not findings."].filter(Boolean).join(". ");
     return tags.length ? tags.slice(0, 4).map(k => `<span class="tag" data-tip="${esc(tip)}">${esc(INV[k])}</span>`).join(" ") + (tags.length > 4 ? `<span class="sm">+${tags.length - 4} more</span>` : "")
       : `<span class="sm" data-tip="${esc(tip)}">none</span>`; };
@@ -981,7 +992,7 @@ TABLES.literature = makeTable({
       {key: "plug_n", label: "Plugin root", tip: "When the skill ships inside a plugin, installing it installs the plugin root too: hooks, MCP servers, settings. agentshield and hol-guard read that root; hover for their rules and how often they flag Anthropic's own plugins", sort: "num", cls: "nowrap", html: plugCell},
       {key: "hit_n", label: "Hits, triaged", tip: "HIGH+ hits from the code and plugin tools, each group read by an LLM at its lines and sorted into cleared or not. Pills: what was not cleared; hover for each group", sort: "num", cls: "nowrap",
         value: r => r.hitn ? r.hitn[1] - r.hitn[0] : null, html: hitCell},
-      {key: "inv", label: "Installs & fetches", tip: "Facts code read from every file in the folder: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, credential and agent-config paths named, and telemetry (analytics hosts, silent background senders, hooks that run them, whether the docs say so). Not findings", sort: "num", cls: "long", value: r => (r.inv_tags || []).length, values: false, html: invCell},
+      {key: "inv", label: "Installs & fetches", tip: "Facts code read from every file in the folder: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, credential and agent-config paths named, telemetry (analytics hosts, silent background senders, hooks that run them, whether the docs say so), and decoded content run as code (base64, character codes, hex, rot13 or compression straight into exec, eval or a shell; minified bundles left out). Not findings", sort: "num", cls: "long", value: r => (r.inv_tags || []).length, values: false, html: invCell},
       {key: "llm_risk", label: "LLM review", tip: "Overall risk an LLM gave after reading every file, as a signal to read. Coloured pills: what a person found reading the lines it cited", sort: "num", cls: "nowrap", value: r => r.llm ? RISK.length - RISK.indexOf(r.llm[0]) : null, html: llmCell},
       {key: "subj", label: "Subject", tip: "1 to 3 subjects per skill, main first, given by an LLM from the name and description", sort: "text", cls: "nowrap", value: r => r.subjects ? SUB[r.subjects[0]] || r.subjects[0] : "", html: subjCell},
       {key: "files", label: "Files", tip: "Files in the skill folder, and the languages of any code it ships", sort: "num", cls: "num", html: r => fmt(r.files) + ((r.langs || []).length ? `<span class="sm">${esc(r.langs.join(", "))}</span>` : r.scripts ? '<span class="sm">scripts</span>' : "")},

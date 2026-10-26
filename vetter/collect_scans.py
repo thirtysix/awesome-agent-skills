@@ -14,7 +14,8 @@ Plugin roots (stage_harvest.py --plugins, ids p__...) are scanned as their own e
 `plugins`; every skill records the plugin it ships in (the deepest root above it in the same repo),
 because installing the skill installs that root's hooks, MCP servers and settings too. The content
 inventory (vm/guest/inventory.py: counts, names and hosts only) is kept per entry under `inventory`, with the
-telemetry facts (vm/guest/telemetry.py: hosts, silent senders, hooked senders, disclosure) merged in as tel_* keys.
+telemetry facts (vm/guest/telemetry.py: hosts, silent senders, hooked senders, disclosure) merged in as tel_* keys,
+and obfuscation facts (vm/guest/obfuscation.py: decoder-to-sink flows outside bundles, decoded call names) as obf_* keys.
 """
 from __future__ import annotations
 
@@ -112,6 +113,22 @@ def compact_telemetry(r: dict) -> dict:
     return out
 
 
+def compact_obfuscation(r: dict) -> dict:
+    """Obfuscation facts (vm/guest/obfuscation.py): decoder-to-sink flows outside minified bundles (a flow in a
+    bundle is a window over unrelated code) and call names that are themselves decoded. Counts of integer
+    sequences, sinks and blobs stay out: on their own they say nothing."""
+    out = {}
+    flows = [n for n in r.get("notes") or [] if n.get("fact") == "flow" and not n.get("minified")]
+    if flows:
+        out["obf_flow"] = len(flows)
+        out["obf_ops"] = sorted({f"{'+'.join(n.get('decoders') or ['?'])}>{n.get('sink', '?')}" for n in flows})[:4]
+        out["obf_lines"] = sorted({f"{n['file'][-80:]}:{n['line']}" for n in flows})[:4]
+    hidden = sum((r.get("hidden_names") or {}).values())
+    if hidden:
+        out["obf_hidden"] = hidden
+    return out
+
+
 def collect(dirs: list[Path], trees: Trees | None = None) -> dict:
     trees = trees or Trees()
     held = withheld.load()                          # left out, batch counts included, until their date
@@ -162,6 +179,14 @@ def collect(dirs: list[Path], trees: Trees | None = None) -> dict:
                     tel = {}
                 if tel:
                     inventory.setdefault(e["skill"], {}).update(tel)
+            f = d / "obfuscation" / f"{e['id']}.json"
+            if f.exists():
+                try:
+                    obf = compact_obfuscation(json.loads(f.read_text()))
+                except ValueError:
+                    obf = {}
+                if obf:
+                    inventory.setdefault(e["skill"], {}).update(obf)
         roots = {}
         for e in manifest:
             if e.get("kind") == "plugin":
@@ -173,7 +198,7 @@ def collect(dirs: list[Path], trees: Trees | None = None) -> dict:
             if under:
                 plugin_of[e["skill"]] = max(under, key=lambda x: len(x[0]))[1]
         complete = sum(1 for e in manifest if all(e["id"] in have[t] for t in tools))
-        facts = [t for t in ("inventory", "telemetry") if (d / t).is_dir()]
+        facts = [t for t in ("inventory", "telemetry", "obfuscation") if (d / t).is_dir()]
         batches.append({"results": d.name, "tools": tools, "facts": facts,
                         "skills": complete if tools else 0, "incomplete": len(manifest) - complete if tools else 0})
     plugins = {k: skills.pop(k) for k in [k for k in skills if k.startswith("plugin-")]}

@@ -25,8 +25,8 @@ approach:
   - step: Code, dependencies and plugin roots
     text: "Eight more offline tools read each skill's code, declared dependencies, credentials left in files and malware signatures, and the plugin roots skills install with (hooks, MCP servers, settings), in the same sealed setup. On the 91 known-good skills none of them flags any at HIGH or above, except agentshield (1)."
     refs: [T23, T24, T25, T26, T27, T28, T06, T29]
-  - step: Install and telemetry facts
-    text: "Our own code, run inside the VM, listed what each folder does on install or use: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, analytics hosts, background senders, and whether the skill's docs mention telemetry. These are facts, not findings."
+  - step: Install, telemetry and decoding facts
+    text: "Our own code, run inside the VM, listed what each folder does on install or use: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, analytics hosts, background senders, whether the skill's docs mention telemetry, and places where decoded content (base64, character codes, hex, rot13, compression) goes straight into exec, eval or a shell, minified bundles left out. These are facts, not findings."
     refs: []
   - step: Credential hits
     text: "Every credential hit was sorted by code into buckets and shown to a person with the value masked; no value was ever printed or tried. The plausible ones were read: none was a live credential."

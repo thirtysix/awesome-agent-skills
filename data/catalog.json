@@ -1152,8 +1152,8 @@
     ]
    },
    {
-    "step": "Install and telemetry facts",
-    "text": "Our own code, run inside the VM, listed what each folder does on install or use: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, analytics hosts, background senders, and whether the skill's docs mention telemetry. These are facts, not findings.",
+    "step": "Install, telemetry and decoding facts",
+    "text": "Our own code, run inside the VM, listed what each folder does on install or use: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, analytics hosts, background senders, whether the skill's docs mention telemetry, and places where decoded content (base64, character codes, hex, rot13, compression) goes straight into exec, eval or a shell, minified bundles left out. These are facts, not findings.",
     "refs": []
    },
    {
