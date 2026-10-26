@@ -194,6 +194,7 @@ TOOL_CHUNKS = {   # tool: (max skills per chunk, start-up s, s per skill or None
     "bawbel": (150, 1.0, 0.2),
     "inventory": (300, 0.5, 0.05),
     "telemetry": (300, 0.5, 0.05),
+    "obfuscation": (300, 0.5, 0.1),
     # second wave: first guesses, refit after the VM and 600-skill runs
     "guarddog": (100, 1.0, 1.5),           # per code-bearing folder ~3 s (semgrep start); most folders skipped
     "bandit": (600, 2.0, 0.05),
@@ -303,6 +304,7 @@ def main(argv: list[str] | None = None) -> int:
         tar.add(a.run_sh.parent / "scan.py", arcname="scan.py")
         tar.add(a.run_sh.parent / "inventory.py", arcname="inventory.py")
         tar.add(a.run_sh.parent / "telemetry.py", arcname="telemetry.py")
+        tar.add(a.run_sh.parent / "obfuscation.py", arcname="obfuscation.py")
         for p in plans:
             rec = p["rec"]
             sid = ("p__" + rec["id"][len("plugin-"):]) if p.get("kind") == "plugin" else "h__" + rec["id"]

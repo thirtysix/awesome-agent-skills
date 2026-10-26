@@ -2,7 +2,7 @@
 """Rewrite a staged tar for another tool set, offline: retool_tar.py IN_TAR OUT_TAR --tools a,b
 
 Keeps every skills/ member and the manifest of IN_TAR byte for byte, and replaces the guest scripts
-(run.sh, scan.py, inventory.py, telemetry.py from vetter/vm/guest/), tools.txt and plan.json, so a new
+(run.sh, scan.py and our fact scripts from vetter/vm/guest/), tools.txt and plan.json, so a new
 check can run on an already-staged batch without re-fetching anything. Members are copied as tar
 records; nothing is extracted or opened.
 """
@@ -20,7 +20,7 @@ sys.path.insert(0, str(HERE))
 from stage_harvest import ALL_TOOLS, build_plan  # noqa: E402
 
 GUEST = HERE / "vm" / "guest"
-SCRIPTS = ("run.sh", "scan.py", "inventory.py", "telemetry.py")
+SCRIPTS = ("run.sh", "scan.py", "inventory.py", "telemetry.py", "obfuscation.py")
 REPLACED = set(SCRIPTS) | {"plan.json", "tools.txt"}
 
 

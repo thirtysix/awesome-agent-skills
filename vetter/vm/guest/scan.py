@@ -35,11 +35,11 @@ PLAN = sys.argv[3] if len(sys.argv) > 3 and os.path.exists(sys.argv[3]) else Non
 WORK = os.environ.get("AAS_WORK", "/work/chunks")      # same filesystem as SKILLS: chunks are hard links
 P = int(os.environ.get("AAS_PARALLEL") or os.cpu_count() or 1)
 TOOLS = ("sentry", "cisco-behavioral", "skillspector", "agnix", "aid", "skills-ref", "atr", "bawbel", "inventory",
-         "telemetry", "guarddog", "bandit", "agentshield", "holguard", "osv", "gitleaks", "clamav", "yara")
+         "telemetry", "obfuscation", "guarddog", "bandit", "agentshield", "holguard", "osv", "gitleaks", "clamav", "yara")
 LOOP = ("sentry", "agnix", "skills-ref", "guarddog", "agentshield", "holguard")     # one file per skill folder
 CHUNK = ("bandit", "osv", "gitleaks", "clamav", "yara")                            # one report per chunk, split by path
 PLUGIN_ONLY = ("agentshield", "holguard")                                           # run on p__ entries only
-OWN = ("inventory", "telemetry")                                                    # our scripts: one report per chunk
+OWN = ("inventory", "telemetry", "obfuscation")                                     # our scripts: one report per chunk
 _PICK = os.environ.get("AAS_TOOLS") or next(
     (open(f).read() for f in [os.path.join(os.path.dirname(os.path.abspath(__file__)), "tools.txt")]
      if os.path.exists(f)), "")
@@ -49,7 +49,7 @@ BASE = ["podman", "run", "--rm", "--network", "none", "--read-only", "--cap-drop
         "--tmpfs", "/tmp:rw,size=512m,mode=1777", "-e", "HOME=/tmp", "-e", "TERM=dumb", "-e", "NO_COLOR=1",
         "-e", "COLUMNS=120"]
 TIMEOUT = {"sentry": 1800, "cisco-behavioral": 3600, "skillspector": 7200, "agnix": 1800,
-           "aid": 1800, "skills-ref": 1800, "atr": 1800, "bawbel": 3600, "inventory": 1800, "telemetry": 1800, "guarddog": 7200, "bandit": 1800,
+           "aid": 1800, "skills-ref": 1800, "atr": 1800, "bawbel": 3600, "inventory": 1800, "telemetry": 1800, "obfuscation": 1800, "guarddog": 7200, "bandit": 1800,
            "agentshield": 1800, "holguard": 1800, "osv": 1800, "gitleaks": 1800, "clamav": 3600, "yara": 3600}
 # AAS_RUNTIME=apptainer (CSC Roihu): the same images as SIF files in AAS_SIF_DIR, run with no network
 # namespace beyond loopback (--net --network none; without it a Roihu container reaches the internet),

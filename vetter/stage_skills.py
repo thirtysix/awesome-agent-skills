@@ -93,6 +93,7 @@ def main() -> int:
         tar.add(a.run.parent / "scan.py", arcname="scan.py")   # the scheduler run.sh calls
         tar.add(a.run.parent / "inventory.py", arcname="inventory.py")
         tar.add(a.run.parent / "telemetry.py", arcname="telemetry.py")
+        tar.add(a.run.parent / "obfuscation.py", arcname="obfuscation.py")
         if a.tools:
             tools_b = (" ".join(a.tools.split(",")) + "\n").encode()
             info = tarfile.TarInfo("tools.txt")
