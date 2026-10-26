@@ -1,0 +1,5 @@
+FROM localhost/aas-base
+COPY osv-scanner /usr/local/bin/osv-scanner
+COPY osvdb /opt/osvdb
+ENV OSV_SCANNER_LOCAL_DB_CACHE_DIRECTORY=/opt/osvdb
+ENTRYPOINT ["osv-scanner"]

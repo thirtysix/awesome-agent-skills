@@ -1,0 +1,4 @@
+FROM localhost/aas-clamav-base
+# Signatures fetched once here, at build, with freshclam (the vendor's allowed method); scans never fetch.
+RUN freshclam --foreground --stdout && ls -l /var/lib/clamav
+ENTRYPOINT ["clamscan"]

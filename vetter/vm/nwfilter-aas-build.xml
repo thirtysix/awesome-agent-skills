@@ -1,0 +1,6 @@
+<filter name='aas-build' chain='root'>
+  <filterref filter='aas-build-ipv4'/>
+  <rule action='drop' direction='inout' priority='500'>
+    <ipv6/>
+  </rule>
+</filter>

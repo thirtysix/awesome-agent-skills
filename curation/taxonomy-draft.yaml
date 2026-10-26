@@ -1,0 +1,62 @@
+# Draft subject categories (2026-10-24), composed top down from the category lists published by
+# skill directories and Anthropic's marketplaces, read that day (names only):
+#   CSI claudeskills.info /categories (61)      CMP claudemarketplaces.com /skills (34)
+#   SMP skillsmp.com /categories (9 top, 66 sub) AGS agenticskills.io (16)
+#   ANT claude-plugins-official + -community marketplace.json `category` (14 values)
+#   SLL skillsllm.com (10; artefact types, not subjects: used for facets only)
+# Rules applied: a category is a subject. Programming languages (CSI/CMP: Python, Rust, Java,
+# .NET, PHP, Go...) and artefact types (SLL: MCP server, CLI tool, IDE extension) are facets,
+# not categories. Near-duplicates across sources are merged; `from` lists the source names merged.
+# A skill gets 1 to 3 categories: the first is its main purpose (used for charts), the rest only
+# when a substantial part of the skill is about them (used for filtering).
+categories:
+  frontend:      {label: "Frontend, UI and design", from: "CSI Frontend, UI/UX; CMP Frontend Development, Design & UI/UX; SMP Frontend, Design; AGS Web Development, Design & UI/UX; ANT design"}
+  backend:       {label: "Backend and APIs", from: "CSI Backend; CMP Backend & APIs; SMP Backend, Full Stack, Architecture Patterns; AGS Backend & APIs"}
+  mobile:        {label: "Mobile and desktop apps", from: "CSI Mobile Development; CMP Mobile Development; SMP Mobile; AGS Mobile Development"}
+  gamedev:       {label: "Game development", from: "CSI Game Development; CMP Game Development; SMP Game Development"}
+  devops-cloud:  {label: "DevOps, cloud and infrastructure", from: "CSI DevOps; CMP DevOps & CI/CD, Cloud & Infrastructure; SMP DevOps, CI/CD, Cloud, Containers; AGS DevOps & Infrastructure; ANT deployment"}
+  observability: {label: "Monitoring and observability", from: "SMP Monitoring; ANT monitoring"}
+  sysadmin:      {label: "CLI, shell and system administration", from: "CMP CLI & Terminal; SMP System Administration, CLI Tools, Domain & DNS Tools"}
+  databases:     {label: "Databases and data engineering", from: "CSI Databases; CMP Databases; SMP Databases, Data Engineering; AGS Database; ANT database"}
+  data-ml:       {label: "Data science and machine learning", from: "CSI Data Science; CMP Data Science & ML; SMP Machine Learning, Data Analysis; AGS Data Science"}
+  ai-agents:     {label: "AI and agent engineering", from: "CSI AI Engineering, Agent Ops, Skill Development; CMP AI & Agent Building, Skill Development; SMP LLM & AI; AGS AI/ML Development, Agent Architecture"}
+  code-quality:  {label: "Code quality, review and debugging", from: "CSI Coding, Code Quality, Debugging; CMP Code Review & Quality, Debugging; SMP Code Quality, Debugging; AGS Code Quality & Testing"}
+  git-release:   {label: "Git, pull requests and releases", from: "CSI Git, Release Management, Workflow; CMP Git & Pull Requests, Release Management; SMP Git Workflows, Package & Distribution"}
+  testing:       {label: "Testing and QA", from: "CSI Testing; CMP Testing & QA; SMP Testing; AGS Code Quality & Testing; ANT testing"}
+  security:      {label: "Security", from: "CSI Security; CMP Security; SMP Security; AGS Security; ANT security"}
+  tech-docs:     {label: "Writing and documentation", from: "CSI Documentation; CMP Documentation; SMP Technical Docs, Knowledge Base"}
+  office-docs:   {label: "Office documents, slides and diagrams", from: "CSI Presentations, PDF, Diagrams; CMP Office & Documents; SMP Documents; AGS Document Creation"}
+  writing:       {label: "Writing and content", from: "CSI Writing, Communication; SMP Literature & Writing, Content Creation; AGS Content & Marketing"}
+  marketing:     {label: "Marketing, SEO, sales and social", from: "CSI Marketing, SEO, Sales, Social Media; CMP Marketing & SEO, Sales & Marketing; SMP Sales & Marketing; AGS SEO & Growth"}
+  media:         {label: "Image, video and audio", from: "CSI Image, Video, Media & Graphics; CMP Generative Media, Video & Audio Editing; SMP Media"}
+  finance:       {label: "Finance, trading and accounting", from: "CSI Finance, Accounting; CMP Finance & Trading; SMP Finance & Investment, Payment"}
+  business:      {label: "Business, product and operations", from: "CSI Product Management, Business Operations, Human Resources, Customer Support, E-commerce; SMP Project Management, Business Apps, E-commerce"}
+  legal:         {label: "Legal and compliance", from: "CSI Legal; SMP Real Estate & Legal"}
+  health:        {label: "Medicine and health", from: "CSI Healthcare; SMP Health & Fitness, Wellness & Health"}
+  science:       {label: "Science and research", from: "CSI Research; SMP Research, Academic, Lab Tools, Bioinformatics, Computational Chemistry, Astronomy & Physics, Scientific Computing"}
+  education:     {label: "Education and learning", from: "CSI Education; SMP Education; ANT learning"}
+  productivity:  {label: "Productivity and personal knowledge", from: "CSI Productivity; CMP Productivity & Planning; SMP Productivity & Integration; AGS Productivity; ANT productivity"}
+  automation:    {label: "Automation and app integrations", from: "CSI Integrations, Automation; CMP Automation & Workflows; SMP Automation Tools; ANT automation"}
+  web-search:    {label: "Web search, browsing and scraping", from: "CSI Search"}
+  web3:          {label: "Web3 and blockchain", from: "CSI Web3; CMP Web3 & Blockchain; SMP Blockchain"}
+# Left out (too small or not a subject): CSI Personas, Resume, Maps, Travel, Real Estate; SMP
+# Divination & Mysticism, Culinary Arts, Arts & Crafts, Philosophy & Ethics; AGS Official Partners.
+# Those fall to "other".
+
+# Applied when the labels are attached (skills.py); data/llm-labels.json keeps the raw labels.
+merge: {education: science, writing: tech-docs, web3: finance}
+# The keyword category each old key corresponds to, for the side-by-side comparison only.
+old_map: {swe-workflow: [code-quality, git-release], frontend: [frontend], backend: [backend], mobile-desktop: [mobile],
+  cloud: [devops-cloud], iac-devops: [devops-cloud], observability: [observability], databases: [databases],
+  ds-ml: [data-ml], agent-eng: [ai-agents], sec-defensive: [security], sec-offensive: [security], testing: [testing],
+  documents: [office-docs], writing: [tech-docs], research: [science], life-sciences: [science], chem-physical: [science],
+  medicine: [health], business: [business], marketing: [marketing], finance: [finance], legal: [legal], media: [media],
+  gamedev: [gamedev], productivity: [productivity], browser-web: [web-search], saas: [automation], uncategorised: [other]}
+labels:
+  audience: {developer: Developers, data-ml-practitioner: Data and ML practitioners, ops-admin: Ops and IT admins,
+    security-practitioner: Security practitioners, knowledge-worker: Knowledge workers, scientist-clinician: Scientists and clinicians, general: General}
+  actions: {guide-reference: Guide or reference, create-generate: Create or generate, build-develop: Build or develop,
+    review-audit: Review or audit, troubleshoot-debug: Troubleshoot or debug, deploy-operate: Deploy or operate,
+    query-analyse: Query or analyse, migrate-upgrade: Migrate or upgrade, act-in-account: Act in an account, automate-workflow: Automate a workflow}
+  langs: {python: Python, javascript-typescript: JavaScript/TypeScript, java: Java, kotlin: Kotlin, swift: Swift, go: Go,
+    rust: Rust, csharp-dotnet: C#/.NET, php: PHP, ruby: Ruby, c-cpp: C/C++, r: R, sql: SQL, shell: Shell, dart: Dart, other: Other}

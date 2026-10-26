@@ -1,0 +1,211 @@
+# The single source of truth for the catalog's vocabulary. pipeline/ restates none of it.
+# Each table in curation/ is tab-separated with a header row; `required` columns must be
+# non-empty, `enums` columns must hold one of the listed values (a key maps to its label).
+
+tables:
+  resources:
+    file: resources.tsv
+    id_pattern: '^[A-Za-z][A-Za-z0-9_-]*$'
+    required: [id, name, kind, url]
+    urls: [url]
+    enums:
+      kind:
+        official-repo: Official vendor repo
+        plugin-marketplace: Plugin marketplace
+        registry: Registry or directory
+        marketplace: Marketplace
+        awesome-list: Awesome list
+        collection: Skill collection
+        aggregator: Aggregator
+        cli: CLI
+        spec-docs: Spec and docs
+        mcp-registry: MCP registry (adjacent)
+      enumeration:
+        github-tree: GitHub tree
+        json-index: JSON index
+        api: API
+        sitemap: Sitemap
+        llms-txt: llms.txt
+        cli: CLI
+        html-only: HTML only
+      harvest_allowed: {"yes": "Yes", "no": "No", unclear: Unclear}
+      vets_safety: {"yes": "Yes", "no": "No", claims: Claims to}
+      # "found": its pages carry text addressed to AI agents ("If you are an AI agent...",
+      # "agents should fetch..."). Empty means not seen, not checked exhaustively.
+      speaks_to_agents: {found: Speaks to AI agents, "": ""}
+
+  tools:
+    file: vetting-tools.tsv
+    id_pattern: '^[A-Z][0-9]{2}$'
+    required: [id, name, kind, url, fit_for_us, use_on_skills]
+    urls: [url]
+    # known_good_flagged: free text, measured by running the tool in vetter/vm/ on our known-good
+    # skills (latest run); every finding counted is a candidate false positive, not an FPR.
+    enums:
+      kind:
+        scanner: Scanner
+        linter: Linter or checklist
+        registry-practice: Registry practice
+        provenance: Provenance and pinning
+        standard: Standard
+        guidance: Guidance
+        sandbox: Sandbox
+      fit_for_us:
+        adopt: Adopt
+        adapt: Adapt
+        reference: Reference
+        avoid: Avoid
+      use_on_skills:   # how a reader can apply it to a skill today (catalog call, 2026-10-23)
+        run-offline: Run it yourself, offline
+        run-online: Runs, but sends data or runs code elsewhere
+        runtime: Contain the skill at run time
+        provenance: Pin, sign or diff updates
+        checklist: Review checklist or rules
+        registry: Only for that registry's own listings
+        mcp-only: MCP servers, not skills
+        avoid: Avoid
+      offline: {"yes": "Yes", "no": "No", partial: Partial, n/a: n/a, "": "?"}
+      claude_code_aware: {"yes": "Yes", "no": "No", partial: Partial}
+      verified_by:
+        code: Read the code
+        rules: Read the rules
+        docs: Read the docs
+        secondhand: Secondhand
+
+  literature:
+    file: literature.tsv
+    id_pattern: '^L[0-9]{3}$'
+    required: [id, title, year, url, topic, verified]
+    urls: [url, code_url]
+    enums:
+      topic:
+        attack: Attack
+        defence: Defence
+        attack+defence: Attack and defence
+        measurement: Measurement
+        benchmark: Benchmark
+        survey: Survey
+      verified: {"yes": "Checked against arXiv", secondhand: Secondhand}
+
+  scores:
+    # Detection results that papers report for a tool, one row per tool, paper and setting.
+    # recall: share of malicious skills flagged; benign_flagged: benign skills flagged.
+    file: tool-scores.tsv
+    id_pattern: '^B[0-9]{3}$'
+    required: [id, tool, ref, setting, recall, benign_flagged]
+  verdicts:
+    # LLM-review signals read by a person at the cited lines: one row per skill and signal.
+    # skill: the data/skills.json id. The Spotify highs are covered by skills.verified_cases.
+    file: llm-verdicts.tsv
+    id_pattern: '^V[0-9]{3}$'
+    required: [id, skill, signal, verdict, note]
+    enums:
+      signal:
+        high: LLM risk high
+        manipulation: Reviewer manipulation
+      verdict:
+        confirmed: Confirmed
+        overstated: Real but overstated
+        false_alarm: False alarm
+        real: Real
+        artifact: Artifact
+
+# The coverage matrix: rows are check classes, columns are tools. A cell starts with a status
+# word; anything after it (": ...") is the note shown on hover.
+coverage:
+  file: coverage-matrix.tsv
+  row_key: check_class
+  statuses:
+    verified: {label: Verified, mark: "✓", rank: 0}
+    partial: {label: Partial, mark: "◐", rank: 1}
+    claimed: {label: Claimed, mark: "○", rank: 2}
+    absent: {label: Absent, mark: "✕", rank: 3}
+    unknown: {label: Unknown, mark: "?", rank: 4}
+    n/a: {label: Not applicable, mark: "–", rank: 5}
+  columns:
+    sentry: {label: Sentry skill-scanner, tool: T01}
+    cisco_skill: {label: Cisco skill-scanner, tool: T02}
+    skillspector: {label: SkillSpector, tool: T03}
+    snyk: {label: Snyk agent-scan, tool: T04}
+    aid: {label: aid, tool: T05}
+    agentshield: {label: agentshield, tool: T06}
+    clawhub: {label: ClawHub moderation, tool: R01}
+    repo_forensics: {label: repo-forensics, tool: T12}
+    atr: {label: ATR rules, tool: T13}
+    agnix: {label: agnix, tool: T17}
+    tob_protector: {label: mcp-context-protector, tool: T21}
+    cisco_mcp: {label: Cisco mcp-scanner, tool: T22}
+    cc_plugins: {label: Claude Code plugin pins, tool: P03}
+    skills_ref: {label: Agent Skills validator, tool: P01}
+    vercel_cli: {label: skills CLI lockfile, tool: R03}
+    ours: {label: This catalog's own checks, tool: ""}
+
+# The harvested curated core (pipeline/harvest.py fetches, pipeline/skills.py parses).
+# Keywords match lowercased name + plugin name + description on word boundaries; a trailing * makes
+# a prefix, and a whole word also matches its plural. Most distinct hits wins (a hit in the name
+# counts twice); ties go to the earlier category.
+skills:
+  tiers:
+    official: Official vendor repo
+    anthropic-marketplace: Anthropic marketplace repo
+    marketplace-source: Listed in claude-plugins-official
+  platforms:
+    claude-code: Claude Code (.claude/skills)
+    claude-plugin: Claude Code plugin
+    codex: Codex
+    copilot: GitHub Copilot
+    cursor: Cursor
+    gemini-cli: Gemini CLI
+    openclaw: OpenClaw
+    hermes: Hermes
+    agents-dir: .agents/skills
+    generic: Agent Skills (generic)
+  flags:
+    tag_chars: {label: Unicode Tag characters, tip: "Invisible characters that spell ASCII text a model reads and a person does not see"}
+    invisible: {label: Invisible characters, tip: "Zero-width, bidi or other invisible code points in SKILL.md"}
+    bang_shell: {label: Load-time shell, tip: "Uses the !`cmd` syntax, which runs a shell command when the skill loads"}
+    fm_hooks: {label: Hooks in frontmatter, tip: "Declares hooks: commands that run on agent events while the skill is active"}
+    bare_bash: {label: Bare Bash pre-approved, tip: "allowed-tools grants Bash with no command pattern, so any command runs without a prompt"}
+    plugin_hooks: {label: Plugin bundles hooks, tip: "Its plugin ships hooks/hooks.json"}
+    plugin_mcp: {label: Plugin bundles MCP, tip: "Its plugin ships .mcp.json, which starts MCP servers"}
+    pipe_to_shell: {label: Pipe to shell, tip: "SKILL.md contains a curl or wget piped into a shell"}
+    sandbox_off: {label: Sandbox switched off, tip: "SKILL.md asks for a Bash call with dangerouslyDisableSandbox set to true, which runs it outside Claude Code's sandbox"}
+    agent_directed: {label: Pushy description, tip: "The description tells the agent it must or should always use the skill"}
+    yaml_invalid: {label: Frontmatter not strict YAML, tip: "Strict parsers (and most scanners) skip this frontmatter"}
+    no_frontmatter: {label: No frontmatter, tip: "SKILL.md has no YAML frontmatter"}
+    name_mismatch: {label: Name differs from folder, tip: "The frontmatter name is not the folder name, as the Agent Skills spec requires"}
+    fixture: {label: In a test or example folder, tip: "Sits under tests, fixtures, examples or samples; may be deliberately bad"}
+  # Findings read and confirmed at their lines; the page counts, per tool, how many of each case's
+  # skills it flagged HIGH or above. `flag` selects the skills.
+  verified_cases:
+    - {id: spotify-telemetry, label: "Spotify Confidence: hidden telemetry, sandbox switched off", flag: sandbox_off}
+  categories:
+    swe-workflow: {label: Software engineering workflow, words: [code review, pull request, refactor*, tdd, test-driven, debug*, git, commit*, changelog, worktree*, brainstorm*, implementation plan, code quality, lint*, pair programming]}
+    frontend: {label: Frontend and UI/UX, words: [react, vue, svelte, angular, next.js, nextjs, tailwind, css, frontend, front-end, ui component*, design system*, accessibility, a11y, shadcn, figma, web design, landing page, ux, ui]}
+    backend: {label: Backend and APIs, words: [api design, rest api, graphql, fastapi, django, flask, express, node.js, laravel, rails, spring boot, backend, authentication, oauth, stripe, clerk, better auth, webhook*, sdk, wordpress, php, dotnet, .net, c#, java, golang, rust, typescript, python]}
+    mobile-desktop: {label: Mobile and desktop apps, words: [ios, android, swift, swiftui, kotlin, react native, expo, flutter, mobile, qt, desktop app*, electron, xcode]}
+    cloud: {label: Cloud platforms, words: [aws, azure, gcp, google cloud, cloudflare, vercel, firebase, netlify, lambda, heroku, fly.io, serverless]}
+    iac-devops: {label: Infrastructure as code and DevOps, words: [terraform, pulumi, kubernetes, k8s, helm, docker*, ci/cd, github actions, ansible, devops, deploy*, infrastructure, hashicorp, on-call, incident*, sre, tunnel*, upgrade*, migrat*]}
+    observability: {label: Observability and analytics, words: [sentry, grafana, posthog, elastic*, kibana, datadog, prometheus, logging, observability, monitoring, tracing, opentelemetry, analytics, alerting]}
+    databases: {label: Databases and data engineering, words: [sql, postgres*, mysql, mongodb, clickhouse, dbt, airflow, database*, redis, supabase, neon, planetscale, prisma, snowflake, bigquery, data pipeline*, etl, schema migration*]}
+    ds-ml: {label: Data science and ML engineering, words: [machine learning, hugging face, huggingface, model training, fine-tun*, notebook*, jupyter, pytorch, tensorflow, scikit*, evals, dataset*, data science, pandas, nvidia, cuda, inference, evaluation*, embedding*, model training, nemo, training]}
+    agent-eng: {label: Agent engineering and meta-skills, words: [skill creator, skill-creator, creating skills, writing skills, prompt engineering, system prompt*, context engineering, subagent*, mcp server*, model context protocol, plugin development, plugin authoring, create plugin*, hook development, agent sdk, claude.md, agents.md, agentic, agent memory, multi-agent]}
+    sec-defensive: {label: "Security: defensive and audit", words: [security review, security audit, vulnerabilit*, secret*, supply chain, threat model*, sast, semgrep, codeql, owasp, cve, hardening, security]}
+    sec-offensive: {label: "Security: offensive, RE, forensics", words: [pentest*, penetration test*, exploit*, reverse engineer*, malware, forensic*, dfir, ctf, red team*, fuzz*, binary analysis, ida pro, ghidra, decompil*]}
+    testing: {label: Testing and QA, words: [unit test*, e2e, end-to-end, playwright, cypress, jest, pytest, test suite*, qa, load test*, test coverage, testing]}
+    documents: {label: Documents and office formats, words: [docx, pptx, xlsx, pdf, word document*, powerpoint, excel, spreadsheet*, slides, slide deck, presentation*, diagram*, mermaid]}
+    writing: {label: "Writing, editing and communication", words: [copywriting, writing, editing, proofread*, humaniz*, documentation, translat*, blog post*, tone, style guide, internal comms, communication]}
+    research: {label: Research and academic workflow, words: [literature, paper*, citation*, academic, arxiv, pubmed, peer review, research, thesis, manuscript*, scholarly]}
+    life-sciences: {label: Life sciences and bioinformatics, words: [genomic*, bioinformatic*, single-cell, scrna*, protein*, gene, genes, rna-seq, sequencing, gtex, variant*, crispr, biology, molecular, omics]}
+    chem-physical: {label: "Chemistry, materials and physical sciences", words: [chemistry, chemical*, molecule*, materials science, physics, quantum, rdkit, crystal*, spectroscop*]}
+    medicine: {label: Medicine and health, words: [clinical, clinician*, medical, medicine, patient*, healthcare, health data, fhir, hipaa, radiology, pharmaco*, epidemiolog*, ehr, disease*, drug discovery, hospital*]}
+    business: {label: "Business, product and operations", words: [product manag*, strategy, startup*, okr*, hr, recruit*, hiring, operations, customer support, meeting*, project manag*, stakeholder*, sales ops]}
+    marketing: {label: "Marketing, SEO, sales and social", words: [marketing, seo, social media, campaign*, brand*, advertis*, newsletter*, sales, crm, hubspot, content strategy, linkedin]}
+    finance: {label: "Finance, trading and accounting", words: [finance, financial, trading, accounting, invoice*, tax, taxes, portfolio, stock*, crypto*, banking, valuation*, budget*, equity research]}
+    legal: {label: Legal and compliance, words: [legal, contract*, compliance, gdpr, regulat*, privacy policy, terms of service, nda, lawyer*]}
+    media: {label: Media generation, words: [image generation, generate images, image editing, photo*, video*, audio, 3d, animation*, remotion, music, podcast*, midjourney, stable diffusion, seedance, text-to-speech, tts, voiceover]}
+    gamedev: {label: Game development, words: [game*, unity, unreal, godot, gamedev, sprite*]}
+    productivity: {label: Productivity and personal knowledge, words: [obsidian, note-taking, notes, email*, calendar*, todo*, task management, productivity, journal*, personal knowledge, gmail, inbox]}
+    browser-web: {label: "Browser automation, search and scraping", words: [browser*, scrap*, crawl*, firecrawl, browserbase, apify, web search, search engine*, puppeteer, selenium, headless, oxylabs]}
+    saas: {label: SaaS integrations and workplace suites, words: [slack, notion, jira, linear, confluence, lark, feishu, google workspace, google drive, asana, trello, microsoft teams, zoom, salesforce, airtable, sharepoint, outlook]}
+    uncategorised: {label: Not yet categorised, words: []}

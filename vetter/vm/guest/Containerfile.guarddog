@@ -1,0 +1,5 @@
+FROM localhost/aas-base
+ENV SEMGREP_SEND_METRICS=off SEMGREP_ENABLE_VERSION_CHECK=0
+COPY *.whl /tmp/
+RUN pip install --no-cache-dir /tmp/*.whl && rm /tmp/*.whl
+ENTRYPOINT ["guarddog"]

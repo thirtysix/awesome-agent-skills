@@ -1,0 +1,6 @@
+dist/
+data/cache/
+.env
+.denylist.local
+__pycache__/
+.pytest_cache/

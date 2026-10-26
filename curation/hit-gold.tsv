@@ -1,0 +1,53 @@
+# Hand-read verdicts for hit_review.py validation (2026-10-25). Stratified sample of the full2 HIGH+
+# second-wave groups (seed 20261025); each read at the hit lines with +-2 lines, masked and escaped.
+skill	tool	rule	verdict	note
+h__b43a85fa4147	guarddog	threat-runtime-environment-read	capability_as_described	Browserbase key from env, for the API the skill uses
+h__ae9e935728a9	guarddog	threat-runtime-environment-read	capability_as_described	Databricks token check in an auth validator
+h__5fc06b5d544f	guarddog	threat-runtime-environment-read	capability_as_described	Together API key from env
+h__4c60551cb1a3	guarddog	threat-runtime-environment-read	capability_as_described	OpenAI key presence check for image generation
+p__ff3757e39172	guarddog	threat-filesystem-read	test_fixture	test writes a temp config
+p__8aafad7311c3	guarddog	threat-filesystem-read	test_fixture	test fixture file map
+h__f1c58abd5440	guarddog	threat-filesystem-read	capability_as_described	deploy script merges its own .env files
+h__1d1837b01f09	guarddog	threat-filesystem-read	false_match	list of file suffixes a PII scanner reads
+h__bb51c2933a27	guarddog	threat-process-spawn-silent	capability_as_described	opens the dashboard in the browser, output ignored
+h__9364703e5acd	guarddog	threat-process-spawn-silent	capability_as_described	gcloud calls with stderr silenced, IAM troubleshooting
+h__34ba48a9fd4c	guarddog	threat-process-spawn-silent	capability_as_described	launches a viewer and docker check silently
+h__215af8fbe223	guarddog	threat-process-download-exec	capability_as_described	local AI setup: HTTP to local server, runs its install commands
+h__0a85377bb94a	guarddog	threat-process-download-exec	capability_as_described	fetches Docker Hub tags and clones the recipes repo
+h__31e8812f0ebf	guarddog	threat-process-download-exec	capability_as_described	preflight runs git and configured commands
+p__ed53c03e2b0a	guarddog	threat-runtime-obfuscation-unicode	false_match	Greek delta in table headers
+p__d0deefd9874c	guarddog	threat-runtime-obfuscation-base64exec	false_match	vendored yarn release bundle in .github
+h__201da2175e63	guarddog	threat-runtime-obfuscation-steganography	test_fixture	test calls a validation helper
+h__de82cdb8bb8b	guarddog	threat-runtime-obfuscation	false_match	base64 icon images
+p__fc597c97eea5	guarddog	threat-filesystem-destruction	test_fixture	policy test table: destructive commands expected to be denied
+h__53385ad45768	guarddog	threat-network-exfiltration	capability_as_described	the exchange API the skill is for
+p__29673b4b240f	guarddog	threat-network-exfiltration	capability_as_described	Telegram API for a Telegram bridge
+p__29673b4b240f	guarddog	threat-network-outbound-shady-links	capability_as_described	Telegram API for a Telegram bridge
+h__1e5934b10626	guarddog	threat-filesystem-autostart	capability_as_described	manages the LaunchAgent its description names
+h__46392c3246d3	guarddog	threat-process-memory	docs_or_example	synthetic security events for Elastic demos
+p__3a0e4d9fc2bc	holguard	MCP_REMOTE_URL_INSECURE	false_match	URL is a ${DT_ENVIRONMENT} variable
+p__0d9222c100cf	holguard	MCP_REMOTE_URL_INSECURE	false_match	empty url fields; the rest are https
+p__4edc6543cbc0	holguard	DANGEROUS_DYNAMIC_EXECUTION	test_fixture	test of a sandbox gate
+p__6b934a00be8a	holguard	DANGEROUS_DYNAMIC_EXECUTION	test_fixture	security tests
+p__f3a61d35a2ee	holguard	SHELL_INJECTION_PATTERN	test_fixture	workflow smoke test
+p__a70cefe3fee8	holguard	SHELL_INJECTION_PATTERN	code_bug	repo release script pipes an unpinned latest release into tar and runs it, no checksum (relabelled for prompt .2)
+p__f10667ad4746	agentshield	mcp-url-transport-grafana-cloud	capability_as_described	the hosted MCP server the plugin is for
+p__19da23175bfe	agentshield	mcp-url-transport-clickhouse	capability_as_described	the vendor's own hosted MCP server
+p__1bfeaba906d3	agentshield	hooks-logging-disabled	false_match	command -v check silenced
+p__ff3757e39172	agentshield	agents-prompt-extraction	false_match	prose about frontmatter in the system prompt
+p__8c97dfcaf15b	agentshield	agents-prompt-extraction	false_match	prose about agent file format
+p__4082efc44652	agentshield	hooks-file-delete	capability_as_described	cleans up its own temp clones; test helper
+p__6b934a00be8a	agentshield	agents-skill-tamper	false_match	prose: skill changes need evaluation
+p__fe6e035ec87a	agentshield	hooks-bg-process	false_match	sed pattern containing &> /dev/null
+p__fb8b1ef03464	agentshield	agents-reflection	false_match	anti-injection rule quoting 'ignore previous instructions'
+p__efbf9fd13186	agentshield	agents-fs-destruction	docs_or_example	how-to: trigger a warning with rm -rf /tmp/test
+p__fe0dd05760c4	agentshield	agents-injection-pattern	false_match	checklist item about error paths
+p__00233b3eefb5	agentshield	agents-allowlist-bypass	false_match	contributor step: add skill to an allowlist
+p__00233b3eefb5	agentshield	mcp-auto-approve	capability_beyond_description	repo settings set enableAllProjectMcpServers true
+h__215af8fbe223	bandit	B602	capability_as_described	setup script runs its commands, shell flag
+h__d54780d4d9aa	bandit	B602	code_bug	deploy helper runs forge CLI with shell=True, site_url and env interpolated into the string (relabelled for prompt .2)
+h__c708ef0f66b9	yara	SIGNATURE_BASE_WEBSHELL_PHP_Generic_Eval	docs_or_example	vulnerability reference docs quoting eval patterns
+h__9625818d3076	guarddog	threat-filesystem-read	capability_as_described	devcontainer setup writes git config (its confirmed LLM high is elsewhere)
+h__202f425fed0d	guarddog	threat-process-download-exec	capability_as_described	exec of its own bundled module files, nothing downloaded
+h__202f425fed0d	guarddog	threat-runtime-environment-read	capability_as_described	provider API keys from env
+p__66d0c759f57d	guarddog	threat-process-download-exec	capability_as_described	generated file embedding the setup skill text (install guidance)

@@ -1,0 +1,1100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="no-referrer">
+<title>Awesome Agent Skills</title>
+<meta name="description" content="Where agent skills are published, how to vet one before it runs, and the research behind both. 247 resources, 53 vetting tools, 105 papers.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Awesome Agent Skills">
+<meta property="og:description" content="Where agent skills are published, how to vet one before it runs, and the research behind both. 247 resources, 53 vetting tools, 105 papers.">
+<meta property="og:url" content="https://thirtysix.github.io/awesome-agent-skills/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://thirtysix.github.io/awesome-agent-skills/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Awesome Agent Skills: overview of the catalog">
+<style>
+/* Layout: sticky header with tabs over full-width tables; overview is a tile row, two charts, findings. */
+:root{
+  --bg:#ffffff; --fg:#1a1d21; --muted:#5c6570; --line:#e3e6ea; --accent:#1b6ac9;
+  --chip:#f1f4f8; --chip-on:#1b6ac9; --chip-on-fg:#fff; --card:#fff; --warn:#a4551a; --ok:#2e7d4f;
+  --series-1:#2a78d6; --series-2:#eb6834; --grid:#e8ebee;
+  --t0:#e6f0fb; --t0-fg:#1b4f8f; --t1:#e5f4ea; --t1-fg:#1f6b3d; --t2:#fbf1e2; --t2-fg:#8a5212;
+  --t3:#f3e9f7; --t3-fg:#6c3483; --t4:#eef0f2; --t4-fg:#4b5560; --t5:#fbe9e7; --t5-fg:#9a3412;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=light]){ --bg:#14171a; --fg:#e6e9ec; --muted:#98a2ad; --line:#2a2f35; --accent:#6aa9f0;
+    --chip:#21262c; --chip-on:#6aa9f0; --chip-on-fg:#101316; --card:#1a1e22; --warn:#e0a06a; --ok:#6fcf97;
+    --series-1:#3987e5; --series-2:#d95926; --grid:#262b31;
+    --t0:#18304d; --t0-fg:#a9cbf3; --t1:#173826; --t1-fg:#9edcb4; --t2:#3b2a12; --t2-fg:#f0c48a;
+    --t3:#33213d; --t3-fg:#d6b0ea; --t4:#262b31; --t4-fg:#b8c0c8; --t5:#3d1f17; --t5-fg:#f2b39c; color-scheme:dark; }
+}
+:root[data-theme=dark]{ --bg:#14171a; --fg:#e6e9ec; --muted:#98a2ad; --line:#2a2f35; --accent:#6aa9f0;
+  --chip:#21262c; --chip-on:#6aa9f0; --chip-on-fg:#101316; --card:#1a1e22; --warn:#e0a06a; --ok:#6fcf97;
+  --series-1:#3987e5; --series-2:#d95926; --grid:#262b31;
+  --t0:#18304d; --t0-fg:#a9cbf3; --t1:#173826; --t1-fg:#9edcb4; --t2:#3b2a12; --t2-fg:#f0c48a;
+  --t3:#33213d; --t3-fg:#d6b0ea; --t4:#262b31; --t4-fg:#b8c0c8; --t5:#3d1f17; --t5-fg:#f2b39c; color-scheme:dark; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:15px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.gutter{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{border-bottom:1px solid var(--line);padding-block:14px 0;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.top{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+h1{font-size:19px;margin:0 0 3px;text-wrap:balance}
+.sub{color:var(--muted);font-size:13px}
+.actions{display:flex;gap:8px}
+.btn{background:none;border:1px solid var(--line);border-radius:7px;color:var(--fg);padding:6px 10px;cursor:pointer;font:inherit;font-size:13.5px}
+nav.tabs{display:flex;gap:2px;margin-top:10px;overflow-x:auto}
+nav.tabs button{background:none;border:0;border-bottom:2px solid transparent;color:var(--muted);padding:8px 12px;
+  font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected=true]{color:var(--fg);border-bottom-color:var(--accent);font-weight:600}
+nav.tabs .n{font-size:12px;opacity:.7;font-variant-numeric:tabular-nums;margin-left:4px}
+main{padding-block:16px 60px}
+h2{font-size:16px;margin:22px 0 8px;text-wrap:balance}
+p.lede{max-width:110ch;color:var(--muted);font-size:14px;margin:0 0 14px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:6px}
+.tile{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 12px}
+.tile .v{font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.25}
+.tile .k{font-size:13px}
+.tile .s{font-size:11.5px;color:var(--muted);margin-top:2px}
+.arrow{color:var(--muted);font-size:12px;margin:2px 0 14px}
+.cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:22px}
+@media (max-width:900px){.cols{grid-template-columns:minmax(0,1fr)}}
+.finding{margin:0 0 10px;max-width:80ch;list-style:none;padding-left:0}
+.finding li{margin:0;padding:7px 0;border-bottom:1px solid var(--line)}
+details.fd summary{cursor:pointer;list-style:none;font-weight:500;padding-left:18px;position:relative}
+details.fd summary::-webkit-details-marker{display:none}
+details.fd summary::before{content:"\25B8";position:absolute;left:2px;color:var(--muted);font-size:12px;top:2px}
+details.fd[open] summary::before{content:"\25BE"}
+details.fd .more{padding:4px 0 2px 18px;color:var(--muted);font-size:14px}
+.plain{padding-left:18px;font-weight:500}
+.secgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:0 32px;align-items:start}
+.secgrid .finding{max-width:none}
+.rack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px;margin:0 0 12px}
+.rack .chip{display:flex;align-items:center;gap:8px;min-height:30px;text-align:left;padding:5px 11px}
+.rack .chip .lab{flex:1 1 auto;line-height:1.25} .rack .chip .n{flex:0 0 auto}
+@media (max-width:640px){ .rack{grid-template-columns:repeat(2,minmax(0,1fr))} .rack .chip{font-size:11.5px;padding:4px 8px} .controls select{flex:1 1 140px;max-width:none} }
+.panels[hidden]{display:none}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:0 0 14px;align-items:stretch}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 24px;align-items:stretch}
+.g3 .span2{grid-column:span 2} .g3 .span3{grid-column:1/-1} .g3>*{min-width:0}
+@media (max-width:900px){ .g3{grid-template-columns:minmax(0,1fr)} .g3 .span2,.g3 .span3{grid-column:auto} }
+.band{border-top:1px solid var(--line);padding:18px 0 22px} .band:first-of-type{border-top:0}
+.band>h2{margin:0 0 12px}
+.step{border-radius:10px;padding:12px 14px;font-size:14px} .step h3{margin:0 0 4px;font-size:14px}
+.step .n{display:inline-block;min-width:20px;font-weight:700;margin-right:4px}
+.step.c0{background:var(--t0)} .step.c0 h3{color:var(--t0-fg)} .step.c1{background:var(--t1)} .step.c1 h3{color:var(--t1-fg)}
+.step.c2{background:var(--t2)} .step.c2 h3{color:var(--t2-fg)} .step.c3{background:var(--t3)} .step.c3 h3{color:var(--t3-fg)}
+.step.c4{background:var(--t4)} .step.c4 h3{color:var(--t4-fg)} .step.c5{background:var(--t5)} .step.c5 h3{color:var(--t5-fg)}
+.step .ref{background:var(--card)}
+.card{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 12px}
+.card h3{margin:0 0 6px;font-size:13px} .card table{width:100%}
+.g3 .chart,.g3 .tablewrap{margin:0} .g3 p.lede{max-width:none}
+.finding.cols3{columns:3 340px;column-gap:24px;max-width:none} .finding.cols3 li{break-inside:avoid}
+.panel{border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.panel .kpi{padding:10px 13px 8px} .kpi .k{font-size:12px;color:var(--muted)}
+.kpi .v{font-size:24px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.25} .kpi .s{font-size:11.5px;color:var(--muted)}
+.panel .chart{border:0;border-top:1px solid var(--line);border-radius:0 0 10px 10px;margin:0}
+.controls select{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:7px;padding:7px 9px;font:inherit;font-size:13.5px;max-width:220px}
+tr.filters th{padding:4px 6px;text-transform:none;letter-spacing:0;font-weight:400}
+tr.filters input,tr.filters select{width:100%;min-width:64px;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:5px;padding:3px 6px;font:inherit;font-size:12px}
+.chartrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:8px 0 6px;align-items:stretch}
+.chartrow .chart{margin:0}
+.cols2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:12px;align-items:start;margin-top:12px}
+.cols2 .chart,.cols2 .tablewrap{margin:0 0 12px}
+details.sect{margin:10px 0} details.sect summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:14px}
+.ref{display:inline-block;font-size:11.5px;border:1px solid var(--line);border-radius:5px;padding:0 6px;margin:2px 4px 0 0;
+  background:var(--chip);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;vertical-align:bottom}
+.chart{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 12px;margin-bottom:12px}
+.chart h3[data-tip],.kpi .k[data-tip],th[data-tip]{cursor:help}
+.chart h3{margin:0;font-size:13px;font-weight:600}
+.chart p{margin:1px 0 6px;font-size:11.5px;color:var(--muted)}
+.chart svg{display:block;width:100%;max-width:540px;height:auto}
+.chart svg text{fill:var(--muted);font-size:11px;font-family:inherit}
+.chart svg text.v{fill:var(--fg)}
+.chart svg rect.bar{fill:var(--series-1)}
+.chart svg rect.hit{fill:transparent;cursor:default}
+.chart svg rect.hit:hover + rect.bar,.chart svg g:hover rect.bar{fill-opacity:.8}
+.chart svg circle.s1{fill:var(--series-1);stroke:var(--card);stroke-width:2}
+.chart svg circle.s2{fill:var(--series-2);stroke:var(--card);stroke-width:2}
+.chart svg line.grid{stroke:var(--grid);stroke-width:1} .chart svg line.link{stroke:var(--line);stroke-width:2}
+.chart svg g:hover line.link{stroke:var(--muted)}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+input[type=search]{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:7px;
+  padding:7px 10px;font:inherit;font-size:14px;flex:1 1 260px;min-width:0;max-width:520px}
+.facet{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 8px;align-items:center}
+.facet .fl{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin-right:4px}
+.chip{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:3px 9px;font-size:12.5px;
+  cursor:pointer;color:inherit;font-family:inherit}
+.chip[aria-pressed=true]{background:var(--chip-on);color:var(--chip-on-fg);border-color:var(--chip-on)}
+.chip .n{opacity:.65;font-variant-numeric:tabular-nums;margin-left:4px}
+.count{color:var(--muted);font-size:13px;margin:4px 0 8px}
+.hd{display:inline-flex;align-items:center;gap:4px} th .sort{cursor:pointer} th .sort:hover{color:var(--fg)}
+button.hm{background:none;border:1px solid transparent;border-radius:5px;color:var(--muted);cursor:pointer;font-size:11px;padding:0 4px;line-height:1.5}
+button.hm:hover{border-color:var(--line);color:var(--fg)} button.hm.on{background:var(--chip-on);color:var(--chip-on-fg);border-color:var(--chip-on)}
+.pop{position:fixed;z-index:60;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.18);
+  padding:8px 10px;width:min(300px,calc(100vw - 16px));max-height:min(70vh,520px);overflow:auto;font-size:13px;text-transform:none;letter-spacing:0;font-weight:400}
+.pop .ps{display:flex;flex-direction:column;gap:2px;padding-bottom:6px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.pop .ps button{background:none;border:0;text-align:left;color:var(--fg);font:inherit;padding:3px 4px;border-radius:5px;cursor:pointer} .pop .ps button:hover{background:var(--chip)}
+.pop .pf{margin:4px 0 10px} .pop .pl{font-weight:600;font-size:12px;color:var(--muted);margin-bottom:4px}
+.pop .pv{display:flex;flex-direction:column;gap:1px} .pop .pv label{display:flex;gap:6px;align-items:baseline;padding:2px 4px;border-radius:5px;cursor:pointer}
+.pop .pv label:hover{background:var(--chip)} .pop .pv label[hidden]{display:none} .pop .n{margin-left:auto;color:var(--muted);font-variant-numeric:tabular-nums}
+.pop input[type=search],.pop input[type=number]{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 7px;font:inherit;margin-bottom:4px}
+.pop .lk{background:none;border:0;color:var(--accent);cursor:pointer;font:inherit;font-size:12px;padding:0}
+.active{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:0 0 6px;font-size:13px;color:var(--muted)}
+.active .chip{background:var(--chip-on);color:var(--chip-on-fg);border-color:var(--chip-on)}
+.pager{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:13px;color:var(--muted)}
+details.about{margin:-8px 0 12px;font-size:13px} details.about p.lede{max-width:none;columns:2 460px;column-gap:32px} details.about summary{cursor:pointer;color:var(--accent)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+table.wide{min-width:1100px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg);white-space:nowrap;font-weight:600;font-size:12px;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+th.sort{cursor:pointer} th.sort:hover{color:var(--fg)} th .ar{opacity:.5;font-size:10px}
+tbody tr:hover{background:var(--chip)}
+td.nm{min-width:220px;max-width:380px} td.nm .t{font-weight:600}
+td.nm .sm,.sm{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+td.nm:has(details.scores[open]){min-width:min(620px,90vw);max-width:none}
+details.scores{margin-top:6px;font-size:12.5px} details.scores summary{cursor:pointer;color:var(--accent);font-weight:600}
+details.scores table{margin-top:6px;border-collapse:collapse;width:100%} details.scores th{text-align:left;color:var(--muted);font-weight:600;padding:6px 6px 2px 0}
+details.scores td{padding:3px 8px 3px 0;vertical-align:top;border-top:1px solid var(--line);white-space:normal}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.nowrap{white-space:nowrap}
+td.long{min-width:240px;max-width:420px;font-size:13px}
+.pill{display:inline-block;border-radius:5px;padding:1px 7px;font-size:12px;font-weight:600;white-space:nowrap}
+.f-adopt{background:var(--t1);color:var(--t1-fg)} .f-adapt{background:var(--t0);color:var(--t0-fg)}
+.f-reference{background:var(--t4);color:var(--t4-fg)} .f-avoid{background:var(--t5);color:var(--t5-fg)}
+.flag{display:inline-block;border-radius:5px;padding:0 6px;font-size:11.5px;background:var(--t5);color:var(--t5-fg);margin-top:3px;white-space:nowrap}
+.tag{display:inline-block;background:var(--chip);border:1px solid var(--line);border-radius:5px;padding:0 6px;font-size:11.5px;color:var(--muted);white-space:nowrap}
+table.matrix{font-size:13px}
+table.matrix th.col{white-space:normal;min-width:74px;max-width:96px;text-transform:none;letter-spacing:0;font-size:11.5px;vertical-align:bottom}
+table.matrix td.ck{min-width:230px;max-width:300px;position:sticky;left:0;background:var(--bg);z-index:1}
+table.matrix td.c{text-align:center;font-size:14px;cursor:default}
+.s-verified{background:var(--t1);color:var(--t1-fg);font-weight:700}
+.s-partial{background:var(--t2);color:var(--t2-fg)}
+.s-claimed{background:var(--t0);color:var(--t0-fg)}
+.s-absent{color:var(--muted)} .s-unknown{color:var(--muted)} .s-na{color:var(--muted);opacity:.6}
+td.ours{border-left:2px solid var(--line)}
+.gap{color:var(--warn);font-size:12px;font-weight:600;white-space:nowrap}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin:0 0 10px}
+.legend span b{display:inline-block;min-width:22px;text-align:center;border-radius:4px;margin-right:4px}
+#tip{position:fixed;pointer-events:none;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:7px;
+  padding:5px 9px;font-size:12px;box-shadow:0 2px 10px rgba(0,0,0,.16);opacity:0;transition:opacity .1s;z-index:50;max-width:340px}
+footer{color:var(--muted);font-size:12.5px;margin-top:24px;max-width:90ch;line-height:1.7}
+.empty{padding:24px;text-align:center;color:var(--muted)}
+.flag.soft{background:var(--t4);color:var(--t4-fg)}
+ol.steps{max-width:78ch;padding-left:20px} ol.steps li{margin:0 0 10px}
+.ladder{display:grid;gap:10px;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));align-items:start}
+.rung{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:10px 14px}
+.rung h3{margin:0 0 2px;font-size:15px} .rung .goal{color:var(--muted);font-size:13px;margin:0 0 6px}
+.rung ul{margin:0;padding-left:18px} .rung li{margin:0 0 6px}
+.lv{display:inline-block;min-width:22px;text-align:center;border-radius:5px;background:var(--t0);color:var(--t0-fg);margin-right:6px;font-weight:700}
+table.small{width:auto;min-width:0} table.small td,table.small th{padding:6px 10px}
+.btn.more{margin-top:10px}
+@media (max-width:640px){ header{position:static} .controls select{flex:1 1 140px;max-width:none} .count::after{content:" \B7  scroll the table sideways for more columns"}
+  nav.tabs{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)} }
+@media (prefers-reduced-motion:reduce){ #tip{transition:none} }
+</style>
+</head>
+<body>
+<header class="gutter">
+  <div class="top">
+    <div>
+      <h1>Awesome Agent Skills</h1>
+      <div class="sub">Where agent skills are published, how to vet one before it runs, and the research behind both · built 2026-10-26</div>
+    </div>
+    <div class="actions"><button class="btn" id="dl" type="button" title="Download the rows shown in this tab as a tab-separated file">Download</button><button class="btn" id="theme" type="button" title="Switch between light and dark">◐ Theme</button></div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="overview" type="button">Overview</button>
+    <button role="tab" data-tab="resources" type="button">Resources<span class="n" id="n-resources"></span></button>
+    <button role="tab" data-tab="skills" type="button">Skills<span class="n" id="n-skills"></span></button>
+    <button role="tab" data-tab="analysis" type="button">Analysis</button>
+    <button role="tab" data-tab="practices" type="button">Practices</button>
+    <button role="tab" data-tab="tools" type="button">Vetting tools<span class="n" id="n-tools"></span></button>
+    <button role="tab" data-tab="coverage" type="button">Coverage<span class="n" id="n-coverage"></span></button>
+    <button role="tab" data-tab="literature" type="button">Literature<span class="n" id="n-literature"></span></button>
+  </nav>
+</header>
+<main class="gutter">
+  <section id="p-overview" data-panel="overview">
+    <p class="lede">A security-first map of agent skills: the folders of instructions and scripts that Claude Code,
+      Codex, Copilot, Gemini CLI and others load on demand. A skill is code plus instructions, so this
+      catalog starts with how to vet one before it runs.</p>
+    <div class="tiles" id="universe"></div>
+    <div class="arrow" id="universe-note"></div>
+    <div class="chartrow" id="charts"></div>
+    <div id="findings"></div>
+  </section>
+  <section id="p-resources" data-panel="resources" hidden></section>
+  <section id="p-skills" data-panel="skills" hidden></section>
+  <section id="p-analysis" data-panel="analysis" hidden></section>
+  <section id="p-practices" data-panel="practices" hidden></section>
+  <section id="p-tools" data-panel="tools" hidden></section>
+  <section id="p-coverage" data-panel="coverage" hidden></section>
+  <section id="p-literature" data-panel="literature" hidden></section>
+  <footer data-repo="https://github.com/thirtysix/awesome-agent-skills">
+    Every entry was written by someone else and is shown as untrusted text: escaped, never run, and linked with no
+    referrer. Resources marked <span class="flag">Speaks to AI agents</span> carry text addressed to AI agents on their
+    pages. Nothing here was installed or executed to build this catalog: third-party scanners read the skills' files as
+    text in a disposable VM or container with no network. A link is not an endorsement. Code MIT, catalog data CC BY 4.0;
+    text quoted from skills, repositories and papers remains their authors'.
+    <a href="#analysis">Method, limits and corrections</a> · <a href="https://github.com/thirtysix/awesome-agent-skills/issues/new?template=correction.yml" target="_blank" rel="noopener noreferrer">Report an error or ask for removal</a> · <a href="https://github.com/thirtysix/awesome-agent-skills" target="_blank" rel="noopener noreferrer">Repository</a>
+  </footer>
+</main>
+<div id="tip" role="status"></div>
+<script src="catalog.js"></script>
+<script src="skills.js"></script>
+<script>
+(function () {
+"use strict";
+const C = window.CATALOG, S = C.schema, T = S.tables, COV = S.coverage, COMPACT = true, ARG = false;
+const $ = (s, r) => (r || document).querySelector(s);
+const ESC = {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"};
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ESC[c]);
+const okUrl = u => /^https?:\/\/[^\s<>"']+$/i.test(u || "");
+const link = (u, text, cls) => okUrl(u)
+  ? `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"${cls ? ` class="${cls}"` : ""}>${esc(text)}</a>`
+  : esc(text);
+const lab = (table, col, v) => ((T[table].enums || {})[col] || {})[v] ?? v;
+const num = v => { const n = parseFloat(String(v == null ? "" : v).replace(/,/g, "")); return isNaN(n) ? null : n; };
+const clip = (s, n) => { s = String(s || ""); return s.length > n ? s.slice(0, n - 1) + "…" : s; };
+const fmt = n => n == null ? "" : Number(n).toLocaleString("en-US");
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+                set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+// tooltip: text only, set with textContent
+const tip = $("#tip");
+function showTip(e, text) { tip.textContent = text; tip.style.opacity = 1;
+  const x = Math.min(e.clientX + 12, window.innerWidth - tip.offsetWidth - 8);
+  tip.style.left = Math.max(8, x) + "px"; tip.style.top = (e.clientY + 14) + "px"; }
+function hideTip() { tip.style.opacity = 0; }
+document.addEventListener("mousemove", e => {
+  const t = e.target.closest && e.target.closest("[data-tip]");
+  if (t) showTip(e, t.getAttribute("data-tip")); else hideTip();
+});
+
+// theme
+const root = document.documentElement;
+const saved = store.get("aas-theme"); if (saved) root.setAttribute("data-theme", saved);
+$("#theme").addEventListener("click", () => {
+  const dark = root.getAttribute("data-theme") ? root.getAttribute("data-theme") === "dark"
+    : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const next = dark ? "light" : "dark"; root.setAttribute("data-theme", next); store.set("aas-theme", next);
+});
+
+// tabs
+const tabs = [...document.querySelectorAll("nav.tabs [data-tab]")];
+let current = null;
+// A table's search, filters and sort live after the tab in the hash (#skills?llm_risk=high), so a view can be linked.
+const HASHSTATE = {};
+const hashFor = name => { const q = HASHSTATE[name] ? HASHSTATE[name].qs() : ""; return "#" + name + (q ? "?" + q : ""); };
+function show(full) {
+  let [name, qs] = String(full || "").split("?");
+  if (!tabs.some(b => b.dataset.tab === name)) name = "overview";
+  if (qs !== undefined && HASHSTATE[name]) HASHSTATE[name].apply(qs);
+  // Panel ids are "p-<tab>", never the bare tab name, so a #tab link does not scroll the page under the header.
+  if (current && current !== name) window.scrollTo(0, 0);
+  current = name;
+  tabs.forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === name)));
+  document.querySelectorAll("[data-panel]").forEach(p => { p.hidden = p.dataset.panel !== name; });
+  store.set("aas-tab", name);
+  try { history.replaceState(null, "", hashFor(name)); } catch (e) {}
+}
+tabs.forEach(b => b.addEventListener("click", () => show(b.dataset.tab)));
+window.addEventListener("hashchange", () => show(decodeURI(location.hash.slice(1))));
+$("#n-resources").textContent = C.resources.length;
+$("#n-tools").textContent = C.tools.length;
+$("#n-coverage").textContent = C.coverage.length;
+$("#n-literature").textContent = C.literature.length;
+
+// --- overview ------------------------------------------------------------------------------
+// A finding: its first sentence as the line you scan, the rest and its sources folded underneath.
+const firstSplit = t => { const m = /^(.+?[.!?])\s+(?=[A-Z0-9"])/.exec(t); return m ? [m[1], t.slice(m[0].length)] : [t, ""]; };
+function finding(text, refsHtml) {
+  const [head, rest] = firstSplit(String(text || ""));
+  if (!rest && !refsHtml) return `<li><div class="plain">${esc(head)}</div></li>`;
+  return `<li><details class="fd"><summary>${esc(head)}</summary><div class="more">${esc(rest)}${rest && refsHtml ? "<br>" : ""}${refsHtml || ""}</div></details></li>`;
+}
+const byId = {}; ["resources", "tools", "literature"].forEach(t => C[t].forEach(r => { byId[r.id] = r; }));
+(function overview() {
+  const u = C.overview.universe;
+  $("#universe").innerHTML = u.steps.map(s =>
+    `<div class="tile"><div class="v">${s.value >= 1e6 ? "≈" + (s.value / 1e6).toFixed(1) + "M" : (s.value >= 1e5 ? "≈" : "") + fmt(s.value)}</div>
+     <div class="k">${esc(s.label)}</div><div class="s">${esc(s.how)}</div></div>`).join("");
+  $("#universe-note").textContent = `From all SKILL.md files on GitHub down to the official ones. Measured ${u.as_of}.`;
+  $("#findings").className = "secgrid";
+  $("#findings").innerHTML = C.overview.sections.map(sec => `<div><h2>${esc(sec.title)}</h2><ul class="finding">` +
+    sec.items.map(it => finding(it.text, (it.refs || []).map(id => { const r = byId[id]; const name = r.name || r.title;
+        return link(r.url, clip(name, 56), "ref") ; }).join(""))).join("") + "</ul></div>").join("");
+  const count = (rows, col, table) => { const m = new Map(); rows.forEach(r => m.set(r[col], (m.get(r[col]) || 0) + 1));
+    return Object.keys(T[table].enums[col]).filter(k => m.get(k)).map(k => ({label: lab(table, col, k), value: m.get(k)}))
+      .sort((a, b) => b.value - a.value); };
+  const SKO = window.SKILLS, SUBO = ((SKO || {}).subjects_meta || {}).subjects || {}, sm2 = new Map();
+  ((SKO || {}).skills || []).forEach(r => { if (r.subjects) sm2.set(r.subjects[0], (sm2.get(r.subjects[0]) || 0) + 1); });
+  const subj = [...sm2].sort((a, b) => b[1] - a[1]);
+  $("#charts").innerHTML = bars("Resources by kind", "Where skills are published, indexed or curated", count(C.resources, "kind", "resources").slice(0, 10), 10,
+      "The 247 places we found that publish, index or curate skills, by what kind of place each is")
+    + (subj.length ? bars("Skills by subject", `Main subject, top 10 of ${subj.length}; ${fmt(SKO.skills.length)} skills in the curated core`,
+        subj.slice(0, 10).map(([k, n]) => ({label: SUBO[k] || k, value: n})), 10,
+        "Each skill's main subject, given by an LLM from its name and description. The Skills tab has all subjects") : "")
+    + bars("Papers by topic", "Security research on skills, plugins and MCP, 2025 to 2026", count(C.literature, "topic", "literature"), 10,
+      "Papers on attacks against skills and plugins, defences, measurements of what is published, benchmarks and surveys")
+    + bars("Do directories check what they list?", `Security checks before listing, across all ${C.resources.length} resources`, count(C.resources, "vets_safety", "resources"), 10,
+      "Yes: publishes how it checks a skill for security before listing it. Claims to: says so, with no method published. No: lists without checking");
+})();
+
+// `slots`: draw as if there were that many rows, so charts side by side come out the same height
+// (fewer rows get taller rows, the bar itself capped so a short chart does not turn into blocks).
+function bars(title, note, data, slots, titleTip) {
+  const W = 360, L = 150, R = 34, top = 4, max = Math.max(...data.map(d => d.value), 1);
+  const H = slots ? Math.min(30, Math.max(16, slots * 20 / Math.max(1, data.length))) : 20, bh = Math.min(H - 8, 14);
+  const h = top + (slots ? Math.max(slots * 20, data.length * H) : data.length * H) + 4;
+  const rows = data.map((d, i) => {
+    const y = top + i * H, w = Math.max(2, (W - L - R) * d.value / max), mid = y + H / 2;
+    const t = d.tip || `${d.label}: ${d.value}`;
+    return `<g data-tip="${esc(t)}"><rect class="hit" x="0" y="${y}" width="${W}" height="${H}"></rect>
+      <text x="${L - 6}" y="${mid + 4}" text-anchor="end">${esc(clip(d.label, 24))}</text>
+      <rect class="bar" x="${L}" y="${(mid - bh / 2).toFixed(1)}" width="${w.toFixed(1)}" height="${bh}" rx="3"></rect>
+      <text class="v" x="${(L + w + 5).toFixed(1)}" y="${mid + 4}">${fmt(d.value)}</text></g>`;
+  }).join("");
+  return `<div class="chart"><h3${titleTip ? ` data-tip="${esc(titleTip)}"` : ""}>${esc(title)}</h3><p>${esc(note)}</p>
+    <svg viewBox="0 0 ${W} ${h}" role="img" aria-label="${esc(title)}">${rows}</svg></div>`;
+}
+
+// Two shares per row on one 0-100% axis (a dumbbell): `a` in series 1, `b` in series 2, a legend on top.
+function pairs(title, note, names, data) {
+  const W = 360, L = 96, R = 14, H = 22, top = 30, n = data.length, x = v => L + (W - L - R) * Math.min(100, v) / 100;
+  const h = top + n * H + 18;
+  const grid = [0, 25, 50, 75, 100].map(v => `<line class="grid" x1="${x(v)}" x2="${x(v)}" y1="${top - 4}" y2="${top + n * H}"></line>
+    <text x="${x(v)}" y="${top + n * H + 13}" text-anchor="middle">${v}%</text>`).join("");
+  const legend = `<circle class="s1" cx="${L + 5}" cy="11" r="5"></circle><text x="${L + 14}" y="15">${esc(names[0])}</text>
+    <circle class="s2" cx="${L + 150}" cy="11" r="5"></circle><text x="${L + 159}" y="15">${esc(names[1])}</text>`;
+  const rows = data.map((d, i) => { const y = top + i * H + H / 2;
+    const b = d.b == null ? "" : `<circle class="s2" cx="${x(d.b).toFixed(1)}" cy="${y}" r="5"></circle>`;
+    const ln = d.b == null ? "" : `<line class="link" x1="${x(d.a).toFixed(1)}" x2="${x(d.b).toFixed(1)}" y1="${y}" y2="${y}"></line>`;
+    return `<g data-tip="${esc(d.tip)}"><rect class="hit" x="0" y="${y - H / 2}" width="${W}" height="${H}"></rect>
+      <text x="${L - 8}" y="${y + 4}" text-anchor="end">${esc(clip(d.label, 16))}</text>${ln}${b}
+      <circle class="s1" cx="${x(d.a).toFixed(1)}" cy="${y}" r="5"></circle></g>`; }).join("");
+  return `<div class="chart"><h3>${esc(title)}</h3><p>${esc(note)}</p>
+    <svg viewBox="0 0 ${W} ${h}" role="img" aria-label="${esc(title)}">${grid}${legend}${rows}</svg></div>`;
+}
+
+// --- generic filterable table ------------------------------------------------------------
+const elab = (E, col, k) => { const v = (E[col] || {})[k]; return v && typeof v === "object" ? v.label : (v ?? k); };
+function makeTable(cfg) {
+  const host = $("#p-" + cfg.panel), E = cfg.enums || T[cfg.table].enums, PAGE = cfg.page || 0;
+  const st = { q: "", sel: {}, key: cfg.sort, dir: cfg.dir || 1, limit: PAGE, off: 0 };
+  cfg.facets.forEach(f => { st.sel[f.col] = new Set(); });
+  if (ARG) return argTable(cfg, host, E, st);
+  if (COMPACT) return compactTable(cfg, host, E, st);
+  host.innerHTML = `<p class="lede">${esc(cfg.lede)}</p>
+    <div class="controls"><input type="search" id="q-${cfg.panel}" placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search"></div>
+    ${cfg.facets.map(f => `<div class="facet" data-facet="${esc(f.col)}"><span class="fl">${esc(f.label)}</span></div>`).join("")}
+    <div class="count"></div><div class="tablewrap"><table class="wide"><thead><tr>${cfg.cols.map(c =>
+      `<th class="${c.sort ? "sort" : ""}" data-key="${esc(c.key)}" scope="col">${esc(c.label)} <span class="ar"></span></th>`).join("")}
+    </tr></thead><tbody></tbody></table></div>${PAGE ? '<button class="btn more" type="button" hidden></button>' : ""}`;
+  const tbody = $("tbody", host), countEl = $(".count", host), more = $(".more", host);
+  const has = (r, f, k) => f.multi ? (r[f.col] || []).includes(k) : r[f.col] === k;
+  const matches = (r, skip) => {
+    if (st.q && !cfg.search.some(k => String(r[k] || "").toLowerCase().includes(st.q))) return false;
+    return cfg.facets.every(f => f.col === skip || !st.sel[f.col].size || [...st.sel[f.col]].some(k => has(r, f, k)));
+  };
+  function chips() {
+    cfg.facets.forEach(f => {
+      const box = $(`[data-facet="${CSS.escape(f.col)}"]`, host);
+      const counts = new Map(); cfg.rows.filter(r => matches(r, f.col)).forEach(r =>
+        (f.multi ? (r[f.col] || []) : [r[f.col]]).forEach(v => counts.set(v, (counts.get(v) || 0) + 1)));
+      const keys = Object.keys(E[f.col]).filter(k => k !== "" && cfg.rows.some(r => has(r, f, k)));
+      box.querySelectorAll(".chip").forEach(c => c.remove());
+      keys.forEach(k => { const b = document.createElement("button");
+        b.type = "button"; b.className = "chip"; b.setAttribute("aria-pressed", String(st.sel[f.col].has(k)));
+        b.innerHTML = `${esc(elab(E, f.col, k))}<span class="n">${counts.get(k) || 0}</span>`;
+        b.addEventListener("click", () => { st.sel[f.col].has(k) ? st.sel[f.col].delete(k) : st.sel[f.col].add(k); st.limit = PAGE; draw(); });
+        box.appendChild(b); });
+    });
+  }
+  function draw() {
+    const col = cfg.cols.find(c => c.key === st.key) || cfg.cols[0];
+    const val = r => col.sort === "num" ? (num(col.value ? col.value(r) : r[col.key]) ?? -Infinity)
+      : String(col.value ? col.value(r) : r[col.key] || "").toLowerCase();
+    const rows = cfg.rows.filter(r => matches(r)).sort((a, b) => { const x = val(a), y = val(b);
+      return (x < y ? -1 : x > y ? 1 : 0) * st.dir; });
+    const page = st.limit ? rows.slice(0, st.limit) : rows;
+    tbody.innerHTML = page.length ? page.map(r => `<tr>${cfg.cols.map(c => `<td class="${c.cls || ""}">${c.html(r)}</td>`).join("")}</tr>`).join("")
+      : `<tr><td colspan="${cfg.cols.length}" class="empty">Nothing matches. Clear the search or a filter.</td></tr>`;
+    countEl.textContent = `${fmt(rows.length)} of ${fmt(cfg.rows.length)} match` + (page.length < rows.length ? `; first ${fmt(page.length)} listed` : "");
+    if (more) { more.hidden = page.length >= rows.length;
+      more.textContent = `Show ${fmt(Math.min(PAGE, rows.length - page.length))} more`; }
+    host.querySelectorAll("thead th").forEach(th => { $(".ar", th).textContent = th.dataset.key === st.key ? (st.dir > 0 ? "▲" : "▼") : ""; });
+    chips(); cfg.shown = rows;
+  }
+  $("input", host).addEventListener("input", e => { st.q = e.target.value.trim().toLowerCase(); st.limit = PAGE; draw(); });
+  if (more) more.addEventListener("click", () => { st.limit += PAGE; draw(); });
+  host.querySelectorAll("th.sort").forEach(th => th.addEventListener("click", () => {
+    if (st.key === th.dataset.key) st.dir *= -1; else { st.key = th.dataset.key; st.dir = (cfg.cols.find(c => c.key === st.key).sort === "num") ? -1 : 1; }
+    draw(); }));
+  draw();
+  return cfg;
+}
+
+// Facets for a table: the declared ones, plus a value list for every text column with few enough distinct values
+// (whole values, else comma/semicolon parts) and for small-number columns.
+function deriveFacets(cfg, E) {
+  const getv = (c, r) => c.value ? c.value(r) : r[c.key];
+  const facets = cfg.facets.map(f => ({...f, E: E[f.col], get: r => f.multi ? (r[f.col] || []) : [r[f.col]],
+    under: f.under || (cfg.cols.some(c => c.key === f.col) ? f.col : cfg.cols[0].key)}));
+  const parts = v => String(v ?? "").split(/[,;]\s*/).map(x => x.trim()).filter(x => x && x.length <= 40);
+  cfg.cols.forEach(c => {
+    if (facets.some(f => f.col === c.key) || c.cls === "nm" || !c.sort) return;
+    const whole = r => String(getv(c, r) ?? "").trim(), vals = [...new Set(cfg.rows.map(whole).filter(v => v))];
+    let get = null;
+    if (c.values === false) return;
+    if (c.sort === "num") { if (vals.length <= 20) get = r => [whole(r)]; }
+    else if (c.values || vals.length <= 40 || (vals.length <= 150 && vals.length <= cfg.rows.length * 0.4)) get = r => [whole(r)];
+    else { const cnt = new Map(); cfg.rows.forEach(r => new Set(parts(getv(c, r))).forEach(x => cnt.set(x, (cnt.get(x) || 0) + 1)));
+      if ([...cnt.values()].filter(n => n >= 2).length >= 3) get = r => [...new Set(parts(getv(c, r)))].filter(x => cnt.get(x) >= 2); }
+    if (!get) return;
+    const keys = [...new Set(cfg.rows.flatMap(get))].filter(v => v);
+    keys.sort(c.sort === "num" ? (a, b) => num(b) - num(a) : undefined);
+    if (c.vorder === "desc") keys.sort().reverse();
+    facets.push({col: "_" + c.key, label: c.label, under: c.key, E: Object.fromEntries(keys.map(v => [v, c.vlabel ? c.vlabel(v) : v])), get, keep: !!c.vorder || c.sort === "num"});
+  });
+  return facets;
+}
+
+// Compact variant: every column header has a menu (sort, plus that column's filters as checkboxes with counts;
+// numeric columns also take a minimum). A facet sits under the column named by `under`, else the column with its
+// key, else the first column. Text columns with few distinct values (or `values: true`) get a value list built
+// from the data. An active-filter summary with reset, a one-line lede with the full text folded, 50-row pages.
+function compactTable(cfg, host, E, st) {
+  const SIZE = 50, min = {}, keyOf = c => c.key;
+  const getv = (c, r) => c.value ? c.value(r) : r[c.key];
+  const facets = deriveFacets(cfg, E);
+  facets.forEach(f => { st.sel[f.col] = st.sel[f.col] || new Set(); });
+  const short = cfg.short || String(cfg.lede).split(/(?<=\.)\s/)[0];
+  host.innerHTML = `<p class="lede">${esc(short)}</p>` + (short !== cfg.lede ? `<details class="about"><summary>About this table</summary><p class="lede">${esc(cfg.lede)}</p></details>` : "") +
+    `<div class="controls"><input type="search" placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search"></div>` +
+    `<div class="active"></div><div class="count"></div><div class="tablewrap"><table class="wide"><thead><tr>${cfg.cols.map(c =>
+      `<th scope="col" data-key="${esc(c.key)}"${c.tip ? ` data-tip="${esc(c.tip)}"` : ""}><span class="hd"><span class="${c.sort ? "sort" : ""}" data-sortkey="${esc(c.key)}">${esc(c.label)} <span class="ar"></span></span>` +
+      `<button class="hm" type="button" data-menu="${esc(c.key)}" aria-haspopup="true" aria-label="Sort and filter ${esc(c.label)}">▾</button></span></th>`).join("")}</tr></thead><tbody></tbody></table></div>
+    <div class="pager"><button class="btn" type="button" data-prev>Previous</button><span></span><button class="btn" type="button" data-next>Next</button></div>`;
+  const tbody = $("tbody", host), countEl = $(".count", host), act = $(".active", host), pager = $(".pager span", host);
+  const matches = (r, skip) => (!st.q || cfg.search.some(k => String(r[k] || "").toLowerCase().includes(st.q))) &&
+    facets.every(f => f.col === skip || !st.sel[f.col].size || f.get(r).some(v => st.sel[f.col].has(v))) &&
+    Object.entries(min).every(([k, m]) => { const c = cfg.cols.find(x => x.key === k); return (num(getv(c, r)) ?? -Infinity) >= m; });
+  const valLabel = (f, k) => { const v = f.E[k]; return v && typeof v === "object" ? v.label : (v ?? k); };
+  let pop = null;
+  const closePop = () => { if (pop) { pop.remove(); pop = null; } };
+  function openPop(key, btn) {
+    closePop();
+    const c = cfg.cols.find(x => x.key === key), mine = facets.filter(f => f.under === key);
+    pop = document.createElement("div"); pop.className = "pop"; pop.setAttribute("role", "dialog");
+    let h = c.sort ? `<div class="ps"><button type="button" data-dir="1">Sort ${c.sort === "num" ? "low to high" : "A to Z"}</button><button type="button" data-dir="-1">Sort ${c.sort === "num" ? "high to low" : "Z to A"}</button></div>` : "";
+    if (c.sort === "num") h += `<div class="pf"><div class="pl">${esc(c.label)}: at least</div><input type="number" data-min="${esc(key)}" value="${min[key] ?? ""}" aria-label="Minimum ${esc(c.label)}"></div>`;
+    mine.forEach(f => {
+      const counts = new Map();
+      cfg.rows.filter(r => matches(r, f.col)).forEach(r => f.get(r).forEach(v => counts.set(v, (counts.get(v) || 0) + 1)));
+      let keys = Object.keys(f.E).filter(k => k !== "" && counts.get(k));
+      if (keys.length > 8 && !f.keep) keys.sort((a, b) => counts.get(b) - counts.get(a));
+      [...st.sel[f.col]].forEach(k => { if (!keys.includes(k)) keys.push(k); });
+      h += `<div class="pf" data-f="${esc(f.col)}"><div class="pl">${esc(f.label)}${st.sel[f.col].size ? ` <button type="button" class="lk" data-clearf="${esc(f.col)}">clear</button>` : ""}</div>` +
+        (keys.length > 10 ? `<input type="search" class="pq" placeholder="Filter list" aria-label="Filter ${esc(f.label)} values">` : "") +
+        `<div class="pv">` + keys.map(k => `<label data-t="${esc(String(valLabel(f, k)).toLowerCase())}"><input type="checkbox" data-col="${esc(f.col)}" value="${esc(k)}"${st.sel[f.col].has(k) ? " checked" : ""}> ${esc(valLabel(f, k))} <span class="n">${fmt(counts.get(k) || 0)}</span></label>`).join("") + `</div></div>`;
+    });
+    if (!h) h = '<div class="pl">Nothing to sort or filter here.</div>';
+    pop.innerHTML = h; document.body.appendChild(pop);
+    const r = btn.getBoundingClientRect(), w = pop.offsetWidth;
+    pop.style.left = Math.max(8, Math.min(r.right - w, innerWidth - w - 8)) + "px"; pop.style.top = (r.bottom + 4) + "px";
+    pop.addEventListener("change", e => { const t = e.target;
+      if (t.dataset.col) { t.checked ? st.sel[t.dataset.col].add(t.value) : st.sel[t.dataset.col].delete(t.value); st.off = 0; draw(); } });
+    pop.addEventListener("input", e => { const t = e.target;
+      if (t.classList.contains("pq")) { const q = t.value.trim().toLowerCase(); t.parentNode.querySelectorAll(".pv label").forEach(l => { l.hidden = q && !l.dataset.t.includes(q); }); }
+      if (t.dataset.min) { const v = parseFloat(t.value); if (isNaN(v)) delete min[t.dataset.min]; else min[t.dataset.min] = v; st.off = 0; draw(); } });
+    pop.addEventListener("click", e => { const t = e.target.closest("button"); if (!t) return;
+      if (t.dataset.dir) { st.key = key; st.dir = +t.dataset.dir; st.mix = false; draw(); closePop(); }
+      else if (t.dataset.clearf) { st.sel[t.dataset.clearf].clear(); st.off = 0; draw(); openPop(key, btn); } });
+    const first = pop.querySelector("input, button"); if (first) first.focus();
+  }
+  function summary() {
+    const on = facets.filter(f => st.sel[f.col].size), mins = Object.entries(min);
+    act.innerHTML = (on.length || mins.length || st.q) ? "Showing only: " +
+      on.map(f => `<button class="chip" type="button" data-clear="${esc(f.col)}">${esc(f.label)}: ${esc([...st.sel[f.col]].map(k => valLabel(f, k)).join(" or "))} ✕</button>`).join("") +
+      mins.map(([k, m]) => `<button class="chip" type="button" data-clearmin="${esc(k)}">${esc(cfg.cols.find(c => c.key === k).label)} at least ${fmt(m)} ✕</button>`).join("") +
+      (st.q ? `<button class="chip" type="button" data-clear="">"${esc(st.q)}" ✕</button>` : "") + ` <button class="btn" type="button" data-reset>Reset</button>` : "";
+    host.querySelectorAll("button.hm").forEach(b => b.classList.toggle("on", facets.some(f => f.under === b.dataset.menu && st.sel[f.col].size) || b.dataset.menu in min));
+  }
+  function draw() {
+    const col = cfg.cols.find(c => c.key === st.key) || cfg.cols[0];
+    const val = r => col.sort === "num" ? (num(getv(col, r)) ?? -Infinity) : String(getv(col, r) || "").toLowerCase();
+    const mix = st.mix && cfg.first;    // default order only: cfg.first ranks rows before the sort column does
+    const rows = cfg.rows.filter(r => matches(r)).sort((a, b) => { if (mix) { const d = cfg.first(a) - cfg.first(b); if (d) return d; }
+      const x = val(a), y = val(b); return (x < y ? -1 : x > y ? 1 : 0) * st.dir; });
+    st.off = Math.min(st.off, Math.max(0, Math.floor((rows.length - 1) / SIZE) * SIZE));
+    const page = rows.slice(st.off, st.off + SIZE);
+    tbody.innerHTML = page.length ? page.map(r => `<tr>${cfg.cols.map(c => `<td class="${c.cls || ""}">${c.html(r)}</td>`).join("")}</tr>`).join("")
+      : `<tr><td colspan="${cfg.cols.length}" class="empty">Nothing matches. Reset the filters.</td></tr>`;
+    countEl.textContent = rows.length === cfg.rows.length ? `${fmt(rows.length)} rows` : `${fmt(rows.length)} of ${fmt(cfg.rows.length)} rows match`;
+    pager.textContent = rows.length ? `${fmt(st.off + 1)}–${fmt(st.off + page.length)} of ${fmt(rows.length)}` : "";
+    $("[data-prev]", host).disabled = st.off === 0; $("[data-next]", host).disabled = st.off + SIZE >= rows.length;
+    host.querySelectorAll("thead th").forEach(th => { $(".ar", th).textContent = th.dataset.key === st.key ? (st.dir > 0 ? "▲" : "▼") : ""; });
+    summary(); cfg.shown = rows;
+    if (current === cfg.panel) try { history.replaceState(null, "", hashFor(cfg.panel)); } catch (e) {}
+  }
+  st.mix = true;
+  HASHSTATE[cfg.panel] = {
+    qs: () => { const u = new URLSearchParams();
+      if (st.q) u.set("q", st.q);
+      facets.forEach(f => { if (st.sel[f.col].size) u.set(f.col, [...st.sel[f.col]].join("|")); });
+      Object.entries(min).forEach(([k, m]) => u.set("min." + k, m));
+      if (!st.mix || st.key !== cfg.sort || st.dir !== (cfg.dir || 1)) u.set("sort", (st.dir < 0 ? "-" : "") + st.key);
+      return u.toString(); },
+    apply: qs => { const u = new URLSearchParams(qs);
+      st.q = (u.get("q") || "").toLowerCase(); $("input", host).value = st.q;
+      facets.forEach(f => { st.sel[f.col] = new Set((u.get(f.col) || "").split("|").filter(k => k && Object.prototype.hasOwnProperty.call(f.E, k))); });
+      Object.keys(min).forEach(k => delete min[k]);
+      cfg.cols.forEach(c => { const v = parseFloat(u.get("min." + c.key)); if (c.sort === "num" && !isNaN(v)) min[c.key] = v; });
+      const so = u.get("sort"), k = so && so.replace(/^-/, "");
+      if (k && cfg.cols.some(c => c.key === k && c.sort)) { st.key = k; st.dir = so[0] === "-" ? -1 : 1; st.mix = false; }
+      else { st.key = cfg.sort; st.dir = cfg.dir || 1; st.mix = true; }
+      st.off = 0; draw(); } };
+  host.addEventListener("click", e => { const t = e.target.closest("button, [data-sortkey]"); if (!t) return;
+    if (t.dataset.menu) { const was = pop && pop.dataset.key === t.dataset.menu; closePop(); if (!was) { openPop(t.dataset.menu, t); pop.dataset.key = t.dataset.menu; } e.stopPropagation(); }
+    else if (t.dataset.sortkey && cfg.cols.find(c => c.key === t.dataset.sortkey).sort) {
+      const k = t.dataset.sortkey; if (st.key === k) st.dir *= -1; else { st.key = k; st.dir = cfg.cols.find(c => c.key === k).sort === "num" ? -1 : 1; } st.mix = false; draw(); }
+    else if (t.dataset.clear !== undefined) { if (t.dataset.clear) st.sel[t.dataset.clear].clear(); else { st.q = ""; $("input", host).value = ""; } st.off = 0; draw(); }
+    else if (t.dataset.clearmin) { delete min[t.dataset.clearmin]; st.off = 0; draw(); }
+    else if (t.hasAttribute("data-reset")) { facets.forEach(f => st.sel[f.col].clear()); Object.keys(min).forEach(k => delete min[k]); st.q = ""; $("input", host).value = ""; st.off = 0; draw(); }
+    else if (t.hasAttribute("data-prev")) { st.off = Math.max(0, st.off - SIZE); draw(); host.scrollIntoView(); }
+    else if (t.hasAttribute("data-next")) { st.off += SIZE; draw(); host.scrollIntoView(); } });
+  document.addEventListener("click", e => { if (pop && !pop.contains(e.target)) closePop(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closePop(); });
+  addEventListener("scroll", closePop); addEventListener("resize", closePop);
+  $("input", host).addEventListener("input", e => { st.q = e.target.value.trim().toLowerCase(); st.off = 0; draw(); });
+  draw();
+  return cfg;
+}
+
+// Filter-row variant (the layout of awesome-regulatory-genomics): a toolbar of selects, a rack of category tiles,
+// stat panels (a number over the distribution behind it, redrawn for the rows shown) that fold away, and under the
+// column headers a row of filters: "any" selects for categorical columns, "min" for numbers, a text box otherwise.
+function argTable(cfg, host, E, st) {
+  const SIZE = 100, getv = (c, r) => c.value ? c.value(r) : r[c.key], txt = {}, min = {};
+  // A derived value list is dropped where a declared facet already filters that column; one-value facets filter nothing.
+  const facets = deriveFacets(cfg, E).filter((f, _, all) => !(f.col.startsWith("_") && all.some(g => !g.col.startsWith("_") && g.under === f.under)))
+    .filter(f => new Set(cfg.rows.flatMap(f.get).filter(v => v !== "")).size > 1);
+  facets.forEach(f => { st.sel[f.col] = st.sel[f.col] || new Set(); });
+  // Every filter lives in the table: each column's header row gets its own filter (the tile facet included, so a
+  // tile and its column select stay in step), and a facet with no column of its own gets a column beside the one
+  // it was filed under. No toolbar of loose dropdowns.
+  const valLabel = (f, k) => { const v = f.E[k]; return v && typeof v === "object" ? v.label : (v ?? k); };
+  const tileF = cfg.tiles && facets.find(f => f.col === cfg.tiles), rowF = {}, barF = [];
+  cfg.cols.forEach(c => { const f = facets.find(x => x.col === c.key || x.col === "_" + c.key) || (c.cls !== "nm" && facets.find(x => x.under === c.key)); if (f) rowF[c.key] = f; });
+  const placed = new Set(Object.values(rowF));
+  facets.filter(f => !placed.has(f)).forEach(f => {
+    let at = cfg.cols.findIndex(c => c.key === f.under); while (cfg.cols[at + 1] && cfg.cols[at + 1].after === f.under) at++;
+    const key = "_f_" + f.col;
+    const col = {key, after: f.under, label: f.label, tip: f.tip, sort: "text", cls: "nowrap", value: r => f.get(r).map(v => valLabel(f, v)).join(", "),
+      html: r => f.get(r).filter(v => v !== "" && v != null).map(v => `<span class="tag">${esc(valLabel(f, v))}</span>`).join(" ")};
+    cfg.cols.splice(at + 1, 0, col); rowF[key] = f; });
+  const counts = f => { const m = new Map(); cfg.rows.forEach(r => f.get(r).forEach(v => m.set(v, (m.get(v) || 0) + 1))); return m; };
+  const keysOf = f => { const m = counts(f); const ks = Object.keys(f.E).filter(k => k !== "" && m.get(k)); if (ks.length > 8 && !f.keep) ks.sort((a, b) => m.get(b) - m.get(a)); return [ks, m]; };
+  const sel = (f, bar) => { const [ks, m] = keysOf(f);
+    return `<select data-fc="${esc(f.col)}" aria-label="${esc(f.label)}" title="${esc(f.tip || f.label)}"><option value="">${bar ? "Any " + esc(f.label.toLowerCase()) : "any"}</option>` +
+      ks.map(k => `<option value="${esc(k)}">${esc(valLabel(f, k))} (${fmt(m.get(k))})</option>`).join("") + `</select>`; };
+  const short = cfg.short || String(cfg.lede).split(/(?<=\.)\s/)[0];
+  const statsKey = "aas-stats-" + cfg.panel; let statsOpen = store.get(statsKey) !== "0";
+  host.innerHTML = `<p class="lede">${esc(short)}</p>` + (short !== cfg.lede ? `<details class="about"><summary>About this table</summary><p class="lede">${esc(cfg.lede)}</p></details>` : "") +
+    (cfg.stats ? `<div class="panels"${statsOpen ? "" : " hidden"}></div>` : "") +
+    `<div class="controls"><input type="search" data-q placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search">` +
+    (cfg.stats ? `<button class="btn" type="button" data-stats aria-expanded="${statsOpen}">${statsOpen ? "Hide stats" : "Show stats"}</button>` : "") +
+    `<button class="btn" type="button" data-reset>Reset</button></div>` +
+    (tileF ? `<div class="rack"></div>` : "") +
+    `<div class="count"></div><div class="tablewrap"><table class="wide"><thead><tr>` +
+    cfg.cols.map(c => `<th scope="col" data-key="${esc(c.key)}" class="${c.sort ? "sort" : ""}"${c.tip ? ` data-tip="${esc(c.tip)}"` : ""}>${esc(c.label)} <span class="ar"></span></th>`).join("") +
+    `</tr><tr class="filters">` + cfg.cols.map(c => `<th>${rowF[c.key] ? sel(rowF[c.key], false)
+      : c.sort === "num" ? `<input type="number" data-min="${esc(c.key)}" placeholder="min" aria-label="Minimum ${esc(c.label)}">`
+      : c.sort ? `<input type="search" data-tx="${esc(c.key)}" placeholder="filter…" aria-label="Filter ${esc(c.label)}">` : ""}</th>`).join("") +
+    `</tr></thead><tbody></tbody></table></div><button class="btn more" type="button" hidden></button>`;
+  const tbody = $("tbody", host), countEl = $(".count", host), more = $(".more", host), panels = $(".panels", host), rack = $(".rack", host);
+  if (tileF) { const [ks, m] = keysOf(tileF);
+    rack.innerHTML = ks.map(k => `<button class="chip" type="button" data-tile="${esc(k)}" aria-pressed="false"><span class="lab">${esc(valLabel(tileF, k))}</span><span class="n">${fmt(m.get(k))}</span></button>`).join(""); }
+  const plain = (c, r) => String(getv(c, r) ?? "").toLowerCase() + (c.cls === "nm" ? " " + String(r.desc || r.notes || r.authors || "").toLowerCase() : "");
+  const matches = r => (!st.q || cfg.search.some(k => String(r[k] || "").toLowerCase().includes(st.q))) &&
+    facets.every(f => !st.sel[f.col].size || f.get(r).some(v => st.sel[f.col].has(v))) &&
+    Object.entries(txt).every(([k, q]) => plain(cfg.cols.find(c => c.key === k), r).includes(q)) &&
+    Object.entries(min).every(([k, m]) => (num(getv(cfg.cols.find(c => c.key === k), r)) ?? -Infinity) >= m);
+  function stats(rows) {
+    if (!panels || !statsOpen) return;
+    panels.innerHTML = cfg.stats.map(p => { const n = p.test ? rows.filter(p.test).length : rows.length;
+      const sub = p.test ? (rows.length ? Math.round(100 * n / rows.length) + "% of these" : "")
+        : (rows.length === cfg.rows.length ? p.whole || "all of them" : "of " + fmt(cfg.rows.length));
+      let chart = "";
+      const f = p.facet && facets.find(x => x.col === p.facet || x.col === "_" + p.facet), m = new Map();
+      if (p.bars) chart = bars(p.title, p.note || "", p.bars(p.of ? rows.filter(p.test) : rows), 6);
+      else if (f) {
+        (p.of ? rows.filter(p.test) : rows).forEach(r => f.get(r).forEach(v => m.set(v, (m.get(v) || 0) + 1)));
+        let ks = (Array.isArray(p.order) ? p.order : Object.keys(f.E)).filter(k => k !== "" && m.get(k));
+        if (p.order === "key") ks.sort(); else if (!p.order) ks.sort((a, b) => m.get(b) - m.get(a));
+        if (p.exclude) ks = ks.filter(k => !p.exclude.includes(k));
+        ks = ks.slice(0, p.top || 6);
+        const TE = cfg.table && (T[cfg.table].enums || {})[p.facet], lb = k => TE && k in TE ? elab(T[cfg.table].enums, p.facet, k) : valLabel(f, k);
+        chart = bars(p.title, p.note || "", ks.map(k => ({label: lb(k), value: m.get(k)})), 6); }
+      return `<div class="panel"><div class="kpi"><div class="k"${p.tip ? ` data-tip="${esc(p.tip)}"` : ""}>${esc(p.label)}</div><div class="v">${fmt(n)}</div><div class="s">${esc(sub)}</div></div>${chart}</div>`; }).join("");
+  }
+  let limit = SIZE;
+  function draw() {
+    const col = cfg.cols.find(c => c.key === st.key) || cfg.cols[0];
+    const val = r => col.sort === "num" ? (num(getv(col, r)) ?? -Infinity) : String(getv(col, r) || "").toLowerCase();
+    const rows = cfg.rows.filter(matches).sort((a, b) => { const x = val(a), y = val(b); return (x < y ? -1 : x > y ? 1 : 0) * st.dir; });
+    const page = rows.slice(0, limit);
+    tbody.innerHTML = page.length ? page.map(r => `<tr>${cfg.cols.map(c => `<td class="${c.cls || ""}">${c.html(r)}</td>`).join("")}</tr>`).join("")
+      : `<tr><td colspan="${cfg.cols.length}" class="empty">Nothing matches. Reset the filters.</td></tr>`;
+    countEl.textContent = `${fmt(rows.length)} of ${fmt(cfg.rows.length)}` + (tileF && st.sel[tileF.col].size ? " · " + [...st.sel[tileF.col]].map(k => valLabel(tileF, k)).join(", ") : "") +
+      (page.length < rows.length ? ` · first ${fmt(page.length)} shown` : "");
+    more.hidden = page.length >= rows.length; more.textContent = `Show ${fmt(Math.min(SIZE, rows.length - page.length))} more`;
+    host.querySelectorAll("thead tr:first-child th").forEach(th => { $(".ar", th).textContent = th.dataset.key === st.key ? (st.dir > 0 ? "▲" : "▼") : ""; });
+    if (rack) rack.querySelectorAll("[data-tile]").forEach(b => b.setAttribute("aria-pressed", String(st.sel[tileF.col].has(b.dataset.tile))));
+    stats(rows); cfg.shown = rows;
+  }
+  const timers = new WeakMap(), later = (el, fn) => { clearTimeout(timers.get(el)); timers.set(el, setTimeout(fn, 120)); };
+  host.addEventListener("input", e => { const t = e.target;
+    if (t.hasAttribute("data-q")) later(t, () => { st.q = t.value.trim().toLowerCase(); limit = SIZE; draw(); });
+    else if (t.dataset.tx) later(t, () => { const v = t.value.trim().toLowerCase(); if (v) txt[t.dataset.tx] = v; else delete txt[t.dataset.tx]; limit = SIZE; draw(); });
+    else if (t.dataset.min) later(t, () => { const v = parseFloat(t.value); if (isNaN(v)) delete min[t.dataset.min]; else min[t.dataset.min] = v; limit = SIZE; draw(); }); });
+  host.addEventListener("change", e => { const t = e.target; if (!t.dataset.fc) return;
+    st.sel[t.dataset.fc] = new Set(t.value ? [t.value] : []); limit = SIZE; draw(); });
+  host.addEventListener("click", e => { const t = e.target.closest("button, th.sort"); if (!t || e.target.closest("tr.filters")) return;
+    if (t.dataset.tile) { const s2 = st.sel[tileF.col], k = t.dataset.tile; s2.has(k) ? s2.delete(k) : s2.add(k); limit = SIZE; draw(); }
+    else if (t.tagName === "TH") { const k = t.dataset.key; if (st.key === k) st.dir *= -1; else { st.key = k; st.dir = cfg.cols.find(c => c.key === k).sort === "num" ? -1 : 1; } draw(); }
+    else if (t.hasAttribute("data-stats")) { statsOpen = !statsOpen; store.set(statsKey, statsOpen ? "1" : "0"); panels.hidden = !statsOpen;
+      t.textContent = statsOpen ? "Hide stats" : "Show stats"; t.setAttribute("aria-expanded", String(statsOpen)); draw(); }
+    else if (t.hasAttribute("data-reset")) { facets.forEach(f => st.sel[f.col].clear()); Object.keys(txt).forEach(k => delete txt[k]); Object.keys(min).forEach(k => delete min[k]);
+      st.q = ""; host.querySelectorAll(".controls input, .controls select, tr.filters input, tr.filters select").forEach(el => { el.value = ""; }); limit = SIZE; draw(); }
+    else if (t.classList.contains("more")) { limit += SIZE; draw(); } });
+  draw();
+  return cfg;
+}
+
+const nameCell = (url, name, note, extra) => `<span class="t">${link(url, name)}</span>${extra || ""}` +
+  (note ? `<span class="sm" title="${esc(note)}">${esc(clip(note, 120))}</span>` : "");
+const long = (s, n) => s ? `<span title="${esc(s)}">${esc(clip(s, n))}</span>` : "";
+const stars = r => r.stars ? fmt(num(r.stars)) : "";
+const MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const month = d => { const m = /^(\d{4})-(\d{2})/.exec(String(d || "")); return m ? MON[+m[2] - 1] + " " + m[1] : String(d || ""); };
+
+// per-tool scores, collapsed under the name: what we measured, then what papers report
+function scoreBox(id) {
+  const sc = (C.tool_scores || {})[id];
+  if (!sc || !sc.length) return "";
+  const grp = (g, title) => { const xs = sc.filter(x => x.group === g); return xs.length ? `<tr><th colspan="2">${title}</th></tr>` +
+    xs.map(x => `<tr><td>${esc(x.label)}${x.ref && byId[x.ref] ? ` <span class="sm">${link(byId[x.ref].url, clip(byId[x.ref].title, 40))}</span>` : ""}</td>` +
+      `<td>${esc(x.value)}${x.note ? `<span class="sm">${esc(x.note)}</span>` : ""}</td></tr>`).join("") : ""; };
+  return `<details class="scores"><summary>Scores (${sc.length})</summary><table>` +
+    grp("measured", "Measured here") + grp("paper", "Reported by papers") + "</table></details>";
+}
+
+const TABLES = {};
+TABLES.resources = makeTable({
+  panel: "resources", table: "resources", rows: C.resources, sort: "stars", dir: -1,
+  lede: "Every place skills are published, indexed or curated that we found, with how each can be read in bulk and whether it vets what it lists. Stars belong to the repo, not to its skills.",
+  placeholder: "Search name, operator, platform, notes…",
+  search: ["name", "operator", "platforms", "notes", "url"],
+  facets: [{col: "kind", label: "Kind"}, {col: "vets_safety", label: "Checks listed skills"}, {col: "speaks_to_agents", label: "Flag"}],
+  tiles: "kind",
+  stats: [{label: "Resources shown", whole: "everything we found", facet: "vets_safety", title: "Checks listed skills for security?",
+      tip: "Whether each place checks the skills it lists for security before listing them"},
+    {label: "Readable by a program", test: r => r.enumeration && r.enumeration !== "html-only", facet: "enumeration", title: "Full listing read via",
+      tip: "Places whose whole listing a program can read (git tree, JSON index, API, sitemap) rather than by scraping web pages"},
+    {label: "No licence stated", test: r => /^(|none|NOASSERTION)$/i.test(String(r.licence || "").trim()), title: "Licences",
+      tip: "Without a licence, reuse of the listing or its skills is not granted, so a catalog can link but not copy",
+      bars: rows => { const m = new Map(); rows.forEach(r => { const l = String(r.licence || "").trim(); const k = /^(|none|NOASSERTION)$/i.test(l) ? "None stated" : l; m.set(k, (m.get(k) || 0) + 1); });
+        return [...m].sort((x, y) => y[1] - x[1]).slice(0, 6).map(([k, v]) => ({label: k, value: v})); }}],
+  cols: [
+    {key: "name", label: "Resource", tip: "The directory, list or repo. A red flag marks pages that carry text addressed to AI agents", sort: "text", cls: "nm", html: r => nameCell(r.url, r.name, r.notes,
+      r.speaks_to_agents === "found" ? ' <span class="flag" data-tip="Its pages carry text addressed to AI agents">Speaks to AI agents</span>' : "")},
+    {key: "kind", label: "Kind", sort: "text", cls: "nowrap", html: r => `<span class="tag">${esc(lab("resources", "kind", r.kind))}</span>`, tip: "What sort of place it is: an official vendor repo, a plugin marketplace, a registry, an awesome list and so on"},
+    {key: "operator", label: "Operator", tip: "Who runs it", sort: "text", html: r => esc(r.operator)},
+    {key: "platforms", label: "Platforms", tip: "Agents whose skills it lists (Claude Code, Codex, Copilot...)", sort: "text", cls: "long", html: r => long(r.platforms, 60)},
+    {key: "measured_size", label: "Size", tip: "How many skills or entries it holds: our count where we measured it, otherwise its own claim", sort: "text", cls: "long", value: r => r.measured_size || r.claimed_size,
+      html: r => long(r.measured_size || r.claimed_size, 70) + (r.measured_size && r.claimed_size ? `<span class="sm" title="${esc(r.claimed_size)}">claims ${esc(clip(r.claimed_size, 50))}</span>` : "")},
+    {key: "enumeration", label: "Read in bulk via", tip: "How a program can read its full listing: a git tree, a JSON index, an API, a sitemap. HTML only means scraping pages", sort: "text", cls: "nowrap", html: r => esc(lab("resources", "enumeration", r.enumeration))},
+    {key: "harvest_allowed", label: "Harvest", tip: "Whether its terms and robots.txt allow reading it in bulk", sort: "text", html: r => esc(lab("resources", "harvest_allowed", r.harvest_allowed))},
+    {key: "vets_safety", label: "Vets", tip: "Does it check listed skills for security before listing them? Yes, only claims to (no method published), or no", sort: "text", html: r => esc(lab("resources", "vets_safety", r.vets_safety))},
+    {key: "licence", label: "Licence", sort: "text", cls: "nowrap", html: r => esc(r.licence)},
+    {key: "stars", label: "Stars", sort: "num", cls: "num", html: stars},
+    {key: "last_activity", label: "Last activity", sort: "text", cls: "nowrap", html: r => esc(r.last_activity)},
+  ]});
+
+TABLES.tools = makeTable({
+  panel: "tools", table: "tools", rows: C.tools, sort: "fit_for_us", value: null,
+  lede: "Scanners, linters, registry practices, provenance schemes, sandboxes, standards and guidance for vetting skills, plugins and MCP servers. Each was read for what it actually checks, and Verified by says how. Four offline scanners were also run, in a sealed VM, on skills known to be safe: that column counts how many each flagged.",
+  placeholder: "Search name, checks, notes…",
+  search: ["name", "maintainer", "checks_verified", "checks_claimed", "notes", "sends_data_to"],
+  facets: [{col: "use_on_skills", label: "Use on a skill"}, {col: "kind", label: "Kind"}, {col: "fit_for_us", label: "Our call"}, {col: "claude_code_aware", label: "Claude Code aware"}],
+  tiles: "use_on_skills",
+  stats: [{label: "Tools and sources shown", whole: "all we read", facet: "kind", title: "Kind"},
+    {label: "Run fully offline", test: r => r.offline === "yes", facet: "offline", title: "Runs without network", order: ["yes", "partial", "no", "n/a"],
+      tip: "Nothing about the skill leaves your machine. Partial: offline by default, with an optional online mode"},
+    {label: "Aware of Claude Code", test: r => r.claude_code_aware === "yes", facet: "claude_code_aware", title: "Knows allowed-tools, hooks, ! lines", order: ["yes", "partial", "no"],
+      tip: "Checks the features Claude Code acts on without asking: allowed-tools, frontmatter hooks, load-time shell lines"},
+    {label: "Checked in code or rules", test: r => ["code", "rules"].includes(r.verified_by), facet: "verified_by", title: "How we verified what it does", order: ["code", "rules", "docs", "secondhand"],
+      tip: "We read its code or rule files. The rest rest on its docs or on someone else's description"}],
+  cols: [
+    {key: "name", label: "Tool or source", sort: "text", cls: "nm", html: r => nameCell(r.url, r.name, r.notes) + scoreBox(r.id)},
+    {key: "fit_for_us", label: "Our call", tip: "Our call after reading it. Adopt: use as is. Adapt: use with changes. Reference: learn from it. Avoid: do not use", sort: "text", value: r => Object.keys(T.tools.enums.fit_for_us).indexOf(r.fit_for_us),
+      html: r => `<span class="pill f-${esc(r.fit_for_us)}">${esc(lab("tools", "fit_for_us", r.fit_for_us))}</span>`},
+    {key: "use_on_skills", label: "Use on a skill", tip: "How you would use it when vetting a skill: run it offline, run it but it sends data out, contain the skill at run time, pin or diff versions, a checklist", sort: "text", cls: "nowrap", html: r => esc(lab("tools", "use_on_skills", r.use_on_skills))},
+    {key: "kind", label: "Kind", sort: "text", cls: "nowrap", html: r => `<span class="tag">${esc(lab("tools", "kind", r.kind))}</span>`},
+    {key: "checks_verified", label: "Checks we verified", tip: "Checks we confirmed by reading its code, rules or docs, not only its README claims", sort: "text", values: false, cls: "long", html: r => long(r.checks_verified, 120)},
+    {key: "known_good_flagged", label: "Flagged on known-good skills", tip: "When we ran it on 91 skills known to be safe: how many it flagged. Every one of those is a false alarm", sort: "text", cls: "long", html: r => long(r.known_good_flagged, 90)},
+    {key: "offline", label: "Offline", tip: "Runs with no network access: nothing about the skill leaves your machine", sort: "text", html: r => esc(lab("tools", "offline", r.offline))},
+    {key: "sends_data_to", label: "Sends data to", tip: "Where it sends skill content or telemetry, if anywhere", sort: "text", cls: "long", html: r => long(r.sends_data_to, 90)},
+    {key: "claude_code_aware", label: "Claude Code aware", tip: "Whether it knows the Claude Code features a skill can use: allowed-tools, hooks, load-time ! shell lines", sort: "text", html: r => esc(lab("tools", "claude_code_aware", r.claude_code_aware))},
+    {key: "verified_by", label: "Verified by", tip: "How we checked what it does: by its code, its rules, its docs, or only someone else's description (secondhand)", sort: "text", cls: "nowrap", html: r => esc(lab("tools", "verified_by", r.verified_by))},
+    {key: "licence", label: "Licence", sort: "text", cls: "nowrap", html: r => esc(r.licence)},
+    {key: "stars", label: "Stars", sort: "num", cls: "num", html: stars},
+    {key: "last_activity", label: "Last activity", sort: "text", cls: "nowrap", html: r => esc(r.last_activity)},
+  ]});
+
+TABLES.literature = makeTable({
+  panel: "literature", table: "literature", rows: C.literature, sort: "year", dir: -1,
+  lede: "Papers and research reports on attacks against skills, plugins and MCP servers, and on detecting them. arXiv entries were checked against the arXiv API; detection and false-positive rates are as each paper reports them.",
+  placeholder: "Search title, authors, attack class, detectors…",
+  search: ["title", "authors", "venue", "attack_classes", "detectors", "notes", "platforms"],
+  facets: [{col: "topic", label: "Topic"}, {col: "verified", label: "Source"}],
+  tiles: "topic",
+  stats: [{label: "Papers shown", whole: "all we found", facet: "topic", title: "Topic"},
+    {label: "Peer reviewed", test: r => !/preprint|arxiv|blog|zenodo|report/i.test(r.venue || ""), title: "Where they appeared",
+      tip: "Published at a reviewed venue. Most work on skills is still preprints",
+      bars: rows => { const m = new Map(); rows.forEach(r => { const v = r.venue || ""; const k = /arxiv/i.test(v) ? "arXiv preprint" : /preprint|zenodo/i.test(v) ? "Other preprint" : /blog|report/i.test(v) ? "Blog or report" : "Peer reviewed"; m.set(k, (m.get(k) || 0) + 1); });
+        return [...m].sort((x, y) => y[1] - x[1]).map(([k, v]) => ({label: k, value: v})); }},
+    {label: "Report a false-positive rate", test: r => !!r.fp_rate, title: "What the papers report",
+      tip: "How often a detector flags harmless skills. Without it a detection rate says little",
+      bars: rows => [["Detection rate", r => !!r.detection_rate], ["Code released", r => !!r.code_url], ["False-positive rate", r => !!r.fp_rate]]
+        .map(([k, f]) => ({label: k, value: rows.filter(f).length}))}],
+  cols: [
+    {key: "title", label: "Paper", tip: "Paper title, with its authors", sort: "text", cls: "nm", html: r => nameCell(r.url, r.title, r.authors)},
+    {key: "year", label: "Year", tip: "Year of the version we read", sort: "num", cls: "num", html: r => esc(r.year)},
+    {key: "topic", label: "Topic", tip: "Attack (a new way in), defence (a way to stop it), measurement (what is out there), benchmark or survey", sort: "text", cls: "nowrap", html: r => `<span class="tag">${esc(lab("literature", "topic", r.topic))}</span>`},
+    {key: "venue", label: "Venue", tip: "Where it appeared. arXiv means a preprint, not yet peer reviewed", sort: "text", cls: "long", html: r => long(r.venue, 50)},
+    {key: "attack_classes", label: "Attack classes", tip: "Kinds of attack the paper covers", sort: "text", cls: "long", html: r => long(r.attack_classes, 120)},
+    {key: "detection_rate", label: "Detection", tip: "Share of malicious samples caught, as the paper reports it", sort: "text", values: false, cls: "long", html: r => long(r.detection_rate, 110)},
+    {key: "fp_rate", label: "False positives", tip: "Share of harmless samples wrongly flagged, as the paper reports it", sort: "text", values: false, cls: "long", html: r => long(r.fp_rate, 80)},
+    {key: "code_url", label: "Code", tip: "Link to the paper's code, where released", cls: "nowrap", html: r => r.code_url ? link(r.code_url, "code") : ""},
+  ]});
+
+// --- skills: the harvested curated core ----------------------------------------------------
+(function skills() {
+  const SK = window.SKILLS, SV = S.skills || {}, FL = SV.flags || {};
+  const SL = (m, k) => { const v = (m || {})[k]; return v && typeof v === "object" ? v.label : (v ?? k); };
+  const SOFT = new Set(["fixture", "name_mismatch", "yaml_invalid", "no_frontmatter"]);
+  if (!SK || !SK.skills) { $("#p-skills").innerHTML = '<p class="lede">Not harvested yet.</p>'; return; }
+  const TOOLS = {sentry: ["Sentry", "T01"], cisco: ["Cisco", "T02"], skillspector: ["SkillSpector", "T03"], agnix: ["agnix", "T17"],
+    aid: ["aid", "T05"], atr: ["ATR", "T13"], bawbel: ["bawbel", "T19"]};
+  const ORDER = [...Object.keys(TOOLS), "skills-ref"], has = (r, t) => ((r.sb || 0) >> ORDER.indexOf(t)) & 1;
+  const kg = id => { const m = /\((\d+)%\)/.exec((byId[id] || {}).known_good_flagged || ""); return m ? m[1] + "%" : "?"; };
+  const HI = new Set(["CRITICAL", "HIGH"]);
+  SK.skills.forEach(r => { r.scanned = r.scan ? "yes" : "no";
+    r.sc_of = r.scan ? Object.keys(TOOLS).filter(t => has(r, t)).length : 0;
+    r.sc_n = r.scan ? Object.keys(TOOLS).filter(t => r.scan[t] && HI.has(r.scan[t][0])).length : null;
+    r.sc_bin = r.sc_n == null ? "" : r.sc_n === 0 ? "0" : r.sc_n === 1 ? "1" : r.sc_n <= 3 ? "2-3" : "4+"; });
+  const scanCell = r => { if (!r.scan) return '<span class="sm">not yet</span>';
+    const t = Object.entries(TOOLS).map(([k, [name, id]]) => { if (!has(r, k)) return `${name}: not scanned`; const v = r.scan[k];
+      return `${name}: ${v ? v[0] + (v[2].length ? " (" + v[2].join(", ") + ")" : "") : "no findings"}; flags ${kg(id)} of known-good skills`; }).join(". ");
+    const sp = r.scan["skills-ref"];
+    const spec = has(r, "skills-ref") ? ". Agent Skills spec (skills-ref): " + (sp ? "fails (" + sp[2].join(", ") + ")" : "conforms") : "";
+    return `<span data-tip="${esc(t + spec)}">${r.sc_n} of ${r.sc_of}</span><span class="sm">at HIGH+</span>`; };
+  // LLM review: a model's overall risk per skill, beside the person-read verdicts on the ones it called high
+  const LM = SK.llm_meta, RISK = ["critical", "high", "medium", "low", "none", "unparsed", "refused"];
+  const RL = {critical: "Critical", high: "High", medium: "Medium", low: "Low", none: "None", unparsed: "Unparsed", refused: "Refused"};
+  const VL = Object.assign({}, ((T.verdicts || {}).enums || {}).verdict || {}, {"case": "Verified case"});
+  const SOFTV = new Set(["false_alarm", "artifact"]), human = k => String(k).replace(/_/g, " ");
+  SK.skills.forEach(r => { r.llm_risk = r.llm ? r.llm[0] : ""; r.llm_read = (r.llmv || []).map(v => v[1]); });
+  const llmCell = r => { if (!r.llm) return `<span class="sm" data-tip="New or changed since the last LLM review; awaiting a re-review of these files">${SK.llm_stale ? "awaiting re-review" : "not yet"}</span>`;
+    const [risk, manip, cats, caps] = r.llm;
+    const tip = `${RL[risk] || risk} overall, from ${LM.run} (${Object.keys(LM.models).join(", ")}, ${LM.settings}): the model read the skill's files as untrusted data, with no tools and a fixed answer schema. ` +
+      (cats.length ? "Concerns at medium or above: " + cats.map(human).join(", ") + ". " : "") +
+      (caps.length ? "Capabilities it reported: " + caps.map(human).join(", ") + ". " : "") +
+      (manip ? "It also flagged text that may be aimed at a reviewer. " : "") + (["critical", "high"].includes(risk) || manip ? "" : "Not read by a person. ") + "A signal to read at its line, not a verdict.";
+    const reads = (r.llmv || []).map(([sig, v, where, note]) => `<span class="flag${SOFTV.has(v) ? " soft" : ""}" data-tip="${esc((sig === "manipulation" ? "Reviewer-manipulation flag" : "High risk") + ", read by a person" + (where ? " at " + where : "") + ": " + note)}">${esc(VL[v] || v)}</span>`).join(" ");
+    return `<span class="tag" data-tip="${esc(tip)}">${esc(RL[risk] || risk)}</span>` + (manip ? '<span class="sm">reviewer flag</span>' : "") + (reads ? " " + reads : ""); };
+  // Subjects: 1 to 3 per skill, main first, given by an LLM from the name and description
+  const SM = SK.subjects_meta || {}, SUB = SM.subjects || {};
+  const LANGN = Object.fromEntries([...new Set(SK.skills.flatMap(r => r.langs || []))].sort().map(k => [k, k]));
+  SK.skills.forEach(r => { r.vend = r.subjects ? (r.vendor ? "yes" : "no") : ""; });
+  // Opening order: each repo's first skill (by name) before any repo's second, then by stars
+  const rkn = {}; [...SK.skills].sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0).forEach(r => { r.rk = rkn[r.repo] = (rkn[r.repo] ?? -1) + 1; });
+  const subjCell = r => { if (!r.subjects) return "";
+    const tip = [`Audience: ${(SM.audience || {})[r.audience] || r.audience}`, `Does: ${(r.actions || []).map(a => (SM.actions || {})[a] || a).join(", ")}`,
+      (r.about_langs || []).length ? `About: ${r.about_langs.map(l => (SM.langs || {})[l] || l).join(", ")}` : "",
+      r.vendor ? "About one vendor's product" : "General practice"].filter(Boolean).join(". ");
+    return `<span class="tag" data-tip="${esc(tip)}">${esc(SUB[r.subjects[0]] || r.subjects[0])}</span>` +
+      r.subjects.slice(1).map(k => `<span class="sm">+ ${esc(SUB[k] || k)}</span>`).join(""); };
+  $("#n-skills").textContent = fmt(SK.skills.length);
+  const pills = r => (r.flags || []).map(f => { const d = FL[f] || {label: f, tip: ""};
+    let t = d.tip || d.label;
+    if (f === "agent_directed" && (r.phrases || []).length) t += ". Matched: " + r.phrases.join("; ");
+    if ((f === "invisible" || f === "tag_chars") && (r.codepoints || []).length) t += ". Found: " + r.codepoints.join(" ");
+    if (f === "bare_bash" && r.allowed_tools) t += ". allowed-tools: " + r.allowed_tools;
+    return `<span class="flag${SOFT.has(f) ? " soft" : ""}" data-tip="${esc(t)}">${esc(d.label)}</span>`; }).join(" ");
+  const sm = SK.summary;
+  // Drift: the scanned commit against the author's current head (metadata check, no skill text read)
+  const FR = SK.fresh || {repos: {}}, VERL = {u: "Unchanged", s: "SKILL.md changed", f: "Other files changed", g: "Gone at head",
+    p: "Newer upstream, pin unchanged", "": "Not checked"};
+  const VERC = {u: "f-adopt", s: "f-avoid", f: "f-adapt", g: "f-avoid", p: "f-reference", "": "f-reference"};
+  // A marketplace-source skill installs from claude-plugins-official at the commit it pins, which is the one we
+  // scanned: an author's newer commit is not what installs until the marketplace re-pins it.
+  SK.skills.forEach(r => { if (r.tier === "marketplace-source" && (r.ver === "s" || r.ver === "f")) r.ver = "p"; });
+  // Code, dependencies and files (second-wave tools), the plugin root a skill ships in, and what it installs or fetches
+  const CODE = {guarddog: ["GuardDog", "T23"], osv: ["osv-scanner", "T25"], gitleaks: ["gitleaks", "T26"], clamav: ["ClamAV", "T27"],
+    yara: ["YARA", "T28"], bandit: ["Bandit", "T24"]};
+  const CBIT = Object.fromEntries(Object.keys(CODE).map((k, i) => [k, 8 + ["guarddog", "bandit", "osv", "gitleaks", "clamav", "yara"].indexOf(k)]));
+  const PS = SK.plugin_stats || {tools: {}};
+  const TEL = {tel_undisclosed: "Telemetry not in its docs", hooked_sender: "Hook runs a silent sender",
+    silent_sender: "Silent background sender", tel_hosts: "Telemetry host in code"};
+  const INV = {...TEL, unpinned: "Unpinned dependencies", lifecycle: "npm install hook", fetch_run: "Fetches and runs", n_code_hosts: "Hosts named in code",
+    links_out: "Symlink out of folder", active_docs: "Script in SVG/HTML", html_comments: "HTML comments in markdown", b64: "Long encoded blob",
+    docker_loose: "Unpinned Docker image", pep723: "Inline Python dependencies", "sens:ssh": "Names SSH keys", "sens:cloud_creds": "Names cloud credentials",
+    "sens:dotenv": "Names .env files", "sens:agent_config": "Names agent config files", "sens:shell_rc": "Names shell rc files",
+    "sens:scheduler": "Scheduler or autostart", "sens:git_hooks": "Git hooks"};
+  const invTags = v => !v ? [] : Object.keys(INV).filter(k => k.startsWith("sens:") ? (v.sensitive || []).includes(k.slice(5)) : v[k]);
+  SK.skills.forEach(r => {
+    r.code_n = r.scan ? Object.keys(CODE).filter(t => r.scan[t] && HI.has(r.scan[t][0])).length : null;
+    r.code_bin = r.code_n == null ? "" : r.code_n ? "flagged" : "none";
+    const pl = r.plug;
+    r.plug_n = pl ? Object.values(pl[1]).filter(v => HI.has(v[0])).length : -1;
+    r.plug_bin = !pl ? "none" : r.plug_n ? "high" : "clean";
+    // a plugin root's telemetry installs with every skill inside it
+    r.tel_plug = pl ? Object.keys(TEL).filter(k => (pl[2] || {})[k]) : [];
+    r.inv_tags = [...new Set([...invTags(r.inv), ...r.tel_plug])].sort((a, b) => Object.keys(INV).indexOf(a) - Object.keys(INV).indexOf(b));
+  });
+  // LLM triage of the HIGH+ scanner hits: each (tool, rule) group read at its lines with the description
+  const HM = SK.hit_meta || {}, HV = {real_risk: "Real risk", capability_beyond_description: "Beyond description", code_bug: "Code bug",
+    unclear: "Unclear", unparsed: "Unparsed", refused: "Refused"};
+  const HB = {real_risk: "Real risk", beyond: "Beyond description", bug: "Code bug", unclear: "Unclear", cleared: "All cleared", "": "No HIGH+ hits"};
+  SK.skills.forEach(r => { const v = (r.hits || []).map(h => h[2]);
+    r.hit_bin = !r.hitn ? "" : v.includes("real_risk") ? "real_risk" : v.includes("capability_beyond_description") ? "beyond"
+      : v.includes("code_bug") ? "bug" : v.length ? "unclear" : "cleared"; });
+  const hitCell = r => { if (!r.hitn) return '<span class="sm">no HIGH+ hits</span>';
+    const [ok, n] = r.hitn, tip = `An LLM (${HM.model || "?"}, prompt ${HM.prompt || "?"}) read each group of HIGH+ hits from GuardDog, agentshield, hol-guard, Bandit and YARA at its lines, with the skill's stated description, as untrusted data with no tools, and classified it. ` +
+      `${ok} of ${n} group(s) cleared: ordinary capability the description explains, documentation, tests, or a misread line. ` +
+      (r.hits.length ? "Not cleared: " + r.hits.map(([t, rule, v, e, w, rd]) => `${t} ${rule}: ${HV[v] || v}${e === "routes_around_control" ? ", routes around a control" : ""}${w === "p" ? " (plugin root)" : ""}${rd ? " (read by a person)" : " (LLM only)"}`).join("; ") + ". " : "") +
+      (FR.repos[r.repo] ? `These results describe commit ${FR.repos[r.repo].sha.slice(0, 7)}. ` : "") +
+      `A person read ${HM.read || 0} groups at their lines (every group the LLM did not clear, at the time) and their verdict replaces the LLM's; the rest are LLM candidates.`;
+    const kinds = [...new Set(r.hits.map(h => h[2]))];
+    return (kinds.length ? kinds.map(k => `<span class="${k === "unclear" ? "tag" : "flag"}" data-tip="${esc(tip)}">${esc(HV[k] || k)}</span>`).join(" ") : "")
+      + `<span class="sm" data-tip="${esc(tip)}">${ok} of ${n} cleared</span>`; };
+  const telTip = (v, where) => !v || !Object.keys(TEL).some(k => v[k]) ? "" : `Telemetry (${where}): ` + [
+    v.tel_hosts ? "sends to " + v.tel_hosts.join(", ") : "", v.silent_sender ? `${v.silent_sender} file(s) launch a detached process with all output discarded and send data` : "",
+    v.hooked_sender ? "a hook runs one, so it fires on agent events without being asked" : "",
+    v.tel_undisclosed ? "its markdown and manifest never mention telemetry or usage data" : "mentioned in its docs",
+    v.tel_opt_out ? "opt-out variable: " + v.tel_opt_out.join(", ") : ""].filter(Boolean).join("; ");
+  const codeCell = r => { if (!r.scan) return '<span class="sm">not yet</span>';
+    const hits = Object.entries(CODE).filter(([t]) => r.scan[t] && HI.has(r.scan[t][0]));
+    const t = Object.entries(CODE).map(([k, [name, id]]) => { const v = r.scan[k];
+      return `${name}: ${v ? v[0] + (v[2].length ? " (" + v[2].join(", ") + ")" : "") : (((r.sb || 0) >> CBIT[k]) & 1) ? "no findings" : "not run"}; flags ${kg(id)} of known-good skills`; }).join(". ");
+    return hits.length ? hits.map(([k, [name]]) => `<span class="flag" data-tip="${esc(t)}">${esc(name)}</span>`).join(" ")
+      : `<span class="sm" data-tip="${esc(t)}">none at HIGH+</span>`; };
+  const plugCell = r => { const pl = r.plug; if (!pl) return '<span class="sm">not in a plugin</span>';
+    const names = {agentshield: "agentshield", holguard: "hol-guard"};
+    const tip = "Installing this skill installs its plugin root too (hooks, MCP servers, settings). " + Object.keys(names).map(k => { const v = pl[1][k], b = (PS.tools || {})[k] || {};
+      return `${names[k]}: ${v ? v[0] + " (" + v[2].join(", ") + ")" : pl[3].includes(k) ? "no findings" : "not run"}; flags ${b.anth_flagged ?? "?"} of ${b.anth_n ?? "?"} of Anthropic's own plugin roots`; }).join(". ")
+      + (invTags(pl[2]).length ? ". The root ships: " + invTags(pl[2]).map(k => INV[k]).join(", ") : "");
+    const hits = Object.entries(pl[1]).filter(([, v]) => HI.has(v[0]));
+    return (hits.length ? hits.map(([k]) => `<span class="flag" data-tip="${esc(tip)}">${esc(names[k])}</span>`).join(" ")
+      : `<span class="sm" data-tip="${esc(tip)}">plugin, none at HIGH+</span>`) + `<span class="sm">${(r.flags || []).includes("plugin_hooks") ? "hooks " : ""}${(r.flags || []).includes("plugin_mcp") ? "MCP" : ""}</span>`; };
+  const invCell = r => { const tags = r.inv_tags || []; if (!r.inv) return "";
+    const v = r.inv, tip = [v.deps ? `${v.deps} declared dependencies, ${v.unpinned || 0} not pinned to an exact version` : "",
+      v.hosts ? "Hosts named in code: " + v.hosts.join(", ") : "", v.lifecycle ? "npm scripts that run on install: " + v.lifecycle.join(", ") : "",
+      v.fetch_run ? `${v.fetch_run} lines that fetch and run something (curl | sh, npx, pip install, git clone)` : "",
+      telTip(v, "this folder"), r.tel_plug.length ? telTip(r.plug[2], "its plugin root") : "",
+      "Read by code from every file in the folder, offline in the VM; facts, not findings."].filter(Boolean).join(". ");
+    return tags.length ? tags.slice(0, 4).map(k => `<span class="tag" data-tip="${esc(tip)}">${esc(INV[k])}</span>`).join(" ") + (tags.length > 4 ? `<span class="sm">+${tags.length - 4} more</span>` : "")
+      : `<span class="sm" data-tip="${esc(tip)}">none</span>`; };
+  const verCell = r => { const fr = FR.repos[r.repo], k = r.ver || "";
+    const tip = fr ? `Scanned at commit ${fr.sha.slice(0, 7)}${fr.date ? " (" + fr.date + ")" : ""}, fetched ${FR.fetched}. The author's branch was at ${fr.head.slice(0, 7)}` +
+      (fr.ahead ? `, ${fr.ahead} commits later` : ", the same commit") + `, when checked on ${FR.checked}. ` + (k === "u" ? "This skill's folder is identical there." : k === "s" ? "Its SKILL.md differs there: our results may no longer apply." : k === "f" ? "Other files in its folder differ there." : k === "g" ? "The folder or its SKILL.md is gone there." : "")
+      : "Not checked for changes.";
+    return `<span class="pill ${VERC[k]}" data-tip="${esc(tip)}">${esc(VERL[k])}</span>` + (fr ? `<span class="sm">scanned ${link("https://github.com/" + r.repo + "/tree/" + fr.sha + (r.dir ? "/" + r.dir : ""), fr.sha.slice(0, 7))}` +
+      (k && k !== "u" && fr.head !== fr.sha ? ` · ${link("https://github.com/" + r.repo + "/compare/" + fr.sha + "..." + fr.head, "diff")}` : "") + `</span>` : ""); };
+  TABLES.skills = makeTable({
+    panel: "skills", rows: SK.skills, sort: "stars", dir: -1, page: 200, first: r => r.rk,
+    enums: {tier: SV.tiers, platform: SV.platforms, flags: FL, scanned: {yes: "Scanned", no: "Not yet"},
+      llm_risk: Object.fromEntries(RISK.map(k => [k, RL[k]])), llm_read: VL,
+      subjects: SUB, audience: SM.audience || {}, actions: SM.actions || {}, about_langs: SM.langs || {}, langs: LANGN, vend: {yes: "Vendor product", no: "General"},
+      ver: VERL, sc_bin: {"0": "None", "1": "1 scanner", "2-3": "2 or 3", "4+": "4 or more"},
+      code_bin: {none: "None at HIGH+", flagged: "Flagged"}, plug_bin: {none: "Not in a plugin", clean: "Plugin, none at HIGH+", high: "Plugin flagged"},
+      inv_tags: INV, hit_bin: HB},
+    short: `${fmt(SK.skills.length)} skills from the official vendor repos and Anthropic's marketplaces, each with what scanners, an LLM review and code found in it. A signal is not a verdict.`,
+    lede: (SK.scanned ? `${fmt((SK.scan_stats || {}).scanned || SK.scanned)} of these skills have been through all seven offline scanners and the Agent Skills spec validator, with no network, in a sealed VM or on a cluster; a scanner hit is a signal to read at its line, and every one of those scanners also flags a share of skills known to be safe (hover the count). ` : "") + (LM ? `An LLM (${Object.keys(LM.models).join(", ")}, ${LM.settings}) also read every skill's files as untrusted data with no tools and rated its risk; a person then read every high and every reviewer-manipulation flag at the cited lines (the verdict pills). ` : "") + `The curated core: ${fmt(sm.distinct)} distinct skills (${fmt(sm.skill_files)} SKILL.md files, copies folded into one row) from ${fmt(sm.repos)} repos: the official vendor repos, Anthropic's marketplace repos, and the plugin sources claude-plugins-official pins. Fetched ${String(SK.fetched || SK.run).slice(0, 10)}. Flags are facts code read from each SKILL.md and its plugin (a frontmatter key, a syntax, an invisible character), not verdicts; grey flags are hygiene. Subjects are an LLM's labels from the name and description (${esc(SM.model || "")}), 1 to 3 per skill, main first. No skill was installed or executed. Every result describes the commit we scanned (Since scan) and says nothing about the author's intent; to dispute one, see Corrections on the Analysis tab.`,
+    placeholder: "Search name, description, repo, allowed-tools…",
+    search: ["name", "desc", "repo", "dir", "plugin", "allowed_tools"],
+    facets: [{col: "subjects", label: "Subject", multi: true, under: "subj"}, {col: "llm_risk", label: "LLM risk"}, {col: "ver", label: "Since scan"},
+      {col: "sc_bin", label: "Scanners at HIGH+", under: "sc_n"}, {col: "flags", label: "Flag", multi: true},
+      {col: "tier", label: "Source", under: "repo"}, {col: "scanned", label: "VM scan", under: "sc_n"}, {col: "platform", label: "Platform"},
+      {col: "audience", label: "Audience", under: "subj"},
+      {col: "actions", label: "Action", multi: true, under: "subj"}, {col: "about_langs", label: "About language", multi: true, under: "subj"},
+      {col: "langs", label: "Ships code in", multi: true, under: "files"},
+      {col: "code_bin", label: "Code & deps", under: "code_n"}, {col: "plug_bin", label: "Plugin root", under: "plug_n"},
+      {col: "inv_tags", label: "Installs & fetches", multi: true, under: "inv"}, {col: "hit_bin", label: "Hits after triage", under: "hit_n"}],
+    tiles: "subjects",
+    stats: [{label: "Changed since we scanned", test: r => ["s", "g"].includes(r.ver), facet: "ver", title: "Author's current version against the scanned commit", order: ["u", "p", "f", "s", "g", ""],
+        tip: "Skills whose SKILL.md changed or disappeared at the author's current version. Our results describe the commit we scanned. Marketplace skills install at the commit the marketplace pins (the one we scanned) until it re-pins"},
+      {label: "Installed with a plugin root", test: r => !!r.plug, of: true, title: "What the plugin root brings",
+        tip: "Installing one of these skills installs its plugin's hooks, MCP servers and settings too; agentshield and hol-guard read those roots",
+        bars: rows => [["Plugin with hooks", r => (r.flags || []).includes("plugin_hooks")], ["Plugin with MCP servers", r => (r.flags || []).includes("plugin_mcp")],
+          ["agentshield HIGH+", r => r.plug && r.plug[1].agentshield && HI.has(r.plug[1].agentshield[0])], ["hol-guard HIGH+", r => r.plug && r.plug[1].holguard && HI.has(r.plug[1].holguard[0])]]
+          .map(([k, f]) => ({label: k, value: rows.filter(f).length}))},
+      {label: "Skills shown", whole: "the whole curated core", facet: "sc_bin", title: "Scanners flagging HIGH or above", order: ["0", "1", "2-3", "4+"]},
+      {label: "Rated medium or above by the LLM", test: r => ["critical", "high", "medium"].includes(r.llm_risk), facet: "llm_risk", title: "LLM risk", order: RISK},
+      {label: "With a structural flag", test: r => (r.flags || []).some(f => !SOFT.has(f)), facet: "flags", title: "Structural flags", of: true, top: 6, exclude: [...SOFT]}],
+    cols: [
+      {key: "name", label: "Skill", tip: "Skill name, linking to its folder at the commit we read, and the start of its description", sort: "text", cls: "nm", html: r => nameCell(r.url, r.name, r.desc)},
+      {key: "repo", label: "Repo", tip: "GitHub repo, linked at the commit we scanned. 'latest' opens the author's current version, which we have not scanned", sort: "text", cls: "long", values: true,
+        html: r => { const fr = FR.repos[r.repo]; return link("https://github.com/" + r.repo + (fr ? "/tree/" + fr.sha : ""), r.repo)
+          + (r.plugin ? `<span class="sm">plugin ${esc(r.plugin)}</span>` : "") + `<span class="sm">${link("https://github.com/" + r.repo, "latest (not scanned)")}</span>`; }},
+      {key: "ver", label: "Since scan", tip: "Has the skill changed at the author's current version since the commit we scanned? Every scanner and LLM result describes the scanned commit only", sort: "text", cls: "nowrap",
+        value: r => VERL[r.ver] || "", html: verCell},
+      {key: "flags", label: "Flags", tip: "Facts code read from SKILL.md and its plugin, such as pre-approved Bash or bundled hooks. Not verdicts; grey ones are hygiene. Hover a flag", sort: "num", cls: "long", value: r => (r.flags || []).filter(f => !SOFT.has(f)).length, html: pills},
+      {key: "sc_n", label: "Scanners", tip: "How many of 7 offline scanners rated it HIGH or CRITICAL. Each scanner also flags 0 to 45% of skills known to be safe: hover a cell", sort: "num", cls: "num", html: scanCell},
+      {key: "code_n", label: "Code & deps", tip: "Tools that read the skill's code, dependencies and files: GuardDog (malicious-code rules), osv-scanner (known vulnerable or malicious packages), gitleaks (credentials), ClamAV and YARA (malware), Bandit (risky constructs). Pills: the ones at HIGH or above; hover for each tool's result and its rate on known-good skills", sort: "num", cls: "nowrap", html: codeCell},
+      {key: "plug_n", label: "Plugin root", tip: "When the skill ships inside a plugin, installing it installs the plugin root too: hooks, MCP servers, settings. agentshield and hol-guard read that root; hover for their rules and how often they flag Anthropic's own plugins", sort: "num", cls: "nowrap", html: plugCell},
+      {key: "hit_n", label: "Hits, triaged", tip: "HIGH+ hits from the code and plugin tools, each group read by an LLM at its lines and sorted into cleared or not. Pills: what was not cleared; hover for each group", sort: "num", cls: "nowrap",
+        value: r => r.hitn ? r.hitn[1] - r.hitn[0] : null, html: hitCell},
+      {key: "inv", label: "Installs & fetches", tip: "Facts code read from every file in the folder: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, credential and agent-config paths named, and telemetry (analytics hosts, silent background senders, hooks that run them, whether the docs say so). Not findings", sort: "num", cls: "long", value: r => (r.inv_tags || []).length, values: false, html: invCell},
+      {key: "llm_risk", label: "LLM review", tip: "Overall risk an LLM gave after reading every file, as a signal to read. Coloured pills: what a person found reading the lines it cited", sort: "num", cls: "nowrap", value: r => r.llm ? RISK.length - RISK.indexOf(r.llm[0]) : null, html: llmCell},
+      {key: "subj", label: "Subject", tip: "1 to 3 subjects per skill, main first, given by an LLM from the name and description", sort: "text", cls: "nowrap", value: r => r.subjects ? SUB[r.subjects[0]] || r.subjects[0] : "", html: subjCell},
+      {key: "files", label: "Files", tip: "Files in the skill folder, and the languages of any code it ships", sort: "num", cls: "num", html: r => fmt(r.files) + ((r.langs || []).length ? `<span class="sm">${esc(r.langs.join(", "))}</span>` : r.scripts ? '<span class="sm">scripts</span>' : "")},
+      {key: "copies", label: "Copies", tip: "Identical copies of this skill elsewhere in the core, folded into this row", sort: "num", cls: "num", html: r => r.copies
+        ? `<span data-tip="${esc((r.also_in || []).length ? "Also in " + r.also_in.join(", ") : "Copies within the same repo")}">${fmt(r.copies)}</span>` : ""},
+      {key: "platform", label: "Platform", tip: "Agent the skill is written for", sort: "text", cls: "nowrap", value: r => SL(SV.platforms, r.platform), html: r => esc(SL(SV.platforms, r.platform))},
+      {key: "licence", label: "Licence", sort: "text", cls: "nowrap", value: r => r.licence || r.fm_licence,
+        html: r => esc(r.licence && r.licence !== "NOASSERTION" ? r.licence : (r.fm_licence || r.licence))},
+      {key: "stars", label: "Repo stars", tip: "Stars of the whole repo, not of this skill", sort: "num", cls: "num", html: r => fmt(r.stars)},
+      {key: "pushed", label: "Repo last pushed", tip: "Month of the repo's latest push on GitHub, when we read it", sort: "text", cls: "nowrap", values: true, vorder: "desc", vlabel: month,
+        value: r => String(r.pushed || "").slice(0, 7), html: r => esc(month(r.pushed))},
+    ]});
+})();
+
+// --- analysis and practices ---------------------------------------------------------------
+const refLinks = refs => (refs || []).map(id => { const r = byId[id]; return r ? link(r.url, clip(r.name || r.title, 48), "ref") : ""; }).join("");
+(function analysis() {
+  const A = C.analysis, host = $("#p-analysis");
+  if (!A) { host.innerHTML = '<p class="lede">Not written yet.</p>'; return; }
+  const st = (window.SKILLS || {}).scan_stats, SVC = (S.skills || {}).categories || {};
+  const SL = (m, k) => { const v = (m || {})[k]; return v && typeof v === "object" ? v.label : (v ?? k); };
+  // Bands on one three-column grid, so text, tables and charts line up down the page.
+  const band = (title, inner) => `<section class="band"><h2>${esc(title)}</h2><div class="g3">${inner}</div></section>`;
+  let h = `<p class="lede">The method behind the Skills tab and what reading the results found, as of ${esc(A.as_of)}. Figures are computed from the data; findings were read by a person at the line each scanner pointed to.</p>`;
+  h += band(A.title, A.approach.map((s, i) => `<div class="step c${i % 6}"><h3><span class="n">${i + 1}</span>${esc(s.step)}</h3>${esc(s.text)}` +
+    ((s.refs || []).length ? `<div style="margin-top:6px">${refLinks(s.refs)}</div>` : "") + `</div>`).join(""));
+  h += band("What reading the hits found", `<ul class="finding cols3 span3">` + A.findings.map(f => finding(f.text, refLinks(f.refs))).join("") + `</ul>`);
+  if (st) {
+    const flagRows = Object.entries(st.by_flag).filter(([k]) => !["fixture", "name_mismatch", "yaml_invalid", "no_frontmatter"].includes(k))
+      .map(([k, v]) => ({label: ((S.skills || {}).flags || {})[k] ? S.skills.flags[k].label : k, value: v}));
+    h += band("Results",
+      `<div><p class="lede">${fmt(st.scanned)} of ${fmt(st.distinct)} skills have reports from all ${st.tools.length} scanners. A tool that flags known-good skills as often as it flags these cannot, on its own, tell them apart.</p>` +
+      `<p class="lede">Any CRITICAL finding: ${fmt(st.critical)} skills.` + (st.spec ? ` The Agent Skills spec validator (${link((byId.P01 || {}).url, "skills-ref")}) fails ${fmt(st.spec.fail)} of ${fmt(st.spec.n)} (${st.spec.pct}%): ` + st.spec.by_rule.map(([k, v]) => `${esc(k)} ${fmt(v)}`).join(", ") + "." : "") + `</p></div>` +
+      `<div class="tablewrap span2"><table class="small" style="width:100%"><thead><tr><th>Scanner</th>` +
+      `<th data-tip="Skills in the curated core this scanner rated HIGH or CRITICAL">Core skills flagged HIGH+</th>` +
+      `<th data-tip="Share of 91 skills known to be safe that it rated HIGH or CRITICAL: false alarms">Known-good skills flagged</th></tr></thead><tbody>` +
+      st.tools.map(t => `<tr><td>${link((byId[t.id] || {}).url, t.label)}</td><td class="num">${fmt(t.flagged)} (${t.pct}%)</td><td class="num">${t.known_good_pct == null ? "" : t.known_good_pct + "%"}</td></tr>`).join("") +
+      `</tbody></table></div>` +
+      pairs("Flag rates: the core against known-good skills", "Share flagged HIGH or above by each scanner",
+        ["Core (" + fmt(st.tools[0].n) + " skills)", "Known-good (91)"],
+        st.tools.map(t => ({label: t.label.split(" ")[0], a: t.pct, b: t.known_good_pct,
+          tip: `${t.label}: ${t.pct}% of ${fmt(t.n)} core skills at HIGH+ (${fmt(t.flagged)}); ` + (t.known_good_pct == null ? "no known-good run" : `${t.known_good_pct}% of 91 known-good skills`)}))) +
+      bars("Skills by how many scanners flag them", "HIGH or above, out of " + st.tools.length, st.by_n_tools.map((v, i) => ({label: i + " of " + st.tools.length, value: v})), 8,
+        "Agreement between scanners: most skills are flagged by none or one") +
+      bars("Structural flags on the core", "Read from each SKILL.md and its plugin", flagRows, 8,
+        "Features Claude Code acts on without asking, read by code from every skill. Facts, not verdicts"));
+  }
+  if (st && st.code_tools) {
+    const pr = st.plugin_tools || [], row = t => `<tr><td>${link((byId[t.id] || {}).url, t.label)}</td>`;
+    h += band("Code, dependencies and plugin roots",
+      `<div><p class="lede">Eight more offline tools read what the instruction scanners do not: a skill's code (GuardDog's malicious-code rules, Bandit's risky constructs), its declared dependencies against an offline copy of the OSV database, including known-malicious packages (osv-scanner), credentials left in files (gitleaks), malware signatures (ClamAV, YARA-Forge), and the ${fmt(st.plugin_roots)} plugin roots that skills ship in, whose hooks, MCP servers and settings install with them (agentshield, hol-guard).</p>` +
+      `<p class="lede">On the 91 known-good skills every one of them flags none at HIGH or above, except agentshield (1). There is no known-good plugin set, so the plugin tools are shown beside their rate on Anthropic's own marketplace plugins: agentshield flags those as often as any others, so on plugins its count does not separate risk; its hook and MCP facts are still shown per skill.</p></div>` +
+      `<div class="tablewrap span2"><table class="small" style="width:100%"><thead><tr><th>Tool</th><th data-tip="Entries this tool read that it rated HIGH or CRITICAL">Flagged HIGH+</th><th data-tip="Share of 91 skills known to be safe it rated HIGH or CRITICAL; for the plugin tools, Anthropic's own marketplace plugin roots instead">Reference rate</th></tr></thead><tbody>` +
+      st.code_tools.map(t => row(t) + `<td class="num">${fmt(t.flagged)} of ${fmt(t.n)} (${t.pct}%)</td><td class="num">${t.known_good_pct == null ? "" : t.known_good_pct + "% of known-good"}</td></tr>`).join("") +
+      pr.map(t => row(t) + `<td class="num">${fmt(t.flagged || 0)} of ${fmt(t.n || 0)} roots (${Math.round(100 * (t.flagged || 0) / Math.max(1, t.n || 0))}%)</td><td class="num">${fmt(t.anth_flagged || 0)} of ${fmt(t.anth_n || 0)} Anthropic roots</td></tr>`).join("") +
+      `</tbody></table></div>`);
+  }
+  const SKA = window.SKILLS || {}, LM = SKA.llm_meta;
+  if (LM) {
+    const RK = ["critical", "high", "medium", "low", "none"], rl = k => k[0].toUpperCase() + k.slice(1);
+    const rd = LM.read || {}, cnt = (sig, v) => rd[sig + ":" + v] || 0;
+    const four = (SKA.skills || []).filter(r => r.llm && r.sc_n >= 4), fc = four.reduce((m, r) => (m[r.llm[0]] = (m[r.llm[0]] || 0) + 1, m), {});
+    const VLA = Object.assign({}, ((T.verdicts || {}).enums || {}).verdict || {}, {"case": "Verified case"}), vl = k => { const v = VLA[k]; return v && typeof v === "object" ? v.label : (v || k); };
+    const readRows = (sig, ks) => ks.filter(k => cnt(sig, k)).map(k => `<tr><td>${esc(vl(k))}</td><td class="num">${fmt(cnt(sig, k))}</td></tr>`).join("");
+    h += band("LLM review",
+      `<div><p class="lede">${esc(Object.keys(LM.models).join(", "))} (${esc(LM.settings)}) read the files of all ${fmt(Object.values(LM.risk).reduce((a, b) => a + b, 0))} skills as untrusted data, with no tools and a fixed answer schema, for $${LM.cost_usd}. ` +
+      `Scanner agreement did not predict its rating: of the ${fmt(four.length)} skills that four or more scanners flag HIGH+, it rated ` + RK.filter(k => fc[k]).map(k => `${fmt(fc[k])} ${k}`).join(", ") + `.</p></div>` +
+      bars("Skills by LLM risk", "Overall risk per skill; a signal, not a verdict", RK.filter(k => LM.risk[k]).map(k => ({label: rl(k), value: LM.risk[k]})), 5,
+        "The model's overall rating after reading every file of the skill") +
+      `<div class="card"><h3 data-tip="Every high rating and every reviewer-manipulation flag was read by a person at the lines the model cited">Read by a person</h3><table class="small">` +
+      `<tr><th colspan="2">High ratings (${fmt(LM.risk.high || 0)})</th></tr>` + readRows("high", ["case", "confirmed", "overstated", "false_alarm"]) +
+      `<tr><th colspan="2">Reviewer-manipulation flags (${fmt(LM.manipulation)})</th></tr>` + readRows("manipulation", ["real", "artifact"]) +
+      `</table><p class="lede" style="margin:8px 0 0;font-size:12.5px">Overstated: real, but a request for an escalation the host still prompts for. Artifact: scanner baselines, eval verdicts and judge prompts shipped in the skill.</p></div>`);
+  }
+  const repo = ($("footer") || {dataset: {}}).dataset.repo || "";
+  if (A.limits) h += band("What this does not claim", `<ul class="finding cols3 span3">` + A.limits.map(t => finding(t, "")).join("") + `</ul>`);
+  if (A.corrections) h += band("Corrections and removal", `<ul class="finding span2">` + A.corrections.map(t => `<li><div class="plain">${esc(t)}</div></li>`).join("") + `</ul>` +
+    (repo ? `<div><p class="lede">${link(repo + "/issues/new?template=correction.yml", "Report an error or ask for removal")}<br>${link(repo + "/security/advisories/new", "Private report")}</p></div>` : ""));
+  host.innerHTML = h;
+})();
+(function practices() {
+  const P = C.practices, host = $("#p-practices");
+  if (!P) { host.innerHTML = '<p class="lede">Not written yet.</p>'; return; }
+  host.innerHTML = `<h2 style="margin-top:0">${esc(P.title)}</h2><p class="lede" style="max-width:80ch">${esc(P.intro)}</p><p>${refLinks(P.refs)}</p>
+    <div class="ladder">` + P.levels.map(lv => `<div class="rung"><h3><span class="lv">${esc(lv.level)}</span>${esc(lv.name)}</h3><p class="goal">${esc(lv.goal)}</p><ul>` +
+      lv.practices.map(x => `<li>${esc(x.text)}${(x.refs || []).length ? "<br>" : ""}${refLinks(x.refs)}</li>`).join("") + `</ul></div>`).join("") + `</div>`;
+})();
+
+// --- coverage matrix -----------------------------------------------------------------------
+(function coverage() {
+  const host = $("#p-coverage"), cols = Object.keys(COV.columns), stat = COV.statuses;
+  const cls = s => "s-" + (s === "n/a" ? "na" : s);
+  const head = cols.map(k => { const c = COV.columns[k], t = c.tool && byId[c.tool];
+    return `<th class="col" scope="col">${t ? link(t.url, c.label) : esc(c.label)}</th>`; }).join("");
+  const body = C.coverage.map(row => {
+    const others = cols.filter(k => k !== "ours");
+    const good = others.filter(k => ["verified", "partial"].includes(row.cells[k].status)).length;
+    return `<tr><td class="ck">${esc(row.check)}${good ? "" : '<span class="sm gap">No tool verified</span>'}</td>` +
+      cols.map(k => { const c = row.cells[k], s = stat[c.status];
+        const t = `${COV.columns[k].label}: ${s.label}${c.note ? " (" + c.note + ")" : ""}`;
+        return `<td class="c ${cls(c.status)}${k === "ours" ? " ours" : ""}" data-tip="${esc(t)}" aria-label="${esc(t)}">${esc(s.mark)}</td>`; }).join("") +
+      `<td class="num">${good}</td></tr>`;
+  }).join("");
+  const gaps = C.coverage.filter(row => !Object.keys(row.cells).filter(k => k !== "ours")
+    .some(k => ["verified", "partial"].includes(row.cells[k].status))).length;
+  host.innerHTML = `<p class="lede">Which checks each tool makes, against the attack classes documented for skills and
+    plugins. "Verified" means we read the code or rules that do it; "claimed" means only its docs say so. ${gaps} of
+    ${C.coverage.length} classes have no tool that verifiably checks them, even partly. Hover a cell for the detail.</p>
+    <div class="legend">${Object.entries(stat).map(([k, s]) => `<span><b class="${cls(k)}">${esc(s.mark)}</b>${esc(s.label)}</span>`).join("")}</div>
+    <div class="tablewrap"><table class="matrix"><thead><tr><th scope="col">Check</th>${head}<th scope="col" class="col">Tools verified or partial</th></tr></thead>
+    <tbody>${body}</tbody></table></div>`;
+})();
+
+// --- download (static site only) -------------------------------------------------------------
+const dl = $("#dl");
+if (dl) dl.addEventListener("click", () => {
+  const t = TABLES[current]; if (!t) return;
+  const keys = Object.keys(t.rows[0] || {});
+  const clean = v => String(v == null ? "" : v).replace(/[\t\r\n]+/g, " ");
+  const tsv = [keys.join("\t")].concat(t.shown.map(r => keys.map(k => clean(r[k])).join("\t"))).join("\n") + "\n";
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([tsv], {type: "text/tab-separated-values"}));
+  a.download = `awesome-agent-skills-${current}.tsv`; document.body.appendChild(a); a.click(); a.remove();
+});
+
+show(decodeURI(location.hash.slice(1)) || store.get("aas-tab") || "overview");
+})();
+</script>
+</body>
+</html>

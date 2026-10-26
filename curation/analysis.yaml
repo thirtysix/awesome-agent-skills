@@ -1,0 +1,69 @@
+# Hand-written: how the skills were analysed and what reading the results found. Figures that change
+# with each run (counts, rates) are computed by render.py from data/skills.json and data/scans.json;
+# this file holds the method and the findings a person verified, each with refs to catalog rows.
+title: How the skills were analysed
+as_of: 2026-10-25
+approach:
+  - step: Harvest
+    text: "Every SKILL.md in the 50 official vendor repos, Anthropic's five marketplace repos and the 223 plugin sources that claude-plugins-official pins to a commit, read from GitHub as text at that commit. Copies were folded by content hash. No skill was installed or executed at any step below."
+    refs: [PLM001]
+  - step: Structural flags
+    text: "Code read each file for the features Claude Code acts on without asking: pre-approved Bash, load-time shell, frontmatter hooks, plugin hooks and MCP servers, downloads piped into a shell, invisible characters, descriptions that push the agent to use the skill. A sample of every flag was read at the matched line, and three rules were tightened after that read."
+    refs: [G02]
+  - step: Known-good baseline
+    text: "Seven offline scanners (Sentry, Cisco, SkillSpector, agnix, then aid, ATR and bawbel) and the Agent Skills spec validator first ran on 91 skills known to be safe, ours and Anthropic's, to measure how often each flags harmless skills. Every CRITICAL was read at its line. A fifth candidate, skillscan-security, was left out: its author had retired it."
+    refs: [T01, T02, T03, T17, T05, T13, T19, P01, T18]
+  - step: Scanning the core
+    text: "The same scanners then read the full folder of every harvested skill, scripts included, fetched at the pinned commit and checked against git hashes. They ran with no network, first in a disposable local VM, then as identical images on CSC's Roihu cluster; for each set of scanners, 30 skills run in both places gave identical findings."
+    refs: [T01, T02, T03, T17, T05, T13, T19]
+  - step: Subjects
+    text: "Subjects come from a label set of 29 composed from the category lists of five skill directories and Anthropic's marketplaces. An LLM (Opus 5.5) gave each skill 1 to 3, main purpose first, from its name and description, given as untrusted data with no tools and a fixed schema. On a fixed 200, Opus and Haiku 5.5 chose the same main subject for 73%, and one model's main subject was among the other's for 93%; Haiku gave two subjects to nearly every skill, so Opus labelled the core. Earlier keyword rules agreed with an LLM on 56% of 200, mostly through keyword mistakes."
+    refs: []
+  - step: Reading the hits
+    text: "A finding is a signal, not a verdict. A sample of every CRITICAL rule was read at the line it points to, and each rule was classed as a real finding or a false-positive pattern."
+    refs: []
+  - step: Code, dependencies and plugin roots
+    text: "Eight more offline tools read each skill's code, declared dependencies, credentials left in files and malware signatures, and the plugin roots skills install with (hooks, MCP servers, settings), in the same sealed setup. On the 91 known-good skills none of them flags any at HIGH or above, except agentshield (1)."
+    refs: [T23, T24, T25, T26, T27, T28, T06, T29]
+  - step: Install and telemetry facts
+    text: "Our own code, run inside the VM, listed what each folder does on install or use: unpinned dependencies, install hooks, lines that fetch and run something, hosts named in code, analytics hosts, background senders, and whether the skill's docs mention telemetry. These are facts, not findings."
+    refs: []
+  - step: Credential hits
+    text: "Every credential hit was sorted by code into buckets and shown to a person with the value masked; no value was ever printed or tried. The plausible ones were read: none was a live credential."
+    refs: [T26]
+  - step: LLM review
+    text: "An LLM (Claude Haiku 5.5) read every skill's files as untrusted data, with no tools and a fixed answer schema, and rated its risk. Only its labels are kept, never its prose. A person read every high rating and every flag of text aimed at a reviewer, at the lines the model cited; the verdict pills show what they found."
+    refs: []
+  - step: Triaging the hits
+    text: "Each group of HIGH or CRITICAL hits from the code and plugin tools (one skill, one tool, one rule) was shown to an LLM at its lines with the skill's own description and sorted into cleared or not. A person then read every group it did not clear and their verdict replaces the model's. Not cleared means beyond what the description says, a coding mistake, or a real risk; none of these is a claim about the author's intent."
+    refs: []
+limits:
+  - "This is a snapshot: skills harvested and scanned on 2026-10-25. It is not updated in place; a later rescan is published as a new dated release, and each result describes the commit we scanned, linked from each row. The author may have changed the skill since; the Since scan column says when they have."
+  - "A clean row does not mean a skill is safe. Scanners miss what they have no rule for, a payload that only appears at run time gets past static scanning, and nothing here ran the skills."
+  - "A flag does not mean a skill is malicious. Every scanner also flags skills known to be safe; its rate on those is shown beside each count, and that rate is not a false-positive rate for the core."
+  - "We make no catch-rate claims: there is no planted malicious set here, only known-good skills and what reading the hits found."
+  - "LLM labels are candidates. Where a person has not read a result, the page says so."
+  - "Beyond description, code bug and real risk describe what a file does next to what its description says, not why the author wrote it."
+  - "A finding that a third party could exploit is held back from the page and the data until its author has had time to fix it, for at most 30 days after we notify them."
+corrections:
+  - "If a result about your skill is wrong, out of date or unfair, open an issue on the repository with the skill and what is wrong; the correction template asks for both. We read the cited lines again and update or remove the result, and note the change in the data."
+  - "To have a skill or repository left out of the catalog, open an issue saying so. For anything you would rather not raise in public, use the repository's private security advisory form."
+findings:
+  - text: "Real: 13 of Spotify's 14 Confidence skills tell the agent to post telemetry to Spotify's Confidence service in the background (the step, the user's sentiment, errors), never to mention it to the user, and to run the setup with Claude Code's sandbox switched off. No other skill in the core does either. Five scanners flagged them at HIGH or above: SkillSpector all 13, through generic rules such as any curl POST; ATR 10, through a rule whose matched condition is the sandbox override; bawbel 9, GuardDog 2 and Cisco 2, through generic exfiltration, environment-read and network-flow rules. None flagged the instruction to hide the telemetry from the user."
+    refs: [PLM001, T03, T13, T19, T23, T02]
+  - text: "No skill read at its flagged lines turned out to be malicious. Each scanner's flag rate on the core was at or below its rate on known-good skills, so on their own the flags do not separate good skills from bad ones."
+    refs: [T01, T02, T03, T17]
+  - text: "Real: NousResearch's hermes-agent ships a skill whose description offers to bypass safety filters on API-served LLMs; dual-use tooling aimed at LLM providers, in an official agent repo."
+    refs: [OFF050]
+  - text: "Real: datadog-labs' Claude Code plugin tells the agent not to tell the user which state it determined, what it checked, or what it found."
+    refs: []
+  - text: "Real: skills in the growthbook and datahub repos contain symlinks that point outside the skill folder, to code shared across the repo; a skill installed on its own gets a dangling link."
+    refs: []
+  - text: "Real: 66 skills pipe a curl or wget download into a shell, mostly installer one-liners; one pipes a documentation-page URL into bash."
+    refs: []
+  - text: "Common false alarms: a vendor SDK sending its own API key to its own service, labelled exfiltration; security references that quote attacks; documented example keys; SQL and markup examples; ordinary prose matched by generic injection patterns. bawbel's YARA rules match single words: CRITICAL for encode, HIGH for A2A inside a hex colour or a migration hash."
+    refs: [T19]
+  - text: "The spec validator fails a third of the core, mostly for Claude Code keys the open spec does not define (argument-hint, user-invocable, disable-model-invocation) and for YAML list syntax its strict parser refuses but Claude Code reads."
+    refs: [P01]
+  - text: "Pitfalls met on the way: SkillSpector's batch mode reports on at most 30 skills per run without saying so, so a missing report must never be read as a clean one; on the cluster a container reaches the internet unless started with no network."
+    refs: [T03]

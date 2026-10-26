@@ -1,0 +1,7553 @@
+{
+"collected": "2026-10-25",
+"entries": {
+"h__013697929285": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__024261adfba1": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__05891c460f96": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__08b6e4ccf91e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__0941e2698a2a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__0a85377bb94a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "B602",
+"tool": "bandit",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__0b2c2c96b3e9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__0ba55ce2ee60": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__10147d9334b1": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__10ebcb9d5b4d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__12a2ca2d858b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__142d55e1f4a7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__14ed0eccfc3c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__15be762f88d4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__162d657e8019": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__168ec2328f16": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__18ef0c57d771": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__196bf1d106a8": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__19e9d0e801c3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__1d1837b01f09": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__1e5934b10626": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-autostart",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__1e7bfe7e151f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__1fede5df9013": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__201da2175e63": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-steganography",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__202f425fed0d": [
+{
+"disclosed": "no",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_beyond_description",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__2127fbb6cd7d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__215af8fbe223": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "B602",
+"tool": "bandit",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__220bbfa4b799": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__22998a48d366": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__22c6d2e2de24": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__23472ca3eccf": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__26aafefd6b14": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__279f020b093a": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "unclear",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-steganography",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__2c979b9700c9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__2dfb20823181": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__2ed18476f61a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__31e8812f0ebf": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"h__31ff2acd40e4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__32d0e6577ada": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__32fa57eccf1d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__3335e6aa9820": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__34ba48a9fd4c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__34c5a0bd9a34": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__39beb33c4e45": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__4237cb79149a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__46392c3246d3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-memory",
+"tool": "guarddog",
+"verdict": "docs_or_example",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-powershell-encoded",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__4749e0672115": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__4778dc695363": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__4a99b973ff4c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__4c60551cb1a3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__4e21369ab8c4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__4fc6b10626a1": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "B602",
+"tool": "bandit",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__518c82cda9e3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__53385ad45768": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-exfiltration",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__534d2f144d59": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__549a43125a18": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__577b03ac89b7": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__57d871bbe404": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__582e7724d3e5": [
+{
+"disclosed": "no",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_beyond_description",
+"verified": true
+}
+],
+"h__590a89361534": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__5d751814aa90": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__5fc06b5d544f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__5fd60750f5c0": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__60e42add67cd": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__618aa1263566": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__651759474f3a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__68183c903c13": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__6ad2f1c86532": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__6d3e91af3644": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__737051414643": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-system-info",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__76263e254c47": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__7b7597f8186a": [
+{
+"disclosed": "no",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_beyond_description",
+"verified": true
+}
+],
+"h__7b90d21a106e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__81b8828a53ae": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__832ae0744b34": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__83794f6906f9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__83d79747d2f2": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__85727c198d94": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__88190ff8461e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-steganography",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__896777f672d7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__897e7027b9aa": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__8b4550cbcce0": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__8d2b65cb81bc": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__9173608d29b6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__9364703e5acd": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__93ad8751d7e7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__9625818d3076": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__986208c1e326": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__992ed9dc7dc6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__9a519ef83bbd": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__9c28c094a2e2": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__a01a00d707f5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__a4a1850f7132": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__a4fd3733cb45": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__a514f922e483": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__a648ec6a9212": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__a66256ba94f9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__a7a13c2b56ec": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__a7a261f773ac": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__ac5577f2594a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__ad7b2b421e2d": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__ae9e935728a9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__ae9fa7363af3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__aedca5be9efa": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__af36090bf379": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__afa3263758bb": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__b00a40bda5f4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__b08b8581bf62": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__b1f7efd5f081": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__b31aa388b661": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__b43a85fa4147": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__b4b005d1feb6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__b514df9e6209": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__b695a1a78eac": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__b7278b78271b": [
+{
+"disclosed": "no",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_beyond_description",
+"verified": true
+}
+],
+"h__b9f68dc810d7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__bb1953456315": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__bb51c2933a27": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__bbb9a98d46bf": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__c162f8d45ebe": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__c2f4ec2769c7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-destruction",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__c2faa49c653d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__c629b7d0bbd7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__c708ef0f66b9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "SIGNATURE_BASE_WEBSHELL_PHP_Generic_Eval",
+"tool": "yara",
+"verdict": "docs_or_example",
+"verified": true
+}
+],
+"h__c7ed260e11d0": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__cdc29b1a5226": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__ce7580c28c20": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__cf079a678ff4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__d25ce4cb9755": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__d388511ecdb2": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__d41e3808a782": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__d54780d4d9aa": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "B602",
+"tool": "bandit",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"h__d5653fbbc198": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "B602",
+"tool": "bandit",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"h__d57b609b64cf": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "docs_or_example",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-steganography",
+"tool": "guarddog",
+"verdict": "docs_or_example",
+"verified": true
+}
+],
+"h__d9265a12bcc6": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "unclear",
+"verified": true
+}
+],
+"h__da77a028ecc9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__db2b6f4314d5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"h__db653c1855d7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-injection-dll",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-memory",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__dc13d05a9000": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "unparsed",
+"verified": false
+}
+],
+"h__de82cdb8bb8b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__e200017f1e9b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__e677d49ed95f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__e6ba7171e056": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__e78f054cdca8": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__e9a9f95a53f5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__ee959bcb9860": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "B602",
+"tool": "bandit",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"h__ef964537c859": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__f09122c32fb6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__f1c58abd5440": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__f43689190d6a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"h__f63bdddbbca4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": true,
+"rule": "threat-network-exfil-sysinfo",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__f785755a1d56": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__f83a388f51fc": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__f91c6a861b9c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__fa2aa927fad7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"h__fb6d8b465163": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-exfil-messenger",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-exfiltration",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-outbound-shady-links",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__fe413860e34f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"h__ff52b30e717e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-system-info",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__00233b3eefb5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-allowlist-bypass",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-bash-access-agents/senpai.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-web-write-agents/senpai.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "no",
+"escalation": "routes_around_control",
+"manipulation": false,
+"rule": "mcp-auto-approve",
+"tool": "agentshield",
+"verdict": "real_risk",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "permissions-no-deny-list",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__03a825753619": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-memory",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__0b90730a2546": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amplitude",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__0c184e0fb807": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-sourcegraph",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__0d5e4bc0ab18": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__0d9222c100cf": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-asana",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__0e05a7c772a1": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-env-probing",
+"tool": "agentshield",
+"verdict": "docs_or_example",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/workflow_debugger.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/workflow_quality.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-reflection",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__0f57f4a0c355": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__0fe0e4da46c6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"p__12c07c9bf2a0": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-lseg",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__12c6e600f50c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/error-analyzer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-posthog",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__131aecae8ad6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-qt-docs",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__17a9c1b9c0c1": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-asana",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-clickup",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-linear",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-monday",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__17f105ac7a41": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-aiven",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__18eead232af6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-CodSpeed",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__197d742aa29b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-known-vuln-canva",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-canva",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__19da23175bfe": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-clickhouse",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__1a7175560947": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-figma",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__1a78b177d3b5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-paypal-sandbox",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__1bf09b62a8c0": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/gc-ai-analyst.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-gc-ai",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__1bfeaba906d3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__1c035478b53e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-sumup",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__1c659e880ac6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__1c9e41d291a7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-catalyst-by-zoho",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__1ff3275c5a57": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-huggingface-skills",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__202a9bd15487": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-azure-resource-manager-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__20310a9aabd5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-aws-devops-agent",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__20c931559257": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-skill-tamper",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-bg-process",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-file-delete",
+"tool": "agentshield",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__238821fb2c6a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__26458086acb5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__29673b4b240f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-exfiltration",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-outbound-shady-links",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__2a2f86c1c032": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/identity-server-specialist.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/oauth-oidc-specialist.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__3277f77ae127": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-testdino",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__33083684e827": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-Sanity",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__33d5f56a819e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-appwrite",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__34ae5e43dfe4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-netlify",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "docs_or_example",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "GITHUB_ACTIONS_UNTRUSTED_CHECKOUT",
+"tool": "holguard",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__34c6fe164ae1": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-resend",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__3581e19c7a33": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-git-url-dep-serena",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__3735b2d16947": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-box",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__3a0e4d9fc2bc": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-dynatrace",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__3aa6e88316b4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-.claude/agents/bench-analyzer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-.claude/agents/task-curator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__3b9dc8bfa3d7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-legalzoom",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__3bb546ffbd9d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__3c1b513d2731": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-awsknowledge",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__3eeb8ef15016": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-expo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__3fbe27b1e24d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-apollo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-calendly",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-clay",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-close",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-crunchbase",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-fireflies",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-gong",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hubspot",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-lusha",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-microsoft",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-monday",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-otter-ai",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-outreach",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-salesforce",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-similarweb",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoominfo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__4082efc44652": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-env-mutation",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-file-delete",
+"tool": "agentshield",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__41c6719e92b9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amplitude",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amplitude-eu",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-bigquery",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-definite",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hex",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__42b3faff5989": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-identity-impersonation",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__44104eb13b59": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__44efc2ba9339": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/cosmosdb-expert.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__4e8e207d756b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__4e91f7a5de32": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-jfrog",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__4ea5d4a74c90": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__4edc6543cbc0": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-destruction",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-api",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-steganography",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__4f024e3cab59": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-budget-vs-actuals-varianc",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-fund-quarterly-review-pac",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-markup-markdown-brief.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-portfolio-company-one-pag",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-tvpi-attribution-by-compa",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__504787c9771c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/ai-sast-remediation.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/cicd-posture.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/configuration-automation.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/dependency-reviewer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/findings-browser.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/malware-responder.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/oss-upgrade-investigator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/remediation-planning.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/sca-remediation.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/troubleshooting.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/vulnerability-explainer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-skill-tamper",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__508407f0a677": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__51130e7b2bb6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-Adobe",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__527b32151667": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-pigment",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__5293e5c9a23a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__53359240a55c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-exfiltration",
+"tool": "agentshield",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-file-delete",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-railway",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__5363ecd797ab": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__5623f1319c12": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-monday",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__56447a81e0e2": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-spglobal",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__5798055ef69e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amazon-selling-partner",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__57faf90e5f74": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-graphos-tools",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__5bb9c1a97283": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__5dbe41b5e4ab": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__5de03b0b82d2": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-lusha",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__5ffaac72fd30": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-bash-access-agents/spotify-ads-request-builder.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-file-delete",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__60ecbc8c67ca": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-skill-tamper",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__6190f8cf4420": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-autostart",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-destruction",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-memory",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"p__619f9d85d313": [
+{
+"disclosed": "no",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-env-mutation",
+"tool": "agentshield",
+"verdict": "capability_beyond_description",
+"verified": true
+}
+],
+"p__639c29ed2f22": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-awsknowledge",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__66c0f4c76147": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-ads-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-forge",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__66d0c759f57d": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "unclear",
+"verified": true
+}
+],
+"p__68ef8a6a5409": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-exa",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__6b934a00be8a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-skill-tamper",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__6c7b8d44a985": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-shippo-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__70a907395b8a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/pixeltable-debugger.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/pixeltable-pipeline-architect.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-injection",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__719df4241154": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-apollo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__71e67f7f46a7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-bash-access-agents/plugin-validator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__731b69a0736f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/render-assistant.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-render",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__73a4ce882b59": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-reflection",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__741c99bb9c06": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/honeycomb-investigator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/instrumentation-advisor.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-honeycomb",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__74f19acd6113": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-apollo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__7a41259e372d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-common-room",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__7a54fd17b119": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__7b61900e512d": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "SHELL_INJECTION_PATTERN",
+"tool": "holguard",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__7c67e8bb7e47": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-bg-process",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-file-delete",
+"tool": "agentshield",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__7dd966764067": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-Zocks",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__7f0848ca5e18": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-airwallex-agentos",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-apollo-io",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian-rovo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-canva",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-clay",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-docusign",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-emergent",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-expensify",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-gmail",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-google-calendar",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-google-drive",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-gusto",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hubspot",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-intuit-mailchimp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-intuit-quickbooks",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-monday-com",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-myob",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-paypal",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-ramp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-ringex-chat",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-shopify",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-square",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-stripe",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-tiktok",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-trello",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-wix",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-xero",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zapier",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoho-books",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoho-crm",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoho-desk",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoho-projects",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__7fb867e4e723": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-rootly",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__8044adb9fc53": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-circle",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__80719ddace37": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-external-url",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__80f8bdb02b17": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hunter",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__845e28d7c5ea": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-bigdata.com",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__858b871f077f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlan",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__85b49934a01e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-asana",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-guru",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__85e5b27dabd5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-fullstory",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__88d5ba1ff1b6": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-fs-destruction",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-injection-pattern",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-code-analyzer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-code-rewriter.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-log-ingestor.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-prompt-evaluator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-report-generator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-reflection",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "routes_around_control",
+"manipulation": false,
+"rule": "mcp-auto-approve-aws-pricing-calculator",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-auto-approve-awspricing",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-awsknowledge",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-temporal-docs",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__8aafad7311c3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/convex-expert.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_beyond_description",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_beyond_description",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__8c97dfcaf15b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-nimble",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__91d5d54fc83c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-guru",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hubspot",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-intercom",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__9202820be36a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-comment-injection",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__92656b452697": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-logfire",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__927322801379": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/cockroachdb-dba.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/cockroachdb-developer.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/cockroachdb-operator.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-cockroachdb-cloud",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__92af1f642f3f": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__97b26a4e1486": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-confidence-docs",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-confidence-flags",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__9859c18ea9de": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/business-data-analyst.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__99eb79719828": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-cloudflare",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__9ac5c1e32585": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-awsknowledge",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__9c1dad644826": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__9c4a1a375364": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-you",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-you-finance",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-you-research",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__a1899137793b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-Leadfeeder",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__a2821666cc2e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-valtown",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__a4569ae4aabd": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-twilio-docs",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__a70cefe3fee8": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-exfiltration",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-network-outbound-shady-links",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-system-info",
+"tool": "guarddog",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": false
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "SHELL_INJECTION_PATTERN",
+"tool": "holguard",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"p__af0e51b8357b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-RevenueCat",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__b3a8101eebad": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zapier",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__b3f821388d22": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-bg-process",
+"tool": "agentshield",
+"verdict": "capability_beyond_description",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-exfiltration",
+"tool": "agentshield",
+"verdict": "capability_beyond_description",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-injection",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "capability_beyond_description",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-shopify",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__b4133c4ddcee": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/code-reviewer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__b5e03ad6eb5b": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-newrelic",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__b78d7c1d87c9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-known-vuln-nightwatch",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__b7e0d7feea62": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/conversation-analysis.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/discover-brand.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/document-analysis.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-box",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-figma",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-gong",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-granola",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__b95bb3a92412": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-biorender",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-biorxiv",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-c-trials",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-chembl",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-consensus",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-ot",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-owkin",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-pubmed",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-synapse",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-wiley",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__b99991815a10": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": true,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__bbdc09af1dbc": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-asana",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-figma",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-intercom",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-linear",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__bcf320970a3d": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-blackrock-advisor-center",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__c115460262ab": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__c18b46a076e4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__c19c2eda9d31": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-firecrawl",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__c1a62b931fc7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-hidden-unicode-zero-width-character",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/wiki-architect.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/wiki-researcher.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/wiki-writer.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__c26bac17a49c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__c5a828a138a7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-miro",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__c5a861d8c671": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-bg-process",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-file-delete",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-source-env",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-destruction",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "unclear",
+"verified": true
+}
+],
+"p__c8f86de92bb7": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/laravel-simplifier.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__c99f659fa448": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-TRES Finance",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__ccbe4c336659": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-mapbox",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-mapbox-devkit",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-mapbox-docs",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__ce3c4f7a40a1": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-bigquery",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__cea829ae678a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-incident_io",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__d0deefd9874c": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-wix-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "DANGEROUS_DYNAMIC_EXECUTION",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "SHELL_INJECTION_PATTERN",
+"tool": "holguard",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"p__d4ac117767c6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-asana",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-datadog",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-github",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-linear",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-pagerduty",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__d511143ee942": [
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-enumeration",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "unclear",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-base64exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "no",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-system-info",
+"tool": "guarddog",
+"verdict": "capability_beyond_description",
+"verified": true
+}
+],
+"p__d6105cbf5ccd": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-canvas-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-chat-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-meetings-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-revenue-accelerator-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-tasks-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-whiteboard-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__d6f6c4bca944": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__d7004cdab6de": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-box",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-docusign",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-egnyte",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": false
+}
+],
+"p__d7304e51350f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-govtribe",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__d89a4e554409": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-claude-md-autorun",
+"tool": "agentshield",
+"verdict": "docs_or_example",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__d8ccb547a5bd": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoominfo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__d9e3151f5163": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-airwallex-dev",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__dacf1ca2f70f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hostinger",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__dc6ef1bf9ed3": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-activecampaign",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__df8d2ce235b5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-buildkite",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__e0ecd98d8424": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amplitude",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amplitude-eu",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-asana",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-atlassian",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-clickup",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-figma",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-fireflies",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-intercom",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-linear",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-monday",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-pendo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-similarweb",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__e213ba4f0a72": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "permissions-no-deny-list",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__e35e21175409": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-workos",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__e5eaf0386987": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-microsoft-learn",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__e7aca42e21d0": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-postman",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__e85e4ee0a9b5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/account-research.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/brief-fetcher.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hubspot",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__e8624a7352f0": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": true,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__e98dc8bce13a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-synthflow",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-synthflow-docs",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__ea734a7423a6": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-cloudinary-analysis",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-cloudinary-asset-mgmt",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-cloudinary-env-config",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-cloudinary-mediaflows",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-cloudinary-smd",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__ecbb837cd52f": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-wingspan",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__ed53c03e2b0a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-obfuscation-unicode",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__efbf9fd13186": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-fs-destruction",
+"tool": "agentshield",
+"verdict": "docs_or_example",
+"verified": true
+}
+],
+"p__f103390415a8": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-docs-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-zoom-whiteboard-mcp",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__f10667ad4746": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-grafana-cloud",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__f3a61d35a2ee": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/ai-architect.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/deployment-expert.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/performance-optimizer.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-vercel",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-spawn-silent",
+"tool": "guarddog",
+"verdict": "unclear",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "SHELL_INJECTION_PATTERN",
+"tool": "holguard",
+"verdict": "test_fixture",
+"verified": true
+}
+],
+"p__f41333ff2a76": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-linqalpha",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__f5abfc73288d": [
+{
+"disclosed": "yes",
+"escalation": "requests_through_host",
+"manipulation": false,
+"rule": "agents-no-tools-agents/ai-sast-remediation.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/cicd-posture.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/configuration-automation.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/dependency-reviewer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/findings-browser.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/malware-responder.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/oss-upgrade-investigator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/remediation-planning.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/sca-remediation.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/troubleshooting.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/vulnerability-explainer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "requests_through_host",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/ai-sast-rem",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/cicd-postur",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/configurati",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/dependency-",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/findings-br",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/malware-res",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/oss-upgrade",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/remediation",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "requests_through_host",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/sca-remedia",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/troubleshoo",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/ai-plugins/agents/vulnerabili",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "requests_through_host",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/a",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/c",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/d",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/f",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/m",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/o",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/r",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/s",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/t",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/v",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-plugins/cursor/endor-labs-agent-kit/agents/e",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-skill-tamper",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__fb3447b959e9": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-airwallex-agentos",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-airwallex-dev",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__fb8b1ef03464": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-fs-destruction",
+"tool": "agentshield",
+"verdict": "code_bug",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-injection-pattern",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-code-analyzer.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-code-rewriter.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-log-ingestor.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-prompt-evaluator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/llm2bedrock-report-generator.md",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-reflection",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__fb9f06d3e323": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-cashflow-forecast.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-commitment-pacing-planner",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-gp-meeting-prep.md",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-no-tools-agents/chronograph-look-through-exposure-sca",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+}
+],
+"p__fc38cd4b554e": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-ahrefs",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amplitude",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-amplitude-eu",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-canva",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-figma",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-hubspot",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-klaviyo",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-notion",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-similarweb",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-slack",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "mcp-url-transport-supermetrics",
+"tool": "agentshield",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "MCP_REMOTE_URL_INSECURE",
+"tool": "holguard",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__fc597c97eea5": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-logging-disabled",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-destruction",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-process-download-exec",
+"tool": "guarddog",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__fda78f8ab3ca": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-runtime-environment-read",
+"tool": "guarddog",
+"verdict": "capability_as_described",
+"verified": true
+},
+{
+"disclosed": "unclear",
+"escalation": "none",
+"manipulation": false,
+"rule": "SHELL_INJECTION_PATTERN",
+"tool": "holguard",
+"verdict": "code_bug",
+"verified": true
+}
+],
+"p__fe0dd05760c4": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-injection-pattern",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__fe6e035ec87a": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "hooks-bg-process",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+}
+],
+"p__ff3757e39172": [
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "agents-prompt-extraction",
+"tool": "agentshield",
+"verdict": "false_match",
+"verified": true
+},
+{
+"disclosed": "yes",
+"escalation": "none",
+"manipulation": false,
+"rule": "threat-filesystem-read",
+"tool": "guarddog",
+"verdict": "test_fixture",
+"verified": true
+}
+]
+},
+"groups": 763,
+"model": "claude-haiku-5-5",
+"prompt": "2026-10-25.2"
+}

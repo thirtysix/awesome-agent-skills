@@ -1,0 +1,4 @@
+FROM localhost/aas-base
+COPY *.whl /tmp/
+RUN pip install --no-cache-dir /tmp/*.whl && rm /tmp/*.whl
+ENTRYPOINT ["plugin-scanner"]

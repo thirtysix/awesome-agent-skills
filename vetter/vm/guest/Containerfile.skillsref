@@ -1,0 +1,4 @@
+FROM localhost/aas-base
+COPY skills-ref /tmp/skills-ref
+RUN pip install --no-cache-dir /tmp/skills-ref && rm -rf /tmp/skills-ref
+ENTRYPOINT ["skills-ref"]

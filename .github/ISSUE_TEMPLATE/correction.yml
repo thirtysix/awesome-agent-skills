@@ -1,0 +1,39 @@
+name: Correction or removal
+description: A result about a skill is wrong, out of date or unfair, or you want a skill or repository left out.
+title: "Correction: "
+labels: [correction]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What do you want?
+      options:
+        - Correct a result
+        - Rescan at a newer commit
+        - Leave a skill or repository out of the catalog
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill or repository
+      description: The skill name and repository as shown on the page, or a link to the row's folder.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Which column or pill, what it says, and what is actually the case. A file and line helps.
+    validations:
+      required: true
+  - type: checkboxes
+    id: author
+    attributes:
+      label: Are you the skill's author or maintainer?
+      options:
+        - label: Yes
+  - type: markdown
+    attributes:
+      value: For anything you would rather not raise in public, use the repository's private security advisory form (Security tab) instead.

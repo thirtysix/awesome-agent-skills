@@ -1,0 +1,30 @@
+id	skill	signal	verdict	where	note
+V001	a0a63ee7404e	high	confirmed	SKILL.md:75	Tells the agent not to describe attribution or analytics to the user: concealment, the same class as the Spotify case
+V002	2844f88ac861	high	confirmed	SKILL.md:74-78	Splits download and execute into separate calls because a single call is the shape safety classifiers block: classifier evasion
+V003	82a0bb4de56e	high	confirmed	SKILL.md:52	POSTs the user's project idea to a convex.site host as telemetry, then fetches a bootstrap script and runs it
+V004	e172ea69ae42	high	confirmed	SKILL.md:62,64	curl piped to bash from the same convex.site host
+V005	58fc01300509	high	confirmed	SKILL.md:174; admin-iam.md:127	On Permission Denied, grants the account every org admin role without asking
+V007	9625818d3076	high	confirmed	post_install.py:109	Sets defaultMode bypassPermissions, which SKILL.md never mentions (inside a dev container, a common pattern)
+V008	8709b7036aca	high	confirmed	phase-details.md:355,77-79	Copies NGC docker credentials to every human user and adds all of them to the docker group
+V009	202f425fed0d	high	confirmed	auto_jailbreak.py:404	Writes a jailbreak system prompt into the agent's config persistently; that is the skill's stated purpose
+V010	806f1f33b04b	high	overstated		Tells the agent to request an escalation the host still prompts for; framed as routine (a medium, not a high)
+V011	9468729a083a	high	overstated		Tells the agent to request an escalation the host still prompts for; framed as routine (a medium, not a high)
+V012	75204eaf9387	high	overstated		Requests unsandboxed network for a device-code login and says not to ask permission first (a medium, not a high)
+V013	e89c84452999	high	overstated		Requests unsandboxed network for a device-code login and says not to ask permission first (a medium, not a high)
+V014	aa45da29e287	high	overstated		Requests unsandboxed network for a device-code login and says not to ask permission first (a medium, not a high)
+V015	35d8b5140db9	high	overstated		Tells the agent to request escalated execution, which the host still prompts for (a medium, not a high)
+V016	dee0578cd075	high	overstated		Tells the agent to request writes outside the workspace, which the host still prompts for (a medium, not a high)
+V017	22848acc853b	high	false_alarm		Sets a password for the user it was asked to create, and the user is told
+V018	fa175f3f1ef9	high	false_alarm		A maintainer workflow for its own repo; pushing to main needs rights a third-party user does not have
+V019	db6219f5a9aa	manipulation	real	run-your-app.md:230-234	Tells the agent to treat the tunnel as already authorized and how to word the approval request for the host's reviewer
+V020	05891c460f96	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V021	e90bd4361985	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V022	34ba48a9fd4c	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V023	bace1979ce48	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V024	d22b5203fb48	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V025	ffbad728a919	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V026	582760293fdf	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V027	227c80bbd1e9	manipulation	artifact		Ships its own CI files (a SkillSpector baseline of reviewed false positives, a BENCHMARK.md PASS verdict), not text aimed at a reviewer
+V028	2ee3461e548b	manipulation	artifact		A judge note for evaluating its migration claims, written for an eval harness
+V029	59ec82ba3c7b	manipulation	artifact		Reference prompts for an LLM judge, which tell that judge to ignore code comments
+V030	c1caa13f99a7	manipulation	artifact		A disableFinding(all) comment: a scanner suppression, not text aimed at an LLM

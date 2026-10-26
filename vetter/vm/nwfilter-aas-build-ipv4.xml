@@ -1,0 +1,20 @@
+<!-- Build phase of the scanner guest: the internet yes; the host, the LAN and link-local no.
+     Only DHCP and DNS to libvirt's dnsmasq on 192.168.122.1 reach the host. -->
+<filter name='aas-build-ipv4' chain='ipv4' priority='-700'>
+  <rule action='accept' direction='out' priority='100'>
+    <ip protocol='udp' dstipaddr='192.168.122.1' dstportstart='53'/>
+  </rule>
+  <rule action='accept' direction='out' priority='100'>
+    <ip protocol='tcp' dstipaddr='192.168.122.1' dstportstart='53'/>
+  </rule>
+  <rule action='accept' direction='out' priority='100'>
+    <ip protocol='udp' srcportstart='68' dstportstart='67'/>
+  </rule>
+  <rule action='drop' direction='out' priority='200'><ip dstipaddr='10.0.0.0' dstipmask='8'/></rule>
+  <rule action='drop' direction='out' priority='200'><ip dstipaddr='172.16.0.0' dstipmask='12'/></rule>
+  <rule action='drop' direction='out' priority='200'><ip dstipaddr='192.168.0.0' dstipmask='16'/></rule>
+  <rule action='drop' direction='out' priority='200'><ip dstipaddr='169.254.0.0' dstipmask='16'/></rule>
+  <rule action='drop' direction='out' priority='200'><ip dstipaddr='100.64.0.0' dstipmask='10'/></rule>
+  <rule action='drop' direction='out' priority='200'><ip dstipaddr='127.0.0.0' dstipmask='8'/></rule>
+  <rule action='drop' direction='out' priority='200'><ip dstipaddr='224.0.0.0' dstipmask='4'/></rule>
+</filter>

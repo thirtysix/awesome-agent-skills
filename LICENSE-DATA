@@ -1,0 +1,20 @@
+Data licence
+
+Copyright (c) 2026 Harlan Barker
+
+The catalog data in this repository is licensed under the Creative Commons
+Attribution 4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+This covers the project's own work: curation/ (resource, tool, paper and
+check-class tables, the vocabulary, overview findings, person-read verdicts),
+data/ (the built catalog, scan and review summaries), README.md, and the
+generated site under docs/.
+
+It does not cover text written by others that the catalog records, such as
+skill and repository names, descriptions, paper titles and licence fields.
+Those remain their authors' and are reproduced only to identify and link to
+the original. The code is licensed separately under the MIT licence (LICENSE).
+
+Attribution: "awesome-agent-skills by Harlan Barker, CC BY 4.0", with a link
+to the repository.

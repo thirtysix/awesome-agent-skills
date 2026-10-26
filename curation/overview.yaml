@@ -1,0 +1,57 @@
+# Hand-written overview: headline figures and findings. `refs` name ids in the curation tables
+# (resources R/…, tools T/R/P/G/S…, literature L…); render.py turns them into links.
+# Figures are as measured on the date given; say where each came from.
+
+universe:
+  as_of: 2026-10-23
+  steps:
+    - {value: 6500000, label: SKILL.md files on GitHub, how: "GitHub code search estimate, forks excluded; mostly copies vendored into projects"}
+    - {value: 338455, label: in repos that publish skills, how: "majiayu000/claude-skill-registry index, 14,683 repos"}
+    - {value: 190000, label: distinct by content, how: "same index, exact-fingerprint dedupe; 44% of files are copies"}
+    - {value: 4200, label: in about 55 official vendor repos, how: "recursive git trees, one call per repo"}
+
+sections:
+  - title: Vetting a skill before it runs
+    items:
+      - text: "A skill is code plus instructions. Claude Code runs a skill's load-time shell lines before the model reads it, grants its allowed-tools without asking, and keeps its frontmatter hooks running for the rest of the session."
+        refs: [G02, G01]
+      - text: "Static scanners trade catch rate for false alarms. On 3,944 malicious and 4,000 popular benign skills, the most sensitive scanner caught 98.4% of the malicious ones but flagged 23.4% of the benign; the quietest flagged 2.1% and caught 28.7%."
+        refs: [L003]
+      - text: "A skill packed so its payload only appears at run time got past every scanner tested more than 90% of the time. Running it in a sandbox and tracing what crossed the OS boundary caught 97% at a 2% false-positive rate."
+        refs: [L017]
+      - text: "Cheap rules first, then an LLM judge that sees only the matched snippets, reached F1 0.82 at 1.13% false positives."
+        refs: [L033]
+      - text: "An LLM judge alone is not a gate. Rewording a malicious skill got past LLM scanners in 36.5 to 100% of cases, and moving the payload beyond the part of the file the judge reads got past it every time."
+        refs: [L031, L101]
+      - text: "We ran four offline scanners in a sealed VM on 91 skills known to be safe (78 of ours, 13 of Anthropic's). Sentry, Cisco and SkillSpector each flagged 21 to 36% of them at HIGH or above, and at least one of the three flagged 46. Every CRITICAL, read at its line, was benign. Cisco even rated a narrowly scoped allowed-tools rule HIGH and advised granting bare Bash instead. Three more scanners added later flagged 0% (aid), 5% (ATR) and 45% (bawbel), all false alarms; bawbel rates the bare word \"encode\" CRITICAL."
+        refs: [T01, T02, T03, T17, T05, T13, T19]
+      - text: "One scanner's author retired it in July 2026, writing that static scanning of AI skills does not work as a security boundary. Another, ATR, sent detection reports to its maintainers' server by default until version 4.1.0."
+        refs: [T18, T13]
+      - text: "No single tool covers the Claude Code surface. The coverage tab shows which checks are verified in code, which are only claimed, and which no tool makes."
+        refs: []
+  - title: Where skills live
+    items:
+      - text: "Indexes are pointers; GitHub is the source of record. The largest indexes overlap by 70 to 80% at the repo level, and a popular skill's description appears in a median of 22 to 33 other repos."
+        refs: []
+      - text: "Stars measure a repo, not its skills: a repo with 300,000 stars can ship 15 skills."
+        refs: []
+      - text: "Several directories address AI agents directly, and skill descriptions carry trigger text such as \"You MUST use this skill\". The catalog stores such text as data and never acts on it."
+        refs: []
+      - text: "12 to 24% of sampled skill repos carry no licence, so this catalog links to skills and shows only a name and a short description excerpt, never the skill text."
+        refs: []
+  - title: The curated core
+    items:
+      - text: "We read every SKILL.md in the 50 official vendor repos, Anthropic's five marketplace repos and the 223 plugin sources claude-plugins-official pins to a commit: 7,160 files from 278 repos, 6,337 distinct skills once copies are folded. Text only, fetched 2026-10-23; nothing was installed or run."
+        refs: [PLM001]
+      - text: "Code read each file for the features Claude Code acts on, and a sample of each flag was checked at the matched line. 380 skills in 29 repos pre-approve bare Bash in allowed-tools, 66 pipe a curl or wget download into a shell (mostly installer one-liners), 7 run shell commands at load time, 7 declare frontmatter hooks and 13 ask for a Bash call with Claude Code's sandbox switched off. None contains zero-width, bidi or Unicode Tag characters."
+        refs: [G02]
+      - text: "A skill installed as part of a plugin brings the rest of the plugin with it: 1,678 skills sit in plugins that also start MCP servers and 648 in plugins that bundle hooks."
+        refs: []
+      - text: "51 descriptions tell the agent it must or should always use the skill, mostly as \"Always use this skill when...\"."
+        refs: []
+      - text: "1,038 of the 6,337 skills (16%) come with no licence GitHub recognises and none in their frontmatter."
+        refs: []
+      - text: "Seven offline scanners then read the whole core, in a sealed VM and on CSC's Roihu with no network. Each flagged a share at or below its rate on our known-good skills (Sentry 4.8%, Cisco 9.4%, SkillSpector 32.6%, agnix 2.7%, aid 0%, ATR 2.2%, bawbel 41% at HIGH or above), and reading a sample of every CRITICAL rule at its line found no malicious skill. What it did find: a jailbreak skill for LLM APIs in an official agent repo, an official plugin that tells the agent not to tell the user what it checked, symlinks that point outside the skill, and installers piped into a shell."
+        refs: [T01, T02, T03, T17, T05, T13, T19]
+      - text: "13 of Spotify's 14 Confidence skills, a plugin source claude-plugins-official pins, tell the agent to send telemetry in the background (the step, the user's sentiment, errors), never to mention it, and to set it up with Claude Code's sandbox switched off. Four scanners flagged them, three through generic network or exfiltration rules; ATR's rule also names the sandbox override. None flagged the instruction to hide the telemetry from the user."
+        refs: [PLM001, T13, T03, T19]

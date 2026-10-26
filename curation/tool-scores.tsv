@@ -1,0 +1,10 @@
+id	tool	ref	setting	recall	benign_flagged	f1	note
+B001	T01	L003	full: script plus the agent's LLM review	98.4%	937 of 4,000 (23.4%)	88.6%	Best recall in the paper, and the only detector above 91% on every attack behaviour
+B002	T01	L003	static script only	28.7%	548 of 4,000 (13.7%)	40.2%	The mode this catalog runs
+B003	T02	L003	LLM mode	92.7%	1,465 of 4,000 (36.6%)	80.7%	32% recall on content manipulation
+B004	T02	L003	static	35.6%	384 of 4,000 (9.6%)	49.0%	
+B005	T02	L001	local behavioral, HIGH or CRITICAL gate, SKILL.md text only	6.4%	0.8% of 2,235	0.254 macro	Scripts not given, so its script analysers had nothing to read
+B006	T03	L001	static (--no-llm), block gate, SKILL.md text only	3.3%	0.2% of 2,235	0.222 macro	The mode this catalog runs
+B007	T15	L003	LLM agent	86.6%	620 of 4,000 (15.5%)	85.6%	36% recall on content manipulation
+B008	T18	L003	static	84.0%	2,542 of 4,000 (63.6%)	67.6%	Retired by its author on 2026-07-03
+B009	T04	L003	Snyk analysis API	28.7%	82 of 4,000 (2.1%)	43.8%	Uploads skill content to Snyk

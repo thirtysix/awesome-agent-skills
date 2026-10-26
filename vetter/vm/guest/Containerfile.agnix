@@ -1,0 +1,3 @@
+FROM localhost/aas-base
+COPY agnix-bin /usr/local/bin/agnix
+ENTRYPOINT ["/usr/local/bin/agnix"]

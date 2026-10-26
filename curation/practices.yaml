@@ -1,0 +1,58 @@
+# Hand-written: working with skills you did not write, as a ladder of trust levels. Each practice
+# cites the tools, guidance and papers behind it; measured figures come from this catalog's runs.
+title: Working with skills you did not write
+intro: "A skill is instructions plus code that your agent follows and runs with your permissions. Complete trust is out of reach for code you did not write: static scanners miss payloads that only appear at run time, and most of their alarms are false. What you can reach is bounded trust: you know exactly which version you run, you have read it, it can do only what it needs, and changes cannot arrive unseen. The closer a skill comes to being your own code, the closer you are to trusting it."
+refs: [L003, L017]
+levels:
+  - level: 0
+    name: Found it
+    goal: Decide whether it is worth a look, without running anything.
+    practices:
+      - text: "Prefer official vendor repos and curated marketplaces. A directory listing is a pointer, not a review."
+        refs: [PLM001]
+      - text: "Read the description as advertising addressed to your agent: phrases like 'always use this skill' are there to make it fire."
+        refs: [G02]
+  - level: 1
+    name: Pinned
+    goal: Know exactly which bytes you would run.
+    practices:
+      - text: "Install from a marketplace entry pinned to a commit, or copy the folder at a known commit; record the commit and a hash of the folder. A lockfile that only triggers updates is not a pin."
+        refs: [P03, R03]
+      - text: "Where a signing scheme exists, verify the signature before use."
+        refs: [P02]
+  - level: 2
+    name: Read and scanned
+    goal: Know what it says and what it runs.
+    practices:
+      - text: "Read SKILL.md and every script it ships. Look first at what Claude Code acts on without asking: allowed-tools, frontmatter hooks, load-time shell lines, bundled hooks.json and .mcp.json, symlinks leaving the folder, downloads piped into a shell, invisible characters."
+        refs: [G01, G02]
+      - text: "Run offline scanners in isolation (a VM, or a container with no network) and read each high-severity hit at its line. Expect most to be false: on this catalog's known-good skills the scanners flagged 12 to 36% at HIGH or above."
+        refs: [T01, T02, T03, T17]
+      - text: "Review against a checklist, so the review covers the known attack classes and not only what the scanners look for."
+        refs: [G03, T13]
+  - level: 3
+    name: Least privilege
+    goal: Limit what it can do if something was missed.
+    practices:
+      - text: "Turn off load-time shell for skills (disableSkillShellExecution in Claude Code settings) unless you need it."
+        refs: [G02]
+      - text: "Never accept bare Bash in allowed-tools: narrow it to the skill's own scripts, or drop it for skills that only carry knowledge."
+        refs: [T17]
+      - text: "Do not let a plugin's hooks or MCP servers come along unreviewed: installing a skill's plugin installs them too."
+        refs: [G02]
+  - level: 4
+    name: Contained first run
+    goal: See what it does before it runs with your full permissions.
+    practices:
+      - text: "Run it first in a sandbox that limits files and network, on throwaway data, and watch what it touches."
+        refs: [T10, S03, S04]
+      - text: "Runtime tracing sees what static reading cannot: in one study, payloads built to appear only at run time got past static scanners more than 90% of the time, while tracing in a sandbox caught 97%."
+        refs: [L017]
+  - level: 5
+    name: Owned
+    goal: Make it your code.
+    practices:
+      - text: "Keep your own copy in your own repository and update only by reviewing the diff. Re-scan on every change, and compare what the skill says it does, not only its bytes."
+        refs: [T21]
+      - text: "Wait before adopting a new release, so a bad update has time to be noticed."
+        refs: [R04]

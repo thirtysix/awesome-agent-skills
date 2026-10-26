@@ -1,0 +1,20 @@
+#cloud-config
+# Disposable scanner guest. No users, no SSH: the host drives it through the QEMU guest agent,
+# which works with the NIC detached.
+hostname: aas-scan
+users: []
+ssh_pwauth: false
+disable_root: true
+package_update: true
+packages:
+  - qemu-guest-agent
+  - podman
+  - git
+  - curl
+  - ca-certificates
+  - unzip
+  - openssl
+runcmd:
+  - [systemctl, disable, --now, ssh.socket, ssh.service]
+  - [systemctl, start, qemu-guest-agent]
+  - [touch, /var/lib/aas-ready]

@@ -1,0 +1,56 @@
+# Person-read verdicts on LLM hit-triage groups (prompt .2 run full2-v2, 2026-10-25). Each read at the cited line,
+# escaped, +-3 lines, callers checked where the verdict hinged on them. Overrides the model's verdict on the page.
+# manipulation: always no here; the 3 flags the model raised were the skill's own agent instructions or an error message.
+skill	tool	rule	verdict	note
+h__f63bdddbbca4	guarddog	threat-network-exfil-sysinfo	capability_as_described	hostname into a local SLURM manifest; the flagged text is an HF error message, not reviewer-directed
+p__88d5ba1ff1b6	agentshield	mcp-auto-approve-aws-pricing-calculator	capability_as_described	auto-approves its pricing estimate tools; npx -y @latest unpinned
+p__f5abfc73288d	agentshield	agents-no-tools-agents/ai-sast-remediation.md	capability_as_described	disallowedTools denylist; edits gated on explicit approval
+p__f5abfc73288d	agentshield	agents-no-tools-plugins/claude/ai-plugins/agents/ai-sast-rem	capability_as_described	same agent file, plugin copy
+p__f5abfc73288d	agentshield	agents-no-tools-plugins/claude/ai-plugins/agents/sca-remedia	capability_as_described	same pattern, SCA agent
+p__f5abfc73288d	agentshield	agents-no-tools-plugins/claude/endor-labs-agent-kit/agents/a	capability_as_described	same agent file, plugin copy
+h__202f425fed0d	guarddog	threat-process-download-exec	capability_as_described	exec of its own bundled sibling scripts
+h__582e7724d3e5	guarddog	threat-filesystem-read	capability_beyond_description	loads the whole ~/.env into the process environment; description silent
+h__7b7597f8186a	guarddog	threat-filesystem-read	capability_beyond_description	loads the whole ~/.env; description silent
+h__b7278b78271b	guarddog	threat-filesystem-read	capability_beyond_description	loads the whole ~/.env; description silent
+p__619f9d85d313	agentshield	hooks-env-mutation	capability_beyond_description	hook prepends its shims dir to PATH for the whole session via CLAUDE_ENV_FILE; description silent
+p__8aafad7311c3	guarddog	threat-process-spawn-silent	capability_beyond_description	detached silent PostHog telemetry sender; telemetry only in code comments
+p__8aafad7311c3	guarddog	threat-runtime-environment-read	capability_beyond_description	PostHog key override read for the same telemetry
+p__b3f821388d22	agentshield	hooks-bg-process	capability_as_described	description names default-on telemetry to shopify.dev and the opt-out
+p__b3f821388d22	agentshield	hooks-exfiltration	capability_beyond_description	hook sends up to 2000 chars of the user's prompt; description lists queries, code and ids, not prompts
+p__b3f821388d22	agentshield	hooks-logging-disabled	capability_as_described	same disclosed telemetry sender
+p__d511143ee942	guarddog	threat-runtime-system-info	capability_beyond_description	minified telemetry hook posts metrics to a concord endpoint; description silent
+h__0a85377bb94a	bandit	B602	capability_as_described	shell=True only on constant amd-smi commands
+h__215af8fbe223	bandit	B602	capability_as_described	shell parameter defaults to False
+h__31e8812f0ebf	guarddog	threat-process-download-exec	capability_as_described	list-form git calls, no shell; rule misfired
+h__d54780d4d9aa	bandit	B602	code_bug	shell=True with site_url and environment interpolated into the command string
+h__d5653fbbc198	bandit	B602	capability_as_described	shell=True on constant lscpu/grep strings
+h__db2b6f4314d5	guarddog	threat-process-spawn-silent	capability_as_described	list-form docker exec probe with output silenced
+h__ee959bcb9860	bandit	B602	capability_as_described	shell parameter defaults to False; no caller passes it
+h__fb6d8b465163	guarddog	threat-filesystem-read	false_match	sets npm_config_userconfig to a temp-home path
+p__0fe0e4da46c6	holguard	DANGEROUS_DYNAMIC_EXECUTION	capability_as_described	new Function() only to syntax-check inline scripts
+p__20c931559257	agentshield	hooks-file-delete	capability_as_described	rm -f of its own quoted marker file
+p__4082efc44652	agentshield	hooks-file-delete	capability_as_described	rm -rf of a quoted, session-scoped temp dir
+p__6190f8cf4420	holguard	DANGEROUS_DYNAMIC_EXECUTION	unclear	minified bundled CLI/MCP proxy; nothing identifiable
+p__7c67e8bb7e47	agentshield	hooks-file-delete	capability_as_described	rm -f of its own quoted marker files
+p__a70cefe3fee8	guarddog	threat-runtime-system-info	capability_as_described	platform and arch read to pick a binary name
+p__a70cefe3fee8	holguard	SHELL_INJECTION_PATTERN	code_bug	unpinned latest release piped to tar and run, no checksum
+p__d0deefd9874c	guarddog	threat-runtime-environment-read	capability_as_described	vendored Yarn release bundle in a CI action
+p__d0deefd9874c	holguard	SHELL_INJECTION_PATTERN	capability_as_described	execSync tsc; both callers pass literals
+p__fb8b1ef03464	agentshield	agents-fs-destruction	capability_as_described	rm -rf of a fixed /tmp worktree path
+p__fda78f8ab3ca	holguard	SHELL_INJECTION_PATTERN	code_bug	relativePath interpolated into an execSync git show string (dev script)
+p__b99991815a10	agentshield	agents-prompt-extraction	false_match	heading match; the flagged instruction is to the plugin's own reviewer agent
+p__e8624a7352f0	agentshield	agents-prompt-extraction	false_match	phrase in its own agent's prompt, not aimed at an outside reviewer
+p__00233b3eefb5	agentshield	mcp-auto-approve	capability_beyond_description	repo-level .claude/settings.json sets enableAllProjectMcpServers; applies to people working in the repo, not plugin installs
+h__279f020b093a	guarddog	threat-filesystem-read	docs_or_example	demo template loads a .env from the author's own scratch path
+h__d9265a12bcc6	guarddog	threat-process-download-exec	capability_beyond_description	install subcommand runs the official Claude Code installer via curl | bash; description silent
+p__66d0c759f57d	guarddog	threat-process-download-exec	capability_as_described	generated string embedding the setup skill's install guidance
+p__c5a861d8c671	guarddog	threat-process-spawn-silent	capability_as_described	detached Popen re-runs its own script with --refresh
+p__d511143ee942	guarddog	threat-runtime-environment-read	unclear	minified MCP proxy bundle; nothing identifiable
+p__f3a61d35a2ee	guarddog	threat-process-spawn-silent	capability_beyond_description	detached silent telemetry sender run by a hook; description silent
+# Added 2026-10-25: the 5 groups prompt .3 or .1 flagged as risk and .2 cleared, read the same way.
+h__10ebcb9d5b4d	guarddog	threat-filesystem-read	capability_as_described	path to its own app home's .env (HERMES_HOME), not the user's
+p__88d5ba1ff1b6	agentshield	mcp-url-transport-temporal-docs	capability_beyond_description	third-party Temporal docs MCP on kapa.ai; description names AWS services only
+h__83d79747d2f2	guarddog	threat-runtime-obfuscation-base64exec	false_match	vendored pdf.js minified bundle
+p__5ffaac72fd30	agentshield	hooks-file-delete	capability_as_described	rm -f of its own quoted temp file after a failed atomic write
+h__202f425fed0d	guarddog	threat-runtime-environment-read	capability_as_described	API keys for the LLM endpoints the skill calls (its confirmed LLM high is elsewhere)
+h__dc13d05a9000	guarddog	threat-runtime-environment-read	capability_as_described	map API keys (MapTiler, Google Maps) from REMOTION_* env vars for tile requests; model output ran to max_tokens (unparsed), v1 and v3 agree

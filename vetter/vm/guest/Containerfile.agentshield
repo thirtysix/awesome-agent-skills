@@ -1,0 +1,4 @@
+FROM localhost/aas-node
+COPY agentshield.tgz /tmp/agentshield.tgz
+RUN npm install -g --ignore-scripts --no-audit --no-fund /tmp/agentshield.tgz && rm /tmp/agentshield.tgz && npm cache clean --force
+ENTRYPOINT ["agentshield"]
