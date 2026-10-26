@@ -211,14 +211,14 @@ table.small{width:auto;min-width:0} table.small td,table.small th{padding:6px 10
     <div class="actions"><button class="btn" id="dl" type="button" title="Download the rows shown in this tab as a tab-separated file">Download</button><button class="btn" id="theme" type="button" title="Switch between light and dark">◐ Theme</button></div>
   </div>
   <nav class="tabs" role="tablist" aria-label="Sections">
-    <button role="tab" data-tab="overview" type="button">Overview</button>
-    <button role="tab" data-tab="resources" type="button">Resources<span class="n" id="n-resources"></span></button>
-    <button role="tab" data-tab="skills" type="button">Skills<span class="n" id="n-skills"></span></button>
-    <button role="tab" data-tab="analysis" type="button">Analysis</button>
-    <button role="tab" data-tab="practices" type="button">Practices</button>
-    <button role="tab" data-tab="tools" type="button">Vetting tools<span class="n" id="n-tools"></span></button>
-    <button role="tab" data-tab="coverage" type="button">Coverage<span class="n" id="n-coverage"></span></button>
-    <button role="tab" data-tab="literature" type="button">Literature<span class="n" id="n-literature"></span></button>
+    <button role="tab" data-tab="overview" type="button" data-tip="Headline findings and the numbers behind them">Overview</button>
+    <button role="tab" data-tab="resources" type="button" data-tip="Where skills are published: vendor repos, marketplaces, registries, awesome lists">Resources<span class="n" id="n-resources"></span></button>
+    <button role="tab" data-tab="skills" type="button" data-tip="Every skill in the curated core, with structural flags, scanner hits and the LLM review">Skills<span class="n" id="n-skills"></span></button>
+    <button role="tab" data-tab="analysis" type="button" data-tip="How the skills were analysed, what reading the hits found, and what this does not claim">Analysis</button>
+    <button role="tab" data-tab="practices" type="button" data-tip="A ladder of practices for using skills you did not write">Practices</button>
+    <button role="tab" data-tab="tools" type="button" data-tip="Scanners, linters, sandboxes and guidance for vetting a skill, with our call on each">Vetting tools<span class="n" id="n-tools"></span></button>
+    <button role="tab" data-tab="coverage" type="button" data-tip="Which tool checks which attack class, verified in code or only claimed">Coverage<span class="n" id="n-coverage"></span></button>
+    <button role="tab" data-tab="literature" type="button" data-tip="Papers on skill attacks, defences and measurements">Literature<span class="n" id="n-literature"></span></button>
   </nav>
 </header>
 <main class="gutter">
@@ -262,6 +262,20 @@ const link = (u, text, cls) => okUrl(u)
   ? `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"${cls ? ` class="${cls}"` : ""}>${esc(text)}</a>`
   : esc(text);
 const lab = (table, col, v) => ((T[table].enums || {})[col] || {})[v] ?? v;
+// What an enum value means, for its tag's tooltip (the labels themselves are in schema.yaml).
+const VTIPS = {
+  resources: {kind: {"official-repo": "A vendor's own repo of skills for its product", "plugin-marketplace": "A repo of plugins that Claude Code can add as a marketplace",
+    registry: "A searchable directory that indexes skills hosted elsewhere", marketplace: "A site that lists, and sometimes sells or hosts, skills",
+    "awesome-list": "A hand-curated list of links", collection: "One author's or team's set of skills in a repo", aggregator: "Collects skills from many repos into one place, often by crawling",
+    cli: "A command-line tool that finds or installs skills", "spec-docs": "A specification or documentation for the skill format", "mcp-registry": "An MCP server registry: adjacent to skills, listed for comparison"}},
+  tools: {kind: {scanner: "Reads a skill's files and reports risky patterns", linter: "Checks a skill against format rules or a review checklist",
+    "registry-practice": "What a registry does to the skills it lists", provenance: "Pins, signs or diffs a skill so you know what changed",
+    standard: "A specification a skill can be checked against", guidance: "Written advice on vetting or using skills", sandbox: "Runs a skill contained, so its effects stay inside"},
+    fit_for_us: {adopt: "Use as is", adapt: "Use with changes", reference: "Learn from it; not something to run", avoid: "Do not use: see the notes for why"}},
+  literature: {topic: {attack: "A new way to get a malicious skill past an agent or a scanner", defence: "A way to detect or stop malicious skills",
+    "attack+defence": "Shows an attack and a defence against it", measurement: "Measures what is out there", benchmark: "A dataset for scoring detectors", survey: "An overview of earlier work"}}};
+const vtip = (table, col, v) => { const t = ((VTIPS[table] || {})[col] || {})[v]; return t ? ` data-tip="${esc(t)}"` : ""; };
+const searchTip = cfg => "Searches " + cfg.search.map(k => ((cfg.cols || []).find(c => c.key === k) || {}).label || k.replace(/_/g, " ")).join(", ").toLowerCase();
 const num = v => { const n = parseFloat(String(v == null ? "" : v).replace(/,/g, "")); return isNaN(n) ? null : n; };
 const clip = (s, n) => { s = String(s || ""); return s.length > n ? s.slice(0, n - 1) + "…" : s; };
 const fmt = n => n == null ? "" : Number(n).toLocaleString("en-US");
@@ -394,10 +408,10 @@ function makeTable(cfg) {
   if (ARG) return argTable(cfg, host, E, st);
   if (COMPACT) return compactTable(cfg, host, E, st);
   host.innerHTML = `<p class="lede">${esc(cfg.lede)}</p>
-    <div class="controls"><input type="search" id="q-${cfg.panel}" placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search"></div>
+    <div class="controls"><input type="search" id="q-${cfg.panel}" placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search" data-tip="${esc(searchTip(cfg))}"></div>
     ${cfg.facets.map(f => `<div class="facet" data-facet="${esc(f.col)}"><span class="fl">${esc(f.label)}</span></div>`).join("")}
     <div class="count"></div><div class="tablewrap"><table class="wide"><thead><tr>${cfg.cols.map(c =>
-      `<th class="${c.sort ? "sort" : ""}" data-key="${esc(c.key)}" scope="col">${esc(c.label)} <span class="ar"></span></th>`).join("")}
+      `<th class="${c.sort ? "sort" : ""}" data-key="${esc(c.key)}" scope="col"${c.tip ? ` data-tip="${esc(c.tip)}"` : ""}>${esc(c.label)} <span class="ar"></span></th>`).join("")}
     </tr></thead><tbody></tbody></table></div>${PAGE ? '<button class="btn more" type="button" hidden></button>' : ""}`;
   const tbody = $("tbody", host), countEl = $(".count", host), more = $(".more", host);
   const has = (r, f, k) => f.multi ? (r[f.col] || []).includes(k) : r[f.col] === k;
@@ -479,11 +493,11 @@ function compactTable(cfg, host, E, st) {
   facets.forEach(f => { st.sel[f.col] = st.sel[f.col] || new Set(); });
   const short = cfg.short || String(cfg.lede).split(/(?<=\.)\s/)[0];
   host.innerHTML = `<p class="lede">${esc(short)}</p>` + (short !== cfg.lede ? `<details class="about"><summary>About this table</summary><p class="lede">${esc(cfg.lede)}</p></details>` : "") +
-    `<div class="controls"><input type="search" placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search"></div>` +
+    `<div class="controls"><input type="search" placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search" data-tip="${esc(searchTip(cfg))}"></div>` +
     `<div class="active"></div><div class="count"></div><div class="tablewrap"><table class="wide"><thead><tr>${cfg.cols.map(c =>
       `<th scope="col" data-key="${esc(c.key)}"${c.tip ? ` data-tip="${esc(c.tip)}"` : ""}><span class="hd"><span class="${c.sort ? "sort" : ""}" data-sortkey="${esc(c.key)}">${esc(c.label)} <span class="ar"></span></span>` +
-      `<button class="hm" type="button" data-menu="${esc(c.key)}" aria-haspopup="true" aria-label="Sort and filter ${esc(c.label)}">▾</button></span></th>`).join("")}</tr></thead><tbody></tbody></table></div>
-    <div class="pager"><button class="btn" type="button" data-prev>Previous</button><span></span><button class="btn" type="button" data-next>Next</button></div>`;
+      `<button class="hm" type="button" data-menu="${esc(c.key)}" aria-haspopup="true" aria-label="Sort and filter ${esc(c.label)}" data-tip="Sort by ${esc(c.label.toLowerCase())}, or show only some of its values">▾</button></span></th>`).join("")}</tr></thead><tbody></tbody></table></div>
+    <div class="pager"><button class="btn" type="button" data-prev data-tip="Previous 50 rows">Previous</button><span></span><button class="btn" type="button" data-next data-tip="Next 50 rows">Next</button></div>`;
   const tbody = $("tbody", host), countEl = $(".count", host), act = $(".active", host), pager = $(".pager span", host);
   const matches = (r, skip) => (!st.q || cfg.search.some(k => String(r[k] || "").toLowerCase().includes(st.q))) &&
     facets.every(f => f.col === skip || !st.sel[f.col].size || f.get(r).some(v => st.sel[f.col].has(v))) &&
@@ -600,7 +614,7 @@ function argTable(cfg, host, E, st) {
     let at = cfg.cols.findIndex(c => c.key === f.under); while (cfg.cols[at + 1] && cfg.cols[at + 1].after === f.under) at++;
     const key = "_f_" + f.col;
     const col = {key, after: f.under, label: f.label, tip: f.tip, sort: "text", cls: "nowrap", value: r => f.get(r).map(v => valLabel(f, v)).join(", "),
-      html: r => f.get(r).filter(v => v !== "" && v != null).map(v => `<span class="tag">${esc(valLabel(f, v))}</span>`).join(" ")};
+      html: r => f.get(r).filter(v => v !== "" && v != null).map(v => `<span class="tag"${vtip(cfg.table, f.col, v)}>${esc(valLabel(f, v))}</span>`).join(" ")};
     cfg.cols.splice(at + 1, 0, col); rowF[key] = f; });
   const counts = f => { const m = new Map(); cfg.rows.forEach(r => f.get(r).forEach(v => m.set(v, (m.get(v) || 0) + 1))); return m; };
   const keysOf = f => { const m = counts(f); const ks = Object.keys(f.E).filter(k => k !== "" && m.get(k)); if (ks.length > 8 && !f.keep) ks.sort((a, b) => m.get(b) - m.get(a)); return [ks, m]; };
@@ -611,14 +625,14 @@ function argTable(cfg, host, E, st) {
   const statsKey = "aas-stats-" + cfg.panel; let statsOpen = store.get(statsKey) !== "0";
   host.innerHTML = `<p class="lede">${esc(short)}</p>` + (short !== cfg.lede ? `<details class="about"><summary>About this table</summary><p class="lede">${esc(cfg.lede)}</p></details>` : "") +
     (cfg.stats ? `<div class="panels"${statsOpen ? "" : " hidden"}></div>` : "") +
-    `<div class="controls"><input type="search" data-q placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search">` +
-    (cfg.stats ? `<button class="btn" type="button" data-stats aria-expanded="${statsOpen}">${statsOpen ? "Hide stats" : "Show stats"}</button>` : "") +
-    `<button class="btn" type="button" data-reset>Reset</button></div>` +
+    `<div class="controls"><input type="search" data-q placeholder="${esc(cfg.placeholder)}" autocomplete="off" aria-label="Search" data-tip="${esc(searchTip(cfg))}">` +
+    (cfg.stats ? `<button class="btn" type="button" data-stats aria-expanded="${statsOpen}" data-tip="Show or hide the summary panels above the table">${statsOpen ? "Hide stats" : "Show stats"}</button>` : "") +
+    `<button class="btn" type="button" data-reset data-tip="Clear the search, filters and sort">Reset</button></div>` +
     (tileF ? `<div class="rack"></div>` : "") +
     `<div class="count"></div><div class="tablewrap"><table class="wide"><thead><tr>` +
     cfg.cols.map(c => `<th scope="col" data-key="${esc(c.key)}" class="${c.sort ? "sort" : ""}"${c.tip ? ` data-tip="${esc(c.tip)}"` : ""}>${esc(c.label)} <span class="ar"></span></th>`).join("") +
     `</tr><tr class="filters">` + cfg.cols.map(c => `<th>${rowF[c.key] ? sel(rowF[c.key], false)
-      : c.sort === "num" ? `<input type="number" data-min="${esc(c.key)}" placeholder="min" aria-label="Minimum ${esc(c.label)}">`
+      : c.sort === "num" ? `<input type="number" data-min="${esc(c.key)}" placeholder="min" aria-label="Minimum ${esc(c.label)}" data-tip="Show only rows with at least this ${esc(c.label.toLowerCase())}">`
       : c.sort ? `<input type="search" data-tx="${esc(c.key)}" placeholder="filter…" aria-label="Filter ${esc(c.label)}">` : ""}</th>`).join("") +
     `</tr></thead><tbody></tbody></table></div><button class="btn more" type="button" hidden></button>`;
   const tbody = $("tbody", host), countEl = $(".count", host), more = $(".more", host), panels = $(".panels", host), rack = $(".rack", host);
@@ -718,7 +732,7 @@ TABLES.resources = makeTable({
   cols: [
     {key: "name", label: "Resource", tip: "The directory, list or repo. A red flag marks pages that carry text addressed to AI agents", sort: "text", cls: "nm", html: r => nameCell(r.url, r.name, r.notes,
       r.speaks_to_agents === "found" ? ' <span class="flag" data-tip="Its pages carry text addressed to AI agents">Speaks to AI agents</span>' : "")},
-    {key: "kind", label: "Kind", sort: "text", cls: "nowrap", html: r => `<span class="tag">${esc(lab("resources", "kind", r.kind))}</span>`, tip: "What sort of place it is: an official vendor repo, a plugin marketplace, a registry, an awesome list and so on"},
+    {key: "kind", label: "Kind", sort: "text", cls: "nowrap", html: r => `<span class="tag"${vtip("resources", "kind", r.kind)}>${esc(lab("resources", "kind", r.kind))}</span>`, tip: "What sort of place it is: an official vendor repo, a plugin marketplace, a registry, an awesome list and so on"},
     {key: "operator", label: "Operator", tip: "Who runs it", sort: "text", html: r => esc(r.operator)},
     {key: "platforms", label: "Platforms", tip: "Agents whose skills it lists (Claude Code, Codex, Copilot...)", sort: "text", cls: "long", html: r => long(r.platforms, 60)},
     {key: "measured_size", label: "Size", tip: "How many skills or entries it holds: our count where we measured it, otherwise its own claim", sort: "text", cls: "long", value: r => r.measured_size || r.claimed_size,
@@ -726,9 +740,9 @@ TABLES.resources = makeTable({
     {key: "enumeration", label: "Read in bulk via", tip: "How a program can read its full listing: a git tree, a JSON index, an API, a sitemap. HTML only means scraping pages", sort: "text", cls: "nowrap", html: r => esc(lab("resources", "enumeration", r.enumeration))},
     {key: "harvest_allowed", label: "Harvest", tip: "Whether its terms and robots.txt allow reading it in bulk", sort: "text", html: r => esc(lab("resources", "harvest_allowed", r.harvest_allowed))},
     {key: "vets_safety", label: "Vets", tip: "Does it check listed skills for security before listing them? Yes, only claims to (no method published), or no", sort: "text", html: r => esc(lab("resources", "vets_safety", r.vets_safety))},
-    {key: "licence", label: "Licence", sort: "text", cls: "nowrap", html: r => esc(r.licence)},
-    {key: "stars", label: "Stars", sort: "num", cls: "num", html: stars},
-    {key: "last_activity", label: "Last activity", sort: "text", cls: "nowrap", html: r => esc(r.last_activity)},
+    {key: "licence", label: "Licence", tip: "The licence GitHub reports for its repo. NOASSERTION: a licence file GitHub could not identify. none or blank: no licence found, so default copyright applies", sort: "text", cls: "nowrap", html: r => esc(r.licence)},
+    {key: "stars", label: "Stars", tip: "GitHub stars on the repo: a measure of the repo, not of any one skill in it", sort: "num", cls: "num", html: stars},
+    {key: "last_activity", label: "Last activity", tip: "The latest push or release we saw when the catalog was built", sort: "text", cls: "nowrap", html: r => esc(r.last_activity)},
   ]});
 
 TABLES.tools = makeTable({
@@ -746,20 +760,20 @@ TABLES.tools = makeTable({
     {label: "Checked in code or rules", test: r => ["code", "rules"].includes(r.verified_by), facet: "verified_by", title: "How we verified what it does", order: ["code", "rules", "docs", "secondhand"],
       tip: "We read its code or rule files. The rest rest on its docs or on someone else's description"}],
   cols: [
-    {key: "name", label: "Tool or source", sort: "text", cls: "nm", html: r => nameCell(r.url, r.name, r.notes) + scoreBox(r.id)},
+    {key: "name", label: "Tool or source", tip: "The tool, rule set or document; the name links to it, and the score box sums up what we measured", sort: "text", cls: "nm", html: r => nameCell(r.url, r.name, r.notes) + scoreBox(r.id)},
     {key: "fit_for_us", label: "Our call", tip: "Our call after reading it. Adopt: use as is. Adapt: use with changes. Reference: learn from it. Avoid: do not use", sort: "text", value: r => Object.keys(T.tools.enums.fit_for_us).indexOf(r.fit_for_us),
-      html: r => `<span class="pill f-${esc(r.fit_for_us)}">${esc(lab("tools", "fit_for_us", r.fit_for_us))}</span>`},
+      html: r => `<span class="pill f-${esc(r.fit_for_us)}"${vtip("tools", "fit_for_us", r.fit_for_us)}>${esc(lab("tools", "fit_for_us", r.fit_for_us))}</span>`},
     {key: "use_on_skills", label: "Use on a skill", tip: "How you would use it when vetting a skill: run it offline, run it but it sends data out, contain the skill at run time, pin or diff versions, a checklist", sort: "text", cls: "nowrap", html: r => esc(lab("tools", "use_on_skills", r.use_on_skills))},
-    {key: "kind", label: "Kind", sort: "text", cls: "nowrap", html: r => `<span class="tag">${esc(lab("tools", "kind", r.kind))}</span>`},
+    {key: "kind", label: "Kind", tip: "What sort of tool or source it is", sort: "text", cls: "nowrap", html: r => `<span class="tag"${vtip("tools", "kind", r.kind)}>${esc(lab("tools", "kind", r.kind))}</span>`},
     {key: "checks_verified", label: "Checks we verified", tip: "Checks we confirmed by reading its code, rules or docs, not only its README claims", sort: "text", values: false, cls: "long", html: r => long(r.checks_verified, 120)},
     {key: "known_good_flagged", label: "Flagged on known-good skills", tip: "When we ran it on 91 skills known to be safe: how many it flagged. Every one of those is a false alarm", sort: "text", cls: "long", html: r => long(r.known_good_flagged, 90)},
     {key: "offline", label: "Offline", tip: "Runs with no network access: nothing about the skill leaves your machine", sort: "text", html: r => esc(lab("tools", "offline", r.offline))},
     {key: "sends_data_to", label: "Sends data to", tip: "Where it sends skill content or telemetry, if anywhere", sort: "text", cls: "long", html: r => long(r.sends_data_to, 90)},
     {key: "claude_code_aware", label: "Claude Code aware", tip: "Whether it knows the Claude Code features a skill can use: allowed-tools, hooks, load-time ! shell lines", sort: "text", html: r => esc(lab("tools", "claude_code_aware", r.claude_code_aware))},
     {key: "verified_by", label: "Verified by", tip: "How we checked what it does: by its code, its rules, its docs, or only someone else's description (secondhand)", sort: "text", cls: "nowrap", html: r => esc(lab("tools", "verified_by", r.verified_by))},
-    {key: "licence", label: "Licence", sort: "text", cls: "nowrap", html: r => esc(r.licence)},
-    {key: "stars", label: "Stars", sort: "num", cls: "num", html: stars},
-    {key: "last_activity", label: "Last activity", sort: "text", cls: "nowrap", html: r => esc(r.last_activity)},
+    {key: "licence", label: "Licence", tip: "The licence GitHub reports for its repo. NOASSERTION: a licence file GitHub could not identify. none or blank: no licence found, so default copyright applies", sort: "text", cls: "nowrap", html: r => esc(r.licence)},
+    {key: "stars", label: "Stars", tip: "GitHub stars on the repo: a measure of the repo, not of any one skill in it", sort: "num", cls: "num", html: stars},
+    {key: "last_activity", label: "Last activity", tip: "The latest push or release we saw when the catalog was built", sort: "text", cls: "nowrap", html: r => esc(r.last_activity)},
   ]});
 
 TABLES.literature = makeTable({
@@ -781,7 +795,7 @@ TABLES.literature = makeTable({
   cols: [
     {key: "title", label: "Paper", tip: "Paper title, with its authors", sort: "text", cls: "nm", html: r => nameCell(r.url, r.title, r.authors)},
     {key: "year", label: "Year", tip: "Year of the version we read", sort: "num", cls: "num", html: r => esc(r.year)},
-    {key: "topic", label: "Topic", tip: "Attack (a new way in), defence (a way to stop it), measurement (what is out there), benchmark or survey", sort: "text", cls: "nowrap", html: r => `<span class="tag">${esc(lab("literature", "topic", r.topic))}</span>`},
+    {key: "topic", label: "Topic", tip: "Attack (a new way in), defence (a way to stop it), measurement (what is out there), benchmark or survey", sort: "text", cls: "nowrap", html: r => `<span class="tag"${vtip("literature", "topic", r.topic)}>${esc(lab("literature", "topic", r.topic))}</span>`},
     {key: "venue", label: "Venue", tip: "Where it appeared. arXiv means a preprint, not yet peer reviewed", sort: "text", cls: "long", html: r => long(r.venue, 50)},
     {key: "attack_classes", label: "Attack classes", tip: "Kinds of attack the paper covers", sort: "text", cls: "long", html: r => long(r.attack_classes, 120)},
     {key: "detection_rate", label: "Detection", tip: "Share of malicious samples caught, as the paper reports it", sort: "text", values: false, cls: "long", html: r => long(r.detection_rate, 110)},
@@ -974,7 +988,7 @@ TABLES.literature = makeTable({
       {key: "copies", label: "Copies", tip: "Identical copies of this skill elsewhere in the core, folded into this row", sort: "num", cls: "num", html: r => r.copies
         ? `<span data-tip="${esc((r.also_in || []).length ? "Also in " + r.also_in.join(", ") : "Copies within the same repo")}">${fmt(r.copies)}</span>` : ""},
       {key: "platform", label: "Platform", tip: "Agent the skill is written for", sort: "text", cls: "nowrap", value: r => SL(SV.platforms, r.platform), html: r => esc(SL(SV.platforms, r.platform))},
-      {key: "licence", label: "Licence", sort: "text", cls: "nowrap", value: r => r.licence || r.fm_licence,
+      {key: "licence", label: "Licence", tip: "The licence of the skill's repo, else the one its frontmatter names. NOASSERTION: a file GitHub could not identify. Blank: none found, so default copyright applies", sort: "text", cls: "nowrap", value: r => r.licence || r.fm_licence,
         html: r => esc(r.licence && r.licence !== "NOASSERTION" ? r.licence : (r.fm_licence || r.licence))},
       {key: "stars", label: "Repo stars", tip: "Stars of the whole repo, not of this skill", sort: "num", cls: "num", html: r => fmt(r.stars)},
       {key: "pushed", label: "Repo last pushed", tip: "Month of the repo's latest push on GitHub, when we read it", sort: "text", cls: "nowrap", values: true, vorder: "desc", vlabel: month,
@@ -1001,7 +1015,7 @@ const refLinks = refs => (refs || []).map(id => { const r = byId[id]; return r ?
     h += band("Results",
       `<div><p class="lede">${fmt(st.scanned)} of ${fmt(st.distinct)} skills have reports from all ${st.tools.length} scanners. A tool that flags known-good skills as often as it flags these cannot, on its own, tell them apart.</p>` +
       `<p class="lede">Any CRITICAL finding: ${fmt(st.critical)} skills.` + (st.spec ? ` The Agent Skills spec validator (${link((byId.P01 || {}).url, "skills-ref")}) fails ${fmt(st.spec.fail)} of ${fmt(st.spec.n)} (${st.spec.pct}%): ` + st.spec.by_rule.map(([k, v]) => `${esc(k)} ${fmt(v)}`).join(", ") + "." : "") + `</p></div>` +
-      `<div class="tablewrap span2"><table class="small" style="width:100%"><thead><tr><th>Scanner</th>` +
+      `<div class="tablewrap span2"><table class="small" style="width:100%"><thead><tr><th data-tip="An offline scanner we ran on every skill in the core">Scanner</th>` +
       `<th data-tip="Skills in the curated core this scanner rated HIGH or CRITICAL">Core skills flagged HIGH+</th>` +
       `<th data-tip="Share of 91 skills known to be safe that it rated HIGH or CRITICAL: false alarms">Known-good skills flagged</th></tr></thead><tbody>` +
       st.tools.map(t => `<tr><td>${link((byId[t.id] || {}).url, t.label)}</td><td class="num">${fmt(t.flagged)} (${t.pct}%)</td><td class="num">${t.known_good_pct == null ? "" : t.known_good_pct + "%"}</td></tr>`).join("") +
@@ -1020,7 +1034,7 @@ const refLinks = refs => (refs || []).map(id => { const r = byId[id]; return r ?
     h += band("Code, dependencies and plugin roots",
       `<div><p class="lede">Eight more offline tools read what the instruction scanners do not: a skill's code (GuardDog's malicious-code rules, Bandit's risky constructs), its declared dependencies against an offline copy of the OSV database, including known-malicious packages (osv-scanner), credentials left in files (gitleaks), malware signatures (ClamAV, YARA-Forge), and the ${fmt(st.plugin_roots)} plugin roots that skills ship in, whose hooks, MCP servers and settings install with them (agentshield, hol-guard).</p>` +
       `<p class="lede">On the 91 known-good skills every one of them flags none at HIGH or above, except agentshield (1). There is no known-good plugin set, so the plugin tools are shown beside their rate on Anthropic's own marketplace plugins: agentshield flags those as often as any others, so on plugins its count does not separate risk; its hook and MCP facts are still shown per skill.</p></div>` +
-      `<div class="tablewrap span2"><table class="small" style="width:100%"><thead><tr><th>Tool</th><th data-tip="Entries this tool read that it rated HIGH or CRITICAL">Flagged HIGH+</th><th data-tip="Share of 91 skills known to be safe it rated HIGH or CRITICAL; for the plugin tools, Anthropic's own marketplace plugin roots instead">Reference rate</th></tr></thead><tbody>` +
+      `<div class="tablewrap span2"><table class="small" style="width:100%"><thead><tr><th data-tip="A code, dependency or plugin-root tool we ran on every entry">Tool</th><th data-tip="Entries this tool read that it rated HIGH or CRITICAL">Flagged HIGH+</th><th data-tip="Share of 91 skills known to be safe it rated HIGH or CRITICAL; for the plugin tools, Anthropic's own marketplace plugin roots instead">Reference rate</th></tr></thead><tbody>` +
       st.code_tools.map(t => row(t) + `<td class="num">${fmt(t.flagged)} of ${fmt(t.n)} (${t.pct}%)</td><td class="num">${t.known_good_pct == null ? "" : t.known_good_pct + "% of known-good"}</td></tr>`).join("") +
       pr.map(t => row(t) + `<td class="num">${fmt(t.flagged || 0)} of ${fmt(t.n || 0)} roots (${Math.round(100 * (t.flagged || 0) / Math.max(1, t.n || 0))}%)</td><td class="num">${fmt(t.anth_flagged || 0)} of ${fmt(t.anth_n || 0)} Anthropic roots</td></tr>`).join("") +
       `</tbody></table></div>`);
@@ -1038,8 +1052,8 @@ const refLinks = refs => (refs || []).map(id => { const r = byId[id]; return r ?
       bars("Skills by LLM risk", "Overall risk per skill; a signal, not a verdict", RK.filter(k => LM.risk[k]).map(k => ({label: rl(k), value: LM.risk[k]})), 5,
         "The model's overall rating after reading every file of the skill") +
       `<div class="card"><h3 data-tip="Every high rating and every reviewer-manipulation flag was read by a person at the lines the model cited">Read by a person</h3><table class="small">` +
-      `<tr><th colspan="2">High ratings (${fmt(LM.risk.high || 0)})</th></tr>` + readRows("high", ["case", "confirmed", "overstated", "false_alarm"]) +
-      `<tr><th colspan="2">Reviewer-manipulation flags (${fmt(LM.manipulation)})</th></tr>` + readRows("manipulation", ["real", "artifact"]) +
+      `<tr><th colspan="2" data-tip="Skills the LLM rated high risk; a person read each one at the cited lines">High ratings (${fmt(LM.risk.high || 0)})</th></tr>` + readRows("high", ["case", "confirmed", "overstated", "false_alarm"]) +
+      `<tr><th colspan="2" data-tip="Skills whose text the LLM said tries to steer a reviewer; a person read each one">Reviewer-manipulation flags (${fmt(LM.manipulation)})</th></tr>` + readRows("manipulation", ["real", "artifact"]) +
       `</table><p class="lede" style="margin:8px 0 0;font-size:12.5px">Overstated: real, but a request for an escalation the host still prompts for. Artifact: scanner baselines, eval verdicts and judge prompts shipped in the skill.</p></div>`);
   }
   const repo = ($("footer") || {dataset: {}}).dataset.repo || "";
@@ -1061,7 +1075,9 @@ const refLinks = refs => (refs || []).map(id => { const r = byId[id]; return r ?
   const host = $("#p-coverage"), cols = Object.keys(COV.columns), stat = COV.statuses;
   const cls = s => "s-" + (s === "n/a" ? "na" : s);
   const head = cols.map(k => { const c = COV.columns[k], t = c.tool && byId[c.tool];
-    return `<th class="col" scope="col">${t ? link(t.url, c.label) : esc(c.label)}</th>`; }).join("");
+    const tp = t ? `${t.name}: ${lab("tools", "kind", t.kind)}, our call ${lab("tools", "fit_for_us", t.fit_for_us).toLowerCase()}. Opens its page`
+      : k === "ours" ? "The checks this catalog's own pipeline makes (the flags on the Skills tab)" : c.label;
+    return `<th class="col" scope="col" data-tip="${esc(tp)}">${t ? link(t.url, c.label) : esc(c.label)}</th>`; }).join("");
   const body = C.coverage.map(row => {
     const others = cols.filter(k => k !== "ours");
     const good = others.filter(k => ["verified", "partial"].includes(row.cells[k].status)).length;
@@ -1077,7 +1093,7 @@ const refLinks = refs => (refs || []).map(id => { const r = byId[id]; return r ?
     plugins. "Verified" means we read the code or rules that do it; "claimed" means only its docs say so. ${gaps} of
     ${C.coverage.length} classes have no tool that verifiably checks them, even partly. Hover a cell for the detail.</p>
     <div class="legend">${Object.entries(stat).map(([k, s]) => `<span><b class="${cls(k)}">${esc(s.mark)}</b>${esc(s.label)}</span>`).join("")}</div>
-    <div class="tablewrap"><table class="matrix"><thead><tr><th scope="col">Check</th>${head}<th scope="col" class="col">Tools verified or partial</th></tr></thead>
+    <div class="tablewrap"><table class="matrix"><thead><tr><th scope="col" data-tip="An attack class documented for skills or plugins">Check</th>${head}<th scope="col" class="col" data-tip="How many tools, not counting this catalog, check it verifiably, fully or partly">Tools verified or partial</th></tr></thead>
     <tbody>${body}</tbody></table></div>`;
 })();
 

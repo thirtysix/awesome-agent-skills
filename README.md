@@ -2,7 +2,13 @@
 
 Where agent skills are published, how to vet one before it runs, and the research behind both. 247 resources, 53 vetting tools and sources, a 20-check coverage matrix and 105 papers. Built 2026-10-26.
 
-Browse and filter everything on the site (`docs/index.html`). Skills themselves are linked, never copied: many carry no licence, and every description is untrusted text.
+**[Open the interactive dashboard](https://thirtysix.github.io/awesome-agent-skills/)**: search and filter all 6,343 skills by scanner hits, flags and subject, compare the vetting tools, and see which checks each one makes. Hover anything for what it means. Skills themselves are linked, never copied: many carry no licence, and every description is untrusted text.
+
+[![The dashboard's Overview tab](docs/screenshots/overview.png)](https://thirtysix.github.io/awesome-agent-skills/#overview)
+
+| [Skills](https://thirtysix.github.io/awesome-agent-skills/#skills) | [Vetting tools](https://thirtysix.github.io/awesome-agent-skills/#tools) | [Coverage](https://thirtysix.github.io/awesome-agent-skills/#coverage) |
+| --- | --- | --- |
+| [![Skills tab](docs/screenshots/skills.png)](https://thirtysix.github.io/awesome-agent-skills/#skills) | [![Vetting tools tab](docs/screenshots/tools.png)](https://thirtysix.github.io/awesome-agent-skills/#tools) | [![Coverage tab](docs/screenshots/coverage.png)](https://thirtysix.github.io/awesome-agent-skills/#coverage) |
 
 ## Vetting a skill before it runs
 

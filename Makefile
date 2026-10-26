@@ -2,7 +2,7 @@
 PY ?= python3
 PORT ?= 8520
 
-.PHONY: test build curate page check serve all harvest skills fresh og release
+.PHONY: test build curate page check serve all harvest skills fresh og shots release
 
 test:            ## offline unit tests
 	$(PY) -m pytest tests -q
@@ -29,6 +29,9 @@ skills:          ## parse the newest harvest run into data/skills.json (offline;
 og:              ## docs/og.png social preview (needs Playwright), then re-render so the page links it
 	$(PY) pipeline/og_image.py
 	$(PY) pipeline/render.py
+
+shots:           ## docs/screenshots/*.png for the README (needs Playwright)
+	$(PY) pipeline/screenshots.py
 
 check:           ## denylist and em-dashes in every tracked or about-to-be-tracked text file
 	$(PY) pipeline/check.py
