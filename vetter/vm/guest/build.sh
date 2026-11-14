@@ -8,7 +8,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 source ./pins.env
 REC=/var/lib/aas/record
-BUILD=${AAS_BUILD:-sentry cisco skillspector agnix aid skillsref atr bawbel guarddog bandit agentshield holguard osv gitleaks clamav yara}
+BUILD=${AAS_BUILD:-sentry cisco skillspector agnix aid skillsref atr bawbel guarddog bandit agentshield holguard osv gitleaks clamav yara skillevaluator}
 want() { case " $BUILD " in *" $1 "*) return 0 ;; esac; return 1; }
 mkdir -p "$REC"
 
@@ -176,6 +176,18 @@ if want yara; then
     podman build -q -t localhost/aas-yara /build/yara
 fi
 
+if want skillevaluator; then   # NVIDIA SkillEvaluator Tier 1 with its own pinned SkillSpector and gitleaks
+    mkdir -p /build/skillevaluator/se /build/skillevaluator/ss
+    fetch "$SKILLEVAL_URL" "$SKILLEVAL_SHA256" "/build/skillevaluator/se/$(basename "$SKILLEVAL_URL")"
+    fetch "$BANDIT_URL" "$BANDIT_SHA256" "/build/skillevaluator/se/$(basename "$BANDIT_URL")"
+    fetch "$SEMGREP_URL" "$SEMGREP_SHA256" "/build/skillevaluator/se/$(basename "$SEMGREP_URL")"
+    fetch "$SE_SKILLSPECTOR_URL" "$SE_SKILLSPECTOR_SHA256" "/build/skillevaluator/ss/$(basename "$SE_SKILLSPECTOR_URL")"
+    fetch "$SE_GITLEAKS_URL" "$SE_GITLEAKS_SHA256" /build/skillevaluator/gitleaks.tar.gz
+    tar -xzf /build/skillevaluator/gitleaks.tar.gz -C /build/skillevaluator gitleaks
+    cp Containerfile.skillevaluator /build/skillevaluator/Containerfile
+    podman build -q -t localhost/aas-skillevaluator /build/skillevaluator
+fi
+
 # What was built, for the record
 podman images --digests --format '{{.Repository}}:{{.Tag}} {{.Digest}} {{.ID}}' > "$REC/images.txt"
 for t in sentry cisco skillspector skillsref bawbel; do
@@ -195,4 +207,11 @@ for t in guarddog bandit agentshield holguard osv gitleaks clamav yara; do   # v
 done
 for t in guarddog bandit holguard; do want "$t" && podman run --rm --network none --entrypoint python localhost/aas-$t -m pip freeze > "$REC/pip-freeze-$t.txt" || true; done
 if want agentshield; then podman run --rm --network none --entrypoint npm localhost/aas-agentshield ls -g --all > "$REC/npm-ls-agentshield.txt" 2>&1 || true; fi
+if want skillevaluator; then
+    podman run --rm --network none --entrypoint /opt/se/bin/pip localhost/aas-skillevaluator freeze > "$REC/pip-freeze-skillevaluator.txt" 2>&1 || true
+    podman run --rm --network none --entrypoint /opt/ss/bin/pip localhost/aas-skillevaluator freeze > "$REC/pip-freeze-skillevaluator-skillspector.txt" 2>&1 || true
+    podman run --rm --network none localhost/aas-skillevaluator --version > "$REC/skillevaluator-version.txt" 2>&1 || true
+    podman run --rm --network none localhost/aas-skillevaluator tier1 --help > "$REC/skillevaluator-help.txt" 2>&1 || true
+    podman run --rm --network none --entrypoint sh localhost/aas-skillevaluator -c 'skillspector --version; gitleaks version; semgrep --version; bandit --version' > "$REC/skillevaluator-scanners.txt" 2>&1 || true
+fi
 echo "build ok: $BUILD"

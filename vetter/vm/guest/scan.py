@@ -35,8 +35,8 @@ PLAN = sys.argv[3] if len(sys.argv) > 3 and os.path.exists(sys.argv[3]) else Non
 WORK = os.environ.get("AAS_WORK", "/work/chunks")      # same filesystem as SKILLS: chunks are hard links
 P = int(os.environ.get("AAS_PARALLEL") or os.cpu_count() or 1)
 TOOLS = ("sentry", "cisco-behavioral", "skillspector", "agnix", "aid", "skills-ref", "atr", "bawbel", "inventory",
-         "telemetry", "obfuscation", "guarddog", "bandit", "agentshield", "holguard", "osv", "gitleaks", "clamav", "yara")
-LOOP = ("sentry", "agnix", "skills-ref", "guarddog", "agentshield", "holguard")     # one file per skill folder
+         "telemetry", "obfuscation", "guarddog", "bandit", "agentshield", "holguard", "osv", "gitleaks", "clamav", "yara", "skillevaluator")
+LOOP = ("sentry", "agnix", "skills-ref", "guarddog", "agentshield", "holguard", "skillevaluator")     # one file per skill folder
 CHUNK = ("bandit", "osv", "gitleaks", "clamav", "yara")                            # one report per chunk, split by path
 PLUGIN_ONLY = ("agentshield", "holguard")                                           # run on p__ entries only
 OWN = ("inventory", "telemetry", "obfuscation")                                     # our scripts: one report per chunk
@@ -50,7 +50,7 @@ BASE = ["podman", "run", "--rm", "--network", "none", "--read-only", "--cap-drop
         "-e", "COLUMNS=120"]
 TIMEOUT = {"sentry": 1800, "cisco-behavioral": 3600, "skillspector": 7200, "agnix": 1800,
            "aid": 1800, "skills-ref": 1800, "atr": 1800, "bawbel": 3600, "inventory": 1800, "telemetry": 1800, "obfuscation": 1800, "guarddog": 7200, "bandit": 1800,
-           "agentshield": 1800, "holguard": 1800, "osv": 1800, "gitleaks": 1800, "clamav": 3600, "yara": 3600}
+           "agentshield": 1800, "holguard": 1800, "osv": 1800, "gitleaks": 1800, "clamav": 3600, "yara": 3600, "skillevaluator": 7200}
 # AAS_RUNTIME=apptainer (CSC Roihu): the same images as SIF files in AAS_SIF_DIR, run with no network
 # namespace beyond loopback (--net --network none; without it a Roihu container reaches the internet),
 # no home, a clean environment and only the chunk (read-only) and its output directory bound.
@@ -63,12 +63,13 @@ IMAGE = {"localhost/aas-sentry": "sentry", "localhost/aas-cisco": "cisco",
          "localhost/aas-aid": "aid", "localhost/aas-skillsref": "skillsref", "localhost/aas-atr": "atr",
          "localhost/aas-bawbel": "bawbel", "localhost/aas-guarddog": "guarddog", "localhost/aas-bandit": "bandit",
          "localhost/aas-agentshield": "agentshield", "localhost/aas-holguard": "holguard", "localhost/aas-osv": "osv",
-         "localhost/aas-gitleaks": "gitleaks", "localhost/aas-clamav": "clamav", "localhost/aas-yara": "yara"}
+         "localhost/aas-gitleaks": "gitleaks", "localhost/aas-clamav": "clamav", "localhost/aas-yara": "yara",
+         "localhost/aas-skillevaluator": "skillevaluator"}
 ENTRY = {"sentry": ["python", "/opt/sentry/scan_skill.py"], "skillspector": ["skillspector"],
          "agnix": ["/usr/local/bin/agnix"], "cisco": ["python3"], "aid": ["python", "/opt/aid/aid.py"],
          "skillsref": ["skills-ref"], "atr": ["atr"], "bawbel": ["bawbel"], "guarddog": ["guarddog"], "bandit": ["bandit"],
          "agentshield": ["agentshield"], "holguard": ["plugin-scanner"], "osv": ["osv-scanner"], "gitleaks": ["gitleaks"],
-         "clamav": ["clamscan"], "yara": ["yr"]}
+         "clamav": ["clamscan"], "yara": ["yr"], "skillevaluator": ["skillevaluator"]}
 
 
 def to_apptainer(argv: list[str]) -> list[str]:
@@ -135,6 +136,12 @@ def cmd(tool: str, chunk_dir: str, out_dir: str, single: str | None = None) -> l
                            'guarddog npm scan "$s" --no-sandbox --output-format json > "/out/$n.npm.json" 2>> "/out/$n.stderr"; fi; done']
     if tool == "agentshield":                    # static rules only: never --sandbox/--deep/--opus/--injection/--supply-chain-online
         return loop("localhost/aas-agentshield", 'agentshield scan -p "$s" -f json --supply-chain')
+    if tool == "skillevaluator":                 # Tier 1 static checks only: --no-llm, dependency audit (network) not selected.
+        # The JSON report goes to a scratch dir and is wrapped into <name>.stdout; its console output is <name>.log.
+        return loop("localhost/aas-skillevaluator",
+                    'rm -rf "/tmp/se/$n"; skillevaluator tier1 "$s" --no-llm -r json -o "/tmp/se/$n" > "/out/$n.log" 2>&1; rc=$?; '
+                    'f=$(ls "/tmp/se/$n"/*.json 2>/dev/null | head -1); '
+                    '[ -n "$f" ] && { printf \'{"exit": %s, "report": \' "$rc"; cat "$f"; printf "}"; }')
     if tool == "holguard":                       # Cisco sub-scans off (Cisco runs on its own); no verify/submit
         return loop("localhost/aas-holguard", 'plugin-scanner scan "$s" --format json --cisco-skill-scan off --cisco-mcp-scan off --ecosystem claude')
     if tool == "bandit":                         # six high-severity constructs only, shown as "construct present"
@@ -244,7 +251,7 @@ def split(tool: str, names: dict, d: str) -> list[str]:
         for name, sid in names.items():
             if not os.path.exists(os.path.join(d, f"{name}.stdout")):
                 missing.append(name)          # e.g. a folder name starting with "." that the glob skips
-            for ext in ("stdout", "stderr", "npm.json"):
+            for ext in ("stdout", "stderr", "npm.json", "log"):
                 src = os.path.join(d, f"{name}.{ext}")
                 if os.path.exists(src):
                     shutil.move(src, os.path.join(dest, f"{sid}.{ext}"))

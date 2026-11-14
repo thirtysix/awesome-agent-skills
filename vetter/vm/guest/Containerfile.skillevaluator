@@ -1,0 +1,15 @@
+FROM localhost/aas-base
+COPY se/*.whl /tmp/se/
+COPY ss/*.whl /tmp/ss/
+COPY gitleaks /usr/local/bin/gitleaks
+# SkillEvaluator, Bandit and Semgrep share one venv (it looks for them beside its interpreter);
+# SkillSpector gets its own, named by SKILLEVALUATOR_SKILLSPECTOR_PATH.
+RUN python -m venv /opt/se && /opt/se/bin/pip install --no-cache-dir /tmp/se/*.whl \
+ && python -m venv /opt/ss && /opt/ss/bin/pip install --no-cache-dir /tmp/ss/*.whl \
+ && rm -rf /tmp/se /tmp/ss
+ENV PATH=/opt/se/bin:/usr/local/bin:/usr/bin:/bin \
+    SKILLEVALUATOR_SKILLSPECTOR_PATH=/opt/ss/bin/skillspector \
+    SKILLEVALUATOR_RUNTIME_DIR=/tmp/se-runtime \
+    SEMGREP_ENABLE_VERSION_CHECK=0 SEMGREP_SEND_METRICS=off \
+    LANGSMITH_TRACING=false LANGCHAIN_TRACING_V2=false
+ENTRYPOINT ["skillevaluator"]
