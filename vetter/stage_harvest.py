@@ -204,11 +204,12 @@ TOOL_CHUNKS = {   # tool: (max skills per chunk, start-up s, s per skill or None
     "gitleaks": (1000, 1.0, 0.02),
     "clamav": (2000, 40.0, 0.03),          # ~1 GB of signatures per process: few, large chunks
     "yara": (1000, 15.0, 0.05),            # compiles the core rule set once per call
+    "skillevaluator": (40, 1.0, 15.0),     # third wave: Tier 1 per skill, ~15 s each in the VM (SkillSpector inside)
 }
 PLUGIN_ONLY = ("agentshield", "holguard")
 # Tools that need a SKILL.md: on plugin roots they fail, and SkillSpector crawls (1,153 s on one 300-file
 # root in the gate). Plugin roots get the plugin tools and the file-level ones instead.
-SKILL_ONLY = ("skillspector", "cisco-behavioral", "atr", "skills-ref")
+SKILL_ONLY = ("skillspector", "cisco-behavioral", "atr", "skills-ref", "skillevaluator")
 ALL_TOOLS = tuple(TOOL_CHUNKS)
 SS_TARGET = 60.0                           # predicted seconds per SkillSpector chunk
 
