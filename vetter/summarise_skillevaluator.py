@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """NVIDIA SkillEvaluator Tier 1 results -> per-skill TSV + counts, and a comparison with our scanners.
 
-    python3 -I vetter/summarise_skillevaluator.py RESULTS [--base RUN ...] [--out TSV]
+    python3 -I vetter/summarise_skillevaluator.py RESULTS [--base RUN ...] [--out TSV] [--findings TSV]
 
 RESULTS holds skillevaluator/<sid>.stdout files written by scan.py: {"exit": N, "report": <its JSON>}.
+--findings writes the PII Scan and Secrets Detection findings as findings.tsv rows (tool skillevaluator,
+rule = check name, title = validator; never the message or the line) for secrets_check.py and hit_review.py.
 --base takes earlier results dirs that have a findings.tsv (summarise_scans.py output) for the same
 skill ids; their per-tool ">= HIGH" flags are set beside SkillEvaluator's verdict.
 
@@ -24,6 +26,8 @@ import sys
 # publication policy: e.g. a missing `author` field is HIGH there.
 SECURITY = ("Security Scan", "Code Risk Analysis", "Secrets Detection", "Unicode Smuggling Detection", "PII Scan",
             "Code Integrity & Hygiene")
+FINDING_VALIDATORS = ("PII Scan", "Secrets Detection")
+FINDING_COLS = ["tool", "skill", "rule", "severity", "category", "file", "line", "title"]
 SEV = {"critical": 4, "high": 3, "medium": 2, "low": 1, "info": 0}
 SAFE = re.compile(r"[^A-Za-z0-9 ._:/()+\-]")
 
@@ -68,6 +72,25 @@ def parse(path: str) -> dict:
     return out
 
 
+def finding_rows(sid: str, path: str) -> list[dict]:
+    """PII Scan and Secrets Detection findings of one report as findings.tsv rows; [] when unreadable."""
+    try:
+        rep = json.load(open(path)).get("report") or {}
+    except (OSError, ValueError):
+        return []
+    out = []
+    for r in rep.get("results") or []:
+        if r.get("validator") not in FINDING_VALIDATORS:
+            continue
+        for f in r.get("findings") or []:
+            ln = f.get("line_number")
+            out.append({"tool": "skillevaluator", "skill": sid, "rule": clean(f.get("check_name"), 40),
+                        "severity": clean(f.get("severity"), 10).upper(), "category": clean(f.get("category"), 40),
+                        "file": str(f.get("file_path") or "").replace("\t", " ").replace("\n", " "),
+                        "line": str(ln) if isinstance(ln, int) and ln > 0 else "", "title": r["validator"]})
+    return out
+
+
 def high_flags(run_dir: str) -> dict:
     """{tool: set(sid)} with at least one HIGH or CRITICAL finding in a findings.tsv."""
     flags: dict = collections.defaultdict(set)
@@ -85,6 +108,7 @@ def main() -> int:
     ap.add_argument("results")
     ap.add_argument("--base", nargs="*", default=[])
     ap.add_argument("--out")
+    ap.add_argument("--findings")
     a = ap.parse_args()
     d = os.path.join(a.results, "skillevaluator")
     rows = {f[:-len(".stdout")]: parse(os.path.join(d, f)) for f in sorted(os.listdir(d)) if f.endswith(".stdout")}
@@ -143,6 +167,16 @@ def main() -> int:
                             sev.get("medium", 0), sev.get("low", 0), r.get("quality"), r.get("incomplete"), r.get("sec_high"),
                             ";".join(sorted({k[1] for k in r.get("checks", {})}))]
                            + [int(s in flags[t]) for t in sorted(flags)])
+    if a.findings:
+        with open(a.findings, "w", newline="") as fh:
+            w = csv.DictWriter(fh, FINDING_COLS, delimiter="\t", lineterminator="\n")
+            w.writeheader()
+            n = 0
+            for s in rows:
+                for row in finding_rows(s, os.path.join(d, s + ".stdout")):
+                    w.writerow(row)
+                    n += 1
+        print(f"\n{n} PII / secrets findings -> {a.findings}")
     return 0
 
 

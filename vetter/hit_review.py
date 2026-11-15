@@ -54,6 +54,16 @@ TOOL_NOTES = {
                 "dynamic code execution, shell injection patterns.",
     "bandit": "Bandit (6 rules): Python AST checks such as subprocess with shell=True, eval and exec.",
     "yara": "YARA-Forge core: malware signatures (webshells, droppers) matched on bytes; no line is reported.",
+    "skillevaluator": "NVIDIA SkillEvaluator PII Scan: regexes for email addresses, personal file paths (a home "
+                      "directory with a user name), phone, credit-card and social security numbers. Judge whether "
+                      "the line exposes personal data, not a capability: real_risk = a private person's data that "
+                      "looks real and unintended (a real card or SSN, a third party's personal address or phone); "
+                      "code_bug = the author's own personal detail left in by accident (their home path or user "
+                      "name in a script or config); capability_as_described = an address published on purpose "
+                      "(maintainer, support, security contact, company, git author line); docs_or_example = "
+                      "placeholder or example data (example.com, documented test card numbers, illustrative "
+                      "paths); test_fixture = test data; false_match = not personal data (a version, package@tag, "
+                      "decorator, hash).",
 }
 
 SCHEMA = {

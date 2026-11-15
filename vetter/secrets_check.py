@@ -184,9 +184,14 @@ def private_key_value(lines: list[str], n: int) -> str:
     return "".join(body)
 
 
+SE_CREDENTIAL_RULES = {"generic-api-key", "database_credentials", "hardcoded_secrets", "private_keys", "jwt_tokens",
+                       "aws_identifiers"}
+
+
 def selected(r: dict) -> bool:
     return (r["tool"] == "gitleaks" or (r["tool"] == "holguard" and r["rule"] == "HARDCODED_SECRET")
-            or (r["tool"] == "agentshield" and r["category"] == "secrets"))
+            or (r["tool"] == "agentshield" and r["category"] == "secrets")
+            or (r["tool"] == "skillevaluator" and (r.get("title") == "Secrets Detection" or r["rule"] in SE_CREDENTIAL_RULES)))
 
 
 def check(rows: list[dict], text) -> list[dict]:
