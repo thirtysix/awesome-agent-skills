@@ -93,7 +93,8 @@ def main() -> int:
     print("overall_status:", dict(st))
     print("incomplete scans:", dict(collections.Counter(r.get("incomplete") or "-" for r in rows.values())))
     print("SkillSpector inside:", dict(collections.Counter(r.get("skillspector") for r in rows.values())))
-    any_high = {s for s, r in rows.items() if (r["sev"].get("critical", 0) + r["sev"].get("high", 0)) > 0}
+    print("report states:", dict(collections.Counter(r["state"] for r in rows.values())))
+    any_high = {s for s, r in rows.items() if (r.get("sev", {}).get("critical", 0) + r.get("sev", {}).get("high", 0)) > 0}
     print(f">= HIGH finding: {len(any_high)} / {len(rows)}")
     sec_high = {s for s, r in rows.items() if r.get("sec_high")}
     print(f">= HIGH from a security validator ({', '.join(SECURITY)}): {len(sec_high)} / {len(rows)}")
