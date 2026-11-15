@@ -7024,7 +7024,7 @@
    "verified_by": "code",
    "fit_for_us": "adapt",
    "use_on_skills": "run-offline",
-   "notes": "Use its findings, never its overall verdict: governance (author field) fails almost every skill, and offline its Security Scan is incomplete whenever SkillSpector runs without its LLM, so no skill can pass. On the core (6,344): overall failed 6,201, passed 2; a security validator at HIGH or above on 2,250, mostly the same skills as SkillSpector 2.12.0 (2,016 shared); 97 flagged by no other tool, almost all PII Scan and secrets. Quality score narrow (90% between 78.5 and 91).",
+   "notes": "Use its findings, never its overall verdict: governance (author field) fails almost every skill, and offline its Security Scan is incomplete whenever SkillSpector runs without its LLM, so no skill can pass. On the core (6,344): overall failed 6,201, passed 2; a security validator at HIGH or above on 2,250, mostly the same skills as SkillSpector 2.12.0 (2,016 shared); 97 flagged by no other tool, almost all PII Scan and secrets. Its PII hits on the core (494 rule groups, LLM triage, the non-benign ones read): none a real exposure; 7 authors' own home paths left in examples. Quality score narrow (90% between 78.5 and 91).",
    "known_good_flagged": "42 of 94 (45%) at HIGH or above from its security validators (SkillSpector 2.13.3 drives 40); overall verdict failed on all 94."
   },
   {
