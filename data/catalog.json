@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15",
+ "built": "2026-11-16",
  "schema": {
   "tables": {
    "resources": {
@@ -2746,18 +2746,18 @@
    "name": "Agent Skills Hub (agentskillshub.top)",
    "kind": "registry",
    "url": "https://agentskillshub.top",
-   "operator": "unnamed",
+   "operator": "Jason Zhu",
    "platforms": "multi (agentskills spec)",
-   "claimed_size": "",
+   "claimed_size": "276,000+ indexed; 138,000+ security-graded",
    "measured_size": "",
-   "enumeration": "html-only",
-   "harvest_allowed": "unclear",
+   "enumeration": "llms-txt",
+   "harvest_allowed": "yes",
    "vets_safety": "claims",
    "speaks_to_agents": "",
-   "licence": "",
-   "stars": "",
-   "last_activity": "seen 2026-10-23",
-   "notes": "Security-Graded; not opened"
+   "licence": "MIT",
+   "stars": "502",
+   "last_activity": "2026-11-17",
+   "notes": "open-source catalog (zhuyansen/agent-skills-hub, MIT); refreshes from GitHub every 8 hours; rule-based grading against 43 published rules over README and project metadata at /how-we-grade/; llms.txt"
   },
   {
    "id": "REG019",
@@ -5068,18 +5068,18 @@
    "name": "zhuyansen/agent-skills-hub",
    "kind": "aggregator",
    "url": "https://github.com/zhuyansen/agent-skills-hub",
-   "operator": "zhuyansen",
+   "operator": "Jason Zhu",
    "platforms": "multi (agentskills spec)",
-   "claimed_size": "",
+   "claimed_size": "276,000+ indexed; 138,000+ security-graded",
    "measured_size": "",
    "enumeration": "github-tree",
    "harvest_allowed": "yes",
    "vets_safety": "claims",
    "speaks_to_agents": "",
    "licence": "MIT",
-   "stars": "463",
-   "last_activity": "2026-10-23",
-   "notes": "quality scoring, trending"
+   "stars": "502",
+   "last_activity": "2026-11-17",
+   "notes": "source repo for agentskillshub.top; quality scoring, trending, 43-rule README/metadata security grading"
   },
   {
    "id": "AGG010",
