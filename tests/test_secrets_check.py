@@ -127,3 +127,54 @@ def test_more_formats_words_and_paths():
     assert run("generic-api-key", f"api_key: {rand(20)}", file="res/export-sample.json")["bucket"] == "test-path"
     assert run("secrets-openai-legacy-api-key", "- Windows: https://" + rand(30, "abcdefgh") + "/x",
                tool="agentshield", category="secrets")["reason"] == "only a URL on the line"
+
+
+def test_arns_urls_flags_and_keyed_values():
+    se = dict(tool="skillevaluator")
+    assert run("aws_identifiers", '"Resource": "arn:aws:iam::111122223333:role/MySageMakerRole"', **se)["reason"] == \
+        "ARN with an AWS documentation account id"
+    acct = rand(12, "0123456789")
+    assert run("aws_identifiers", f"--role-arn arn:aws:iam::{acct}:role/deploy-stacks-role", **se)["reason"] == "ARN"
+    assert run("generic-api-key", f"DB_PASSWORD=arn:aws:secretsmanager:us-east-1:{acct}:secret:prod/db")["reason"] == "ARN"
+    o = run("database_credentials", 'url = "postgresql://db.acme.io:5432/app?sslmode=verify-full"', **se)
+    assert o["reason"] == "part of a URL, not a credential field"
+    assert run("connection_strings", "az webapp config --connection-string=", **se)["reason"] == "a name with an empty value"
+    assert run("hardcoded_secrets", "spring.datasource.url=jdbc", **se)["reason"] == "value of 'spring.datasource.url'"
+    assert run("generic-api-key", "token: --color-bg-shadow-inverse-2")["reason"] == "CLI flag or CSS variable"
+
+
+def test_template_example_and_word_paths():
+    assert run("generic-api-key", "password = {keys.value.primarykey}")["bucket"] == "reference"
+    assert run("hardcoded_secrets", "  {{ .Values.secrets.mysql_password }}", tool="skillevaluator")["bucket"] == "reference"
+    assert run("generic-api-key", 'Password = "securepassword123!"')["bucket"] == "placeholder"
+    assert run("generic-api-key", 'API_KEY = "credentialsJSON:paste-here"')["bucket"] == "placeholder"
+    assert run("generic-api-key", "DSB_KEY = collection/primitives/background")["reason"] == "path of words"
+    assert run("generic-api-key", 'cookieSecret: "generated_32_byte_hex"')["reason"] == "joined words"  # gitleaks:allow (placeholder fixture)
+    assert run("database_credentials", "Use JedisPooledConnection.builder() here", tool="skillevaluator")["reason"] == "joined words"
+
+
+def test_refinements_keep_real_looking_values():
+    v = rand(32)
+    # a credential parameter or user:pass@ inside a URL is still judged
+    assert run("generic-api-key", f"curl 'https://api.acme.io/v1?api_key={v}'")["bucket"] == "plausible"
+    assert run("generic-api-key", f"DATABASE_URL=postgres://app:{v}@db.acme.io/app")["bucket"] == "plausible"
+    # a credential flag's value is judged, not the flag
+    assert run("generic-api-key", f"cli login --password={v}")["bucket"] == "plausible"
+    # base64 padding is not name=, and a slash in base64 is not a path of words
+    b64 = rand(30, string.ascii_letters + string.digits + "+")
+    assert run("generic-api-key", f'secret = "{b64}=="')["bucket"] == "plausible"
+    assert run("generic-api-key", f'secret = "{rand(20)}/{rand(20)}"')["bucket"] == "plausible"
+    assert run("generic-api-key", f'secret = "{rand(9, string.ascii_lowercase)}/{rand(20)}"')["bucket"] == "plausible"
+
+
+def test_skeleton_shows_words_only():
+    words = {"secure", "password", "sagemaker", "role"}
+    assert sc.skeleton("securepassword123!", words) == "securepassword<9x3>!"
+    assert sc.skeleton("role/mysagemakerrole", words) == "role/<a2>sagemakerrole"
+    v = rand(24)
+    sk = sc.skeleton(v, words)
+    assert v not in sk and not any(c.isalnum() for c in sk.replace("<a", "").replace("<A", "").replace("<9x", "")
+                                   .translate(str.maketrans("", "", "0123456789")))
+    o = sc.check([row("generic-api-key")], lambda sid, rel: ['password = "securepassword123!"'], words)[0]
+    assert o["skeleton"] == "securepassword<9x3>!"
+    assert "skeleton" not in run("generic-api-key", 'password = "securepassword123!"')
