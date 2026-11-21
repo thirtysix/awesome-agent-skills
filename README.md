@@ -1,6 +1,6 @@
 # Awesome Agent Skills
 
-Where agent skills are published, how to vet one before it runs, and the research behind both. 247 resources, 55 vetting tools and sources, a 20-check coverage matrix and 105 papers. Built 2026-11-15.
+Where agent skills are published, how to vet one before it runs, and the research behind both. 247 resources, 55 vetting tools and sources, a 20-check coverage matrix and 105 papers. Built 2026-11-21.
 
 **[Open the interactive dashboard](https://thirtysix.github.io/awesome-agent-skills/)**: search and filter all 6,343 skills by scanner hits, flags and subject, compare the vetting tools, and see which checks each one makes. Hover anything for what it means. Skills themselves are linked, never copied: many carry no licence, and every description is untrusted text.
 
@@ -91,7 +91,7 @@ Measured 2026-10-23.
 
 | name | operator | size | stars | last activity |
 | --- | --- | --- | ---: | --- |
-| [Agent Skills Hub (agentskillshub.top)](https://agentskillshub.top) | unnamed |  |  | seen 2026-10-23 |
+| [Agent Skills Hub (agentskillshub.top)](https://agentskillshub.top) | Jason Zhu (BRICKAI) | 276,000+ indexed skills &amp; MCP servers; 138,000+ security | 503 | 2026-11-21 |
 | [agent-skills.cc](https://agent-skills.cc) | unnamed | 63,000+ |  | seen 2026-10-23 |
 | [agent-skills.market](https://agent-skills.market) | unnamed |  |  | seen 2026-10-23 |
 | [Agent-Skills.md](https://agent-skills.md) | unnamed |  |  | seen 2026-10-23 |
