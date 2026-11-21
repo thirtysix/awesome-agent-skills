@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15",
+ "built": "2026-11-21",
  "schema": {
   "tables": {
    "resources": {
@@ -2746,18 +2746,18 @@
    "name": "Agent Skills Hub (agentskillshub.top)",
    "kind": "registry",
    "url": "https://agentskillshub.top",
-   "operator": "unnamed",
+   "operator": "Jason Zhu (BRICKAI)",
    "platforms": "multi (agentskills spec)",
-   "claimed_size": "",
+   "claimed_size": "276,000+ indexed skills & MCP servers; 138,000+ security-graded (homepage)",
    "measured_size": "",
-   "enumeration": "html-only",
-   "harvest_allowed": "unclear",
+   "enumeration": "sitemap",
+   "harvest_allowed": "yes",
    "vets_safety": "claims",
    "speaks_to_agents": "",
-   "licence": "",
-   "stars": "",
-   "last_activity": "seen 2026-10-23",
-   "notes": "Security-Graded; not opened"
+   "licence": "MIT",
+   "stars": "503",
+   "last_activity": "2026-11-21",
+   "notes": "source repo github.com/zhuyansen/agent-skills-hub (MIT, 503 stars); rule-based static grades across 43 published README/metadata rules (/how-we-grade/); free repo URL scanner (/analyzer/); llms.txt & llms-full.txt; Zenodo dataset DOI 10.5281/zenodo.21292799"
   },
   {
    "id": "REG019",

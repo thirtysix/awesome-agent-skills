@@ -74,7 +74,7 @@ REG014	agent-skills.cc	registry	https://agent-skills.cc	unnamed	multi (agentskil
 REG015	Awesome Skills (awesomeskill.ai)	registry	https://awesomeskill.ai	unnamed	multi (agentskills spec)			html-only	unclear	no				seen 2026-10-23	
 REG016	Agent-Skills.md	registry	https://agent-skills.md	unnamed	multi (agentskills spec)			html-only	unclear	no				seen 2026-10-23	search, tags, preview, download; futantan/agent-skills.md on GitHub
 REG017	agent-skills.market	registry	https://agent-skills.market	unnamed	multi (agentskills spec)			html-only	unclear	no				seen 2026-10-23	not opened
-REG018	Agent Skills Hub (agentskillshub.top)	registry	https://agentskillshub.top	unnamed	multi (agentskills spec)			html-only	unclear	claims				seen 2026-10-23	Security-Graded; not opened
+REG018	Agent Skills Hub (agentskillshub.top)	registry	https://agentskillshub.top	Jason Zhu (BRICKAI)	multi (agentskills spec)	276,000+ indexed skills & MCP servers; 138,000+ security-graded (homepage)		sitemap	yes	claims		MIT	503	2026-11-21	source repo github.com/zhuyansen/agent-skills-hub (MIT, 503 stars); rule-based static grades across 43 published README/metadata rules (/how-we-grade/); free repo URL scanner (/analyzer/); llms.txt & llms-full.txt; Zenodo dataset DOI 10.5281/zenodo.21292799
 REG019	skills.cat	registry	https://skills.cat	unnamed	multi (agentskills spec)			html-only	unclear	no				seen 2026-10-23	not opened
 REG020	OpenSkillIndex	registry	https://openskillindex.com	unnamed	multi (agentskills spec)			html-only	unclear	no				seen 2026-10-23	lists majiayu000 registry skills; not opened
 REG021	Claude Plugin Hub	registry	https://claudepluginhub.com	unnamed	claude-code			html-only	unclear	no				seen 2026-10-23	not opened
