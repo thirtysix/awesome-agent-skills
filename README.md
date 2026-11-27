@@ -1,6 +1,6 @@
 # Awesome Agent Skills
 
-Where agent skills are published, how to vet one before it runs, and the research behind both. 247 resources, 55 vetting tools and sources, a 20-check coverage matrix and 105 papers. Built 2026-11-15.
+Where agent skills are published, how to vet one before it runs, and the research behind both. 247 resources, 55 vetting tools and sources, a 20-check coverage matrix and 105 papers. Built 2026-11-27.
 
 **[Open the interactive dashboard](https://thirtysix.github.io/awesome-agent-skills/)**: search and filter all 6,343 skills by scanner hits, flags and subject, compare the vetting tools, and see which checks each one makes. Hover anything for what it means. Skills themselves are linked, never copied: many carry no licence, and every description is untrusted text.
 
@@ -91,7 +91,7 @@ Measured 2026-10-23.
 
 | name | operator | size | stars | last activity |
 | --- | --- | --- | ---: | --- |
-| [Agent Skills Hub (agentskillshub.top)](https://agentskillshub.top) | unnamed |  |  | seen 2026-10-23 |
+| [Agent Skills Hub (agentskillshub.top)](https://agentskillshub.top) | Jason Zhu (BRICKAI / GoSailGlobal LLC) | 287,000+ indexed; 146,000+ security-graded | 513 | seen 2026-11-27 |
 | [agent-skills.cc](https://agent-skills.cc) | unnamed | 63,000+ |  | seen 2026-10-23 |
 | [agent-skills.market](https://agent-skills.market) | unnamed |  |  | seen 2026-10-23 |
 | [Agent-Skills.md](https://agent-skills.md) | unnamed |  |  | seen 2026-10-23 |
@@ -161,7 +161,7 @@ Measured 2026-10-23.
 | --- | --- | --- | ---: | --- |
 | [quemsah/awesome-claude-plugins](https://github.com/quemsah/awesome-claude-plugins) | quemsah | 100 link items | 1,464 | 2026-10-23 |
 | [majiayu000/claude-skill-registry](https://github.com/majiayu000/claude-skill-registry) | majiayu000 | 33,576+ SKILL.md in main (tree truncated) | 688 | 2026-10-22 |
-| [zhuyansen/agent-skills-hub](https://github.com/zhuyansen/agent-skills-hub) | zhuyansen |  | 463 | 2026-10-23 |
+| [zhuyansen/agent-skills-hub](https://github.com/zhuyansen/agent-skills-hub) | zhuyansen |  | 513 | 2026-11-27 |
 | [kael-odin/awesome-academic-research-skills](https://github.com/kael-odin/awesome-academic-research-skills) | kael-odin |  | 167 | 2026-10-22 |
 | [Chat2AnyLLM/awesome-claude-skills](https://github.com/Chat2AnyLLM/awesome-claude-skills) | Chat2AnyLLM | table: 7,524 rows, sum 106,073; 1,852 repos with 0 | 152 | 2026-10-23 |
 | [linny006/trending-claude-skills](https://github.com/linny006/trending-claude-skills) | linny006 | 63 link items | 132 | 2026-10-23 |

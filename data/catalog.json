@@ -1,5 +1,5 @@
 {
- "built": "2026-11-15",
+ "built": "2026-11-27",
  "schema": {
   "tables": {
    "resources": {
@@ -2746,18 +2746,18 @@
    "name": "Agent Skills Hub (agentskillshub.top)",
    "kind": "registry",
    "url": "https://agentskillshub.top",
-   "operator": "unnamed",
+   "operator": "Jason Zhu (BRICKAI / GoSailGlobal LLC)",
    "platforms": "multi (agentskills spec)",
-   "claimed_size": "",
+   "claimed_size": "287,000+ indexed; 146,000+ security-graded",
    "measured_size": "",
-   "enumeration": "html-only",
-   "harvest_allowed": "unclear",
+   "enumeration": "sitemap",
+   "harvest_allowed": "yes",
    "vets_safety": "claims",
    "speaks_to_agents": "",
-   "licence": "",
-   "stars": "",
-   "last_activity": "seen 2026-10-23",
-   "notes": "Security-Graded; not opened"
+   "licence": "MIT",
+   "stars": "513",
+   "last_activity": "seen 2026-11-27",
+   "notes": "source repo zhuyansen/agent-skills-hub (AGG009); refreshed from GitHub every 8 hours; rule-based grade over the README and project metadata, 44 published rules at /how-we-grade/; sitemap index, llms.txt, llms-full.txt; dataset DOI 10.5281/zenodo.21292799"
   },
   {
    "id": "REG019",
@@ -5077,9 +5077,9 @@
    "vets_safety": "claims",
    "speaks_to_agents": "",
    "licence": "MIT",
-   "stars": "463",
-   "last_activity": "2026-10-23",
-   "notes": "quality scoring, trending"
+   "stars": "513",
+   "last_activity": "2026-11-27",
+   "notes": "source repo of agentskillshub.top (REG018), maintained by Jason Zhu; quality scoring, trending"
   },
   {
    "id": "AGG010",
