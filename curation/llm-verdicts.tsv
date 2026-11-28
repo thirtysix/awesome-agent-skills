@@ -1,8 +1,8 @@
 id	skill	signal	verdict	where	note
 V001	a0a63ee7404e	high	confirmed	SKILL.md:75	Tells the agent not to describe attribution or analytics to the user: concealment, the same class as the Spotify case
-V002	2844f88ac861	high	confirmed	SKILL.md:74-78	Splits download and execute into separate calls because a single call is the shape safety classifiers block: classifier evasion
-V003	82a0bb4de56e	high	confirmed	SKILL.md:52	POSTs the user's project idea to a convex.site host as telemetry, then fetches a bootstrap script and runs it
-V004	e172ea69ae42	high	confirmed	SKILL.md:62,64	curl piped to bash from the same convex.site host
+V002	2844f88ac861	high	confirmed	SKILL.md:74-78	Splits download and execute into separate calls because a single call is the shape safety classifiers block: classifier evasion. Removed upstream 2026-11-28 (51b4e659, after our report): the skill now says to let the user approve or decline and never to split a command to pass a safety check
+V003	82a0bb4de56e	high	confirmed	SKILL.md:52	POSTs the user's project idea to a convex.site host as telemetry, then fetches a bootstrap script and runs it. Vendor response 2026-11-27/28: the upload drives the quickstart setup and is not used as telemetry. Changed upstream 2026-11-28 (51b4e659): telemetry labels removed, retention stated as 24 hours (their claim, cannot be checked from outside). The idea is still sent and the script is still fetched unpinned
+V004	e172ea69ae42	high	confirmed	SKILL.md:62,64	curl piped to bash from the same convex.site host. Still present upstream at 51b4e659 (2026-11-28); the skill now says to tell the user what the script does and let them approve or decline
 V005	58fc01300509	high	confirmed	SKILL.md:174; admin-iam.md:127	On Permission Denied, grants the account every org admin role without asking
 V007	9625818d3076	high	confirmed	post_install.py:109	Sets defaultMode bypassPermissions, which SKILL.md never mentions (inside a dev container, a common pattern)
 V008	8709b7036aca	high	confirmed	phase-details.md:355,77-79	Copies NGC docker credentials to every human user and adds all of them to the docker group
